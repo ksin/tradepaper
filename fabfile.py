@@ -2,7 +2,7 @@ from fabric.api import lcd, local
 
 def prepare_deployment(branch_name):
   local('./manage.py test tradepaper')
-  local('git add . && git commit')
+  local('git add -A . && git commit')
 
 def deploy():
   with lcd('~/Documents/Apps/Django/tradepaper/'):
