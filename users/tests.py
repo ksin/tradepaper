@@ -4,7 +4,7 @@ from django.test import TestCase
 from users.models import User
 
 class UserTestCase(TestCase):
-    def test_setUp(self):
+    def setUp(self):
         User.objects.create(id=1,
             username='eli',
             email='elibierman@gmail.com',
