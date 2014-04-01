@@ -4,6 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^users/', include('paperapp.urls')),
+    url(r'^users/', include('users.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
