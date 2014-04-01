@@ -23,7 +23,7 @@ class UserTestCase(TestCase):
             )
 
     def test_post_have_category(self):
-        first_post = Post.objects.get(id=1)
-        second_post = Post.objects.get(id=2)
-        self.assertEqual(first_post.email, 'elibierman@gmail.com')
-        self.assertEqual(second_post.email, 'amardeep34@gmail.com')
+        first_user = User.objects.get(id=1)
+        second_user = User.objects.get(id=2)
+        self.assertEqual(first_user.email, 'elibierman@gmail.com')
+        self.assertEqual(second_user.email, 'amardeep34@gmail.com')
