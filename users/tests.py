@@ -11,7 +11,6 @@ class UserTestCase(TestCase):
             password='please',
             website='elibierman.com',
             city='Ridgewood',
-            joindate=datetime.datetime.now(),
             )
         User.objects.create(id=2,
             username='amardeep',
@@ -19,7 +18,7 @@ class UserTestCase(TestCase):
             password='please',
             website='portfolio.amardeeps.com',
             city='Ridgewood',
-            joindate=datetime.datetime.now(),
+            # joindate=datetime.datetime.now(),
             )
 
     def test_post_have_category(self):
