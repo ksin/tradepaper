@@ -23,7 +23,7 @@ class UserTestCase(TestCase):
             )
         print 'setup:', User.objects.all()
 
-    def test_user_have_category(self):
+    def test_users_have_category(self):
         print 'test:', User.objects.all()
         first_user = User.objects.get(id=1)
         second_user = User.objects.get(id=2)
