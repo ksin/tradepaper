@@ -21,10 +21,10 @@ class UserTestCase(TestCase):
             city='Ridgewood',
             joindate=datetime.datetime.now(),
             )
-        print 'setup' + User.objects.all()
+        print 'setup:', User.objects.all()
 
     def test_post_have_category(self):
-        print 'setup' + User.objects.all()
+        print 'setup:', User.objects.all()
         first_user = User.objects.get(id=1)
         second_user = User.objects.get(id=2)
         self.assertEqual(first_user.email, 'elibierman@gmail.com')
