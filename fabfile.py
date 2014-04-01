@@ -7,7 +7,8 @@ def prep_deploy(branch_name):
 
 def deploy():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
-        local('git pull origin')
+        local('git config --local --bool core.bare false ')
+        local('git pull origin master')
 
         #users app
         local('./manage.py migrate users')
