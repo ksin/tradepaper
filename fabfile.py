@@ -1,6 +1,8 @@
 from fabric.api import lcd, local
 
 def prep_deploy(branch_name):
+    local('./manage.py sqlclear users')
+    local('./manage.py syncdb')
     local('./manage.py test tradepaper')
     local('git add -A . && git commit')
     local('git push origin %s' % branch_name)
