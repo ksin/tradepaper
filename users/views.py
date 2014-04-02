@@ -24,7 +24,7 @@ def register(request):
         form = UserForm(request.POST, auto_id='signup_%s')
         if form.is_valid():
             new_user = form.save()
-            return render(request, paperapp/users/)
+            return profile(request, new_user.username)
     else:
         form = UserForm() # An unbound form
 
