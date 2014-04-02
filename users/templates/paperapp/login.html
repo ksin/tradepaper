@@ -4,8 +4,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Login - trade–paper</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    
+	{% load staticfiles %}
+	<link href="{% static "paperapp/styles.css" %}" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -32,18 +32,18 @@
     <!--text form here-->
     <label for="signup_username"></label>
     <input type="username" name="user[username]" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
-    
+
     <h2>Password:</h2>
     <!--text form here-->
     <label for="signup_password	"></label>
     <input type="password" name="user[password]" placeholder="password" id="signup_password" data-required="required" class="textfield_effect">
-    
+
     <div id="loginbutton">
 	<input type="submit" value="Submit" class="textfield_effect" id="login_submit">
 	</form></div>
-    
+
     <a href="/register" class="textfield_effect" id="loginregisterlink"> Register </a>
-    
+
 </div>
 <!--END Sign Up-->
 
