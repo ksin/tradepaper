@@ -28,31 +28,21 @@
 <!--Sign Up-->
 <div class="signup">
 	<h1>Sign Up</h1>
-    <h2>Pick a username:</h2>
-    <!--text form here-->
 	<form action="/register/" method="post">{% csrf_token %}
+	    <h2>Pick a username:</h2>
+	    <!--text form here-->
 		<input type="text" name="username" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
-	</form>
 
-    <h2>Choose a password:</h2>
-    <!--text form here-->
-	<form action="/register/" method="post">{% csrf_token %}
+	    <h2>Choose a password:</h2>
+	    <!--text form here-->
 		<input type="text" name="password" placeholder="password" id="signup_password" data-required="required" class="textfield_effect">
-	</form>
 
-    <h2>Enter your email address:</h2>
-    <!--text form here-->
-	<form action="/register/" method="post">{% csrf_token %}
+	    <h2>Enter your email address:</h2>
+	    <!--text form here-->
 		<input type="email" name="email" placeholder="email address" id="signup_email" data-required="required" class="textfield_effect">
-	</form>
 
-	<form action="/register/" method="post">{% csrf_token %}
 		<input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
 	</form>
-	</form>
-
-
-
 </div>
 <!--END Sign Up-->
 
