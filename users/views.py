@@ -13,5 +13,5 @@ def profile(request, username):
 def login(request):
     return render(request, 'paperapp/login.html')
 
-def signup(request):
+def register(request):
     return render(request, 'paperapp/signup.html')
