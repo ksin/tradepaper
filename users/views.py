@@ -1,7 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.forms import ModelForm
 
 from users.models import User
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
 
 def index(request):
   return HttpResponse("This is the user index.")
@@ -14,4 +20,12 @@ def login(request):
     return render(request, 'paperapp/login.html')
 
 def register(request):
-    return render(request, 'paperapp/signup.html')
+    if request.method == 'POST':
+        form = UserForm(request.POST, auto_id='signup_%s')
+        if form.is_valid():
+            new_user = form.save()
+            return render(request, )
+    else:
+        form = UserForm() # An unbound form
+
+    return render(request, 'paperapp/signup.html', {'form': form,})

@@ -30,20 +30,25 @@
 	<h1>Sign Up</h1>
     <h2>Pick a username:</h2>
     <!--text form here-->
-    <label for="signup_username"></label>
-    <input type="username" name="user[username]" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
+	<form action="/register/" method="post">{% csrf_token %}
+		<input type="text" name="username" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
+	</form>
 
     <h2>Choose a password:</h2>
     <!--text form here-->
-    <label for="signup_password	"></label>
-    <input type="password" name="user[password]" placeholder="password" id="signup_password" data-required="required" class="textfield_effect">
+	<form action="/register/" method="post">{% csrf_token %}
+		<input type="text" name="password" placeholder="password" id="signup_password" data-required="required" class="textfield_effect">
+	</form>
 
     <h2>Enter your email address:</h2>
     <!--text form here-->
-    <label for="signup_email	"></label>
-    <input type="email" name="user[email]" placeholder="email address" id="signup_email" data-required="required" class="textfield_effect">
+	<form action="/register/" method="post">{% csrf_token %}
+		<input type="email" name="email" placeholder="email address" id="signup_email" data-required="required" class="textfield_effect">
+	</form>
 
-    <input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
+	<form action="/register/" method="post">{% csrf_token %}
+		<input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
+	</form>
 	</form>
 
 
