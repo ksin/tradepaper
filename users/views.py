@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.forms import ModelForm
@@ -7,7 +8,7 @@ from users.models import User
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'password', 'email']
+        fields = ['username', 'password', 'email', 'joindate']
 
 def index(request):
   return HttpResponse("This is the user index.")
@@ -22,6 +23,7 @@ def login(request):
 def register(request):
     if request.method == 'POST':
         form = UserForm(request.POST, auto_id='signup_%s')
+        form.joindate = datetime.datetime.now()
         if form.is_valid():
             new_user = form.save()
             return profile(request, new_user.username)
