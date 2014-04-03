@@ -28,7 +28,7 @@ def register(request):
             new_user = form.save()
             print "User Registration was valid. Redirecting to profile"
             return profile(request, new_user.username)
-        else
+        else:
             print "User Registration was not valid"
     else:
         form = UserForm() # An unbound form
