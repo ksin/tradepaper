@@ -1,9 +1,12 @@
 import datetime
+import logging
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.forms import ModelForm
 
 from users.models import User
+
+logger = logging.getLogger('user')
 
 class UserForm(ModelForm):
     class Meta:
@@ -26,10 +29,10 @@ def register(request):
         form.joindate = datetime.datetime.now()
         if form.is_valid():
             new_user = form.save()
-            print >> sys.stderr, "User Registration was valid. Redirecting to profile"
+            logger.debug('User Registration was valid. Redirecting to profile')
             return profile(request, new_user.username)
         else:
-            print >> sys.stderr, "User Registration was not valid"
+            logger.debug('User Registration was not valid')
     else:
         form = UserForm() # An unbound form
 
