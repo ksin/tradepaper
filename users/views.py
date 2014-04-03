@@ -35,5 +35,6 @@ def register(request):
             logger.debug('User Registration was not valid')
     else:
         form = UserForm() # An unbound form
+        logger.debug('Request method was not POST')
 
     return render(request, 'paperapp/signup.html', {'form': form,})
