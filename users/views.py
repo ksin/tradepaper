@@ -26,10 +26,10 @@ def register(request):
         form.joindate = datetime.datetime.now()
         if form.is_valid():
             new_user = form.save()
-            print "User Registration was valid. Redirecting to profile"
+            print >> sys.stderr, "User Registration was valid. Redirecting to profile"
             return profile(request, new_user.username)
         else:
-            print "User Registration was not valid"
+            print >> sys.stderr, "User Registration was not valid"
     else:
         form = UserForm() # An unbound form
 
