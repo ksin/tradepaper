@@ -5,7 +5,7 @@ from users import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^users/', include('users.urls')),
+    url(r'^users/', include('users.urls', namespace='users')),
     url(r'^login/$', 'users.views.login'),
     url(r'^register/$', 'users.views.register'),
     url(r'^admin/', include(admin.site.urls)),

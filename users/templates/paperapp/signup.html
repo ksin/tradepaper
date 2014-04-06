@@ -28,6 +28,7 @@
 <!--Sign Up-->
 <div class="signup">
 	<h1>Sign Up</h1>
+	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
 	<form action="/register/" method="post">
 		{% csrf_token %}
 	    <h2>Pick a username:</h2>

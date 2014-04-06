@@ -142,3 +142,4 @@ Traceback (most recent call last):
   File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 505, in reverse
     key)
 NoReverseMatch: u'users' is not a registered namespace
+Not Found: /users/eli
