@@ -22,23 +22,8 @@ def login(request):
     return render(request, 'paperapp/login.html')
 
 def register(request):
-    try:
-    except (KeyError, Choice.DoesNotExist):
-        # Redisplay the poll voting form
-        return render(request, 'polls/detail.html', {
-            'poll': p,
-            'error_message': "You didn't select a choice.",
-        })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        # always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button
-        return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
-
+    form = UserForm(request.POST, auto_id='signup_%s')
     if request.method == 'POST':
-        form = UserForm(request.POST, auto_id='signup_%s')
         if form.is_valid():
             u = User.objects.create(
                 username = request.POST['username'],
