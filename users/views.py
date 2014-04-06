@@ -33,7 +33,7 @@ def register(request):
                 joindate=datetime.datetime.now(),
             )
             u.save()
-            HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
+            return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
         else:
             return render(request, 'paperapp/signup.html', {
                 'form': form,
