@@ -28,7 +28,8 @@
 <!--Sign Up-->
 <div class="signup">
 	<h1>Sign Up</h1>
-	<form action="/register/" method="post">{% csrf_token %}
+	<form action="{% url 'users:vote' poll.id %}" method="post">
+		{% csrf_token %}
 	    <h2>Pick a username:</h2>
 	    <!--text form here-->
 		<input type="text" name="username" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
