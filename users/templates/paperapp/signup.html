@@ -28,7 +28,7 @@
 <!--Sign Up-->
 <div class="signup">
 	<h1>Sign Up</h1>
-	<form action="{% url 'users:register' %}" method="post">
+	<form action="/register/" method="post">
 		{% csrf_token %}
 	    <h2>Pick a username:</h2>
 	    <!--text form here-->
