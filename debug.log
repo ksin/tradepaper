@@ -40,3 +40,30 @@ Traceback (most recent call last):
   File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 3
     from django.http import HttpResponse, HttpResponseRedirect,
 SyntaxError: trailing comma not allowed without surrounding parentheses
+Not Found: /
+Not Found: /favicon.ico
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 33, in register
+    return render(request, 'paperapp/signup.html', {'form': form,})
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/shortcuts/__init__.py", line 53, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/loader.py", line 169, in render_to_string
+    return t.render(context_instance)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    six.reraise(*exc_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/template/defaulttags.py", line 433, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 505, in reverse
+    key)
+NoReverseMatch: u'users' is not a registered namespace
