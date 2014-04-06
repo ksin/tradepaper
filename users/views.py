@@ -29,7 +29,7 @@ def register(request):
             return render(request, 'paperapp/signup.html', {
                 'form': form,
                 'error_message': 'That username is already taken'})
-        else if User.objects.filter(email=request.POST['email']).exists():
+        elif User.objects.filter(email=request.POST['email']).exists():
             return render(request, 'paperapp/signup.html', {
                 'form': form,
                 'error_message': 'There is already a user with that email address'})
