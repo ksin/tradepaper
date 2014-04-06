@@ -25,11 +25,11 @@ def login(request):
 def register(request):
     form = UserForm(request.POST, auto_id='signup_%s')
     if request.method == 'POST':
-        if User.objects.filter(username=request.POST['username']).exists()
+        if User.objects.filter(username=request.POST['username']).exists():
             return render(request, 'paperapp/signup.html', {
                 'form': form,
                 'error_message': 'That username is already taken'})
-        else if User.objects.filter(email=request.POST['email']).exists()
+        else if User.objects.filter(email=request.POST['email']).exists():
             return render(request, 'paperapp/signup.html', {
                 'form': form,
                 'error_message': 'There is already a user with that email address'})
