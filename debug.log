@@ -161,3 +161,171 @@ Traceback (most recent call last):
     except (KeyError, Choice.DoesNotExist):
          ^
 IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block
+Internal Server Error: /users/eli
+Traceback (most recent call last):
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/handlers/base.py", line 90, in get_response
+    response = middleware_method(request)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/middleware/common.py", line 71, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 573, in is_valid_path
+    resolve(path, urlconf)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 453, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/Ohio/.virtualenvs/paper-py2/lib/python2.7/site-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/tradepaper/urls.py", line 4, in <module>
+    from users import views
+  File "/Users/Ohio/Documents/Apps/Django/tradepaper/users/views.py", line 26
+    except (KeyError, Choice.DoesNotExist):
+         ^
+IndentationError: expected an indented block

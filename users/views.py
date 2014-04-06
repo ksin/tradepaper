@@ -48,7 +48,9 @@ def register(request):
             )
             u.save()
             HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
+        else:
+            return render(request, 'paperapp/signup.html', {
+                'form': form,
+                'error_message': 'Please fill in all required fields'})
     else:
-        return render(request, 'paperapp/signup.html', {
-            'form': form,
-            'error_message': 'Please fill in all required fields'})
+        return render(request, 'paperapp/signup.html', {'form': form})
