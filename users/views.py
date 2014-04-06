@@ -1,6 +1,6 @@
 import datetime
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect,
+from django.http import HttpResponse, HttpResponseRedirect
 from django.forms import ModelForm
 
 from users.models import User
