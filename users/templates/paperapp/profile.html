@@ -24,9 +24,13 @@
 	<!--Get username-->
   	<div id="unamedisp">{{ user.username }}</div>
     <!--Get city location-->
-    <h3>{{ user.city }}</h3>
+	{% if user.city %}
+	    <h3>{{ user.city }}</h3>
+	{% endif %}
     <!--Get website if any-->
-    <h3><a href="">{{ user.website }}</a></h3>
+	{% if user.website %}
+	    <h3><a href="">{{ user.website }}</a></h3>
+	{% endif %}
 
 </div>
 <!--END Profile Header-->
