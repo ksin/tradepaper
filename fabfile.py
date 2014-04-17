@@ -12,4 +12,4 @@ def deploy():
         #users app
         local('./manage.py migrate users')
         local('./manage.py test users')
-        local('./manage.py runserver 0.0.0.0:8000') #change this to prod server when you have one
+        local('./manage.py runserver localhost:8000') #change this to prod server when you have one
