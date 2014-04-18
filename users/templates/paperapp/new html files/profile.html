@@ -6,7 +6,7 @@
 	<title>Profile - trade–paper</title>
 	{% load staticfiles %}
 	<link href="{% static "paperapp/styles.css" %}" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -23,13 +23,12 @@
     <!--<img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />-->
 	<!--Get username-->
 	<div id="unamedisp">{{ user.username }}</div>
-    <!--Get city location-->
 	{% if user.city %}
-	    <h3>{{ user.city }}</h3>
+		<h3>{{ user.city }}</h3>
 	{% endif %}
-    <!--Get website if any-->
+	<!--Get website if any-->
 	{% if user.website %}
-	    <h3><a href="">{{ user.website }}</a></h3>
+		<h3><a href="">{{ user.website }}</a></h3>
 	{% endif %}
 
 </div>
