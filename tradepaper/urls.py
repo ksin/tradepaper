@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from users import views
+from general import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^users/', include('users.urls', namespace='users')),
-    url(r'^login/$', 'users.views.login'),
-    url(r'^register/$', 'users.views.register'),
+    url(r'^papers/', include('papers.urls', namespace='papers')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^index/$', general.views.index, name='index'),
+    url(r'^about/$', general.views.about, name='about'),
 )
