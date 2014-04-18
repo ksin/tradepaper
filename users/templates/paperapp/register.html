@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Register - trade–paper</title>
 	{% load staticfiles %}
-	<link href="{% static "paperapp/styles.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'paperapp/styles.css' %}" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -14,24 +14,24 @@
 {% include "paperapp/nav-bar.html" %}
 
 <!--Sign Up-->
-<div class="signup">
+<div class="register">
 	<h1>Sign Up</h1>
 	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
-	<form action="/register/" method="post">
+	<form action="{% url 'users:register' %}" method="post">
 		{% csrf_token %}
 	    <h2>Pick a username:</h2>
 	    <!--text form here-->
-		<input type="text" name="username" placeholder="username" id="signup_username" data-required="required" class="textfield_effect">
+		<input type="text" name="username" placeholder="username" id="register_username" data-required="required" class="textfield_effect">
 
 	    <h2>Choose a password:</h2>
 	    <!--text form here-->
-		<input type="text" name="password" placeholder="password" id="signup_password" data-required="required" class="textfield_effect">
+		<input type="password" name="password" placeholder="password" id="register_password" data-required="required" class="textfield_effect">
 
 	    <h2>Enter your email address:</h2>
 	    <!--text form here-->
-		<input type="email" name="email" placeholder="email address" id="signup_email" data-required="required" class="textfield_effect">
+		<input type="email" name="email" placeholder="email address" id="register_email" data-required="required" class="textfield_effect">
 
-		<input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
+		<input type="submit" value="Submit" class="textfield_effect" id="register_submit">
 	</form>
 </div>
 <!--END Sign Up-->

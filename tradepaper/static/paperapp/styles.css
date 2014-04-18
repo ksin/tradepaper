@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*#link1 a:hover, #link2 a:hover, #link3 a:hover, #link4 a:hover, #link5 a:hover{
-	Hover color for border links */	
+	Hover color for border links */
 .framelink a:hover {
 color: red;
 }
@@ -89,7 +89,7 @@ color: red;
 	text-align: center;
 	font-size: 18px;
 }
-	
+
 #link2 a{
 	color: black;
 }
@@ -106,7 +106,7 @@ color: red;
 #link4 {
 	bottom: 20px;
 	right: 20px;
-	
+
 }
 
 #link5 {
@@ -116,15 +116,15 @@ color: red;
 /* END Frame Links */
 
 /*Sign Up*/
-.signup{
+.register{
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 50%;
 	margin: 0 auto;
 }
 
-.signup h1{
+.register h1{
 	font-size: 24px;
 	/*border-bottom: 2px solid white;*/
 	/*border-right: 2px solid red;
@@ -137,12 +137,12 @@ color: red;
 	color: red;
 }
 
-.signup h2{
+.register h2{
 	margin-top: 50px;
-	margin-bottom: 15px;		
+	margin-bottom: 15px;
 }
 
-#signup_submit {
+#register_submit {
 	font-size: 24px;
 	font-weight: 700;
 	text-align: center;
@@ -155,7 +155,7 @@ color: red;
 
 }
 
-#signup_submit:hover {
+#register_submit:hover {
 	color: white;
 	background-color: red;
 }
@@ -165,7 +165,7 @@ color: red;
 .login{
 	/*vertical-align: middle;*/
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 50%;
 	margin: 0 auto;
@@ -188,7 +188,7 @@ color: red;
 .login h2{
 	margin-top: 50px;
 	margin-bottom: 15px;
-			
+
 }
 
 #loginbutton{
@@ -332,7 +332,7 @@ color: red;
 .profile_head h3 {
 	margin-top: 1px;
 	margin-bottom: 0px;
-	font-weight: 400;	
+	font-weight: 400;
 }
 
 #unamedisp {
@@ -369,13 +369,13 @@ color: red;
 .profile_sort {
 	text-align: center;
 	margin-right: 0;
-	font-size: 13px;	
+	font-size: 13px;
 }
 
 .paper {
 	height: 220px;
-/*	border: 1px solid black;*/	
-	border: 2px dashed #0147FA; 
+/*	border: 1px solid black;*/
+	border: 2px dashed #0147FA;
 	margin-top: 5px;
 	margin-bottom: 50px;
 }
@@ -393,19 +393,19 @@ color: red;
 	margin-top: 20px;
 	margin-left: 4%;
 	outline: 5px solid #f9f8f4;
-}	
+}
 /*Needs to be fixed to have white border around image without moving image*/
 
 .paper p {
 	margin-top: 8px;
-	margin-bottom: 2px;	
+	margin-bottom: 2px;
 	font-size: 15px;
 }
 
 .paper_title {
 	padding-top: 30px;
 	font-weight: 700;
-} 
+}
 
 .paper_edition p, .paper_condition p{
 	font-size: 14px;
@@ -445,10 +445,10 @@ color: red;
 	width: 70%;
 	margin: auto;
 	text-align: center;
-	margin-top: 8%;	
+	margin-top: 8%;
 }
 
-.paperpageelement{ 
+.paperpageelement{
 }
 
 .paperpageelement img{
@@ -514,11 +514,11 @@ color: red;
 .pp_recs p {
 	font-size: 13px;
 	color: black;
-} 
+}
 
 ..pp_recs a:hover {
 	color: red;
-} 
+}
 
 /*END Individual Paper Page*/
 
@@ -528,7 +528,7 @@ color: red;
 	width: 70%;
 	margin: auto;
 	text-align: center;
-	margin-top: 80px;	
+	margin-top: 80px;
 }
 
 .browse_container h2 {
@@ -575,7 +575,7 @@ color: red;
 
 .browse_element p {
 	margin-top: 8px;
-	margin-bottom: 23px;	
+	margin-bottom: 23px;
 	font-size: 14px;
 	font-weight:400;
 }
@@ -586,7 +586,7 @@ color: red;
 
 .browse_container a:hover {
 	color: red;
-	
+
 }
 
 /*END Browse Page*/
@@ -594,9 +594,9 @@ color: red;
 /*BEGIN New Listing Page*/
 
 .newlisting{
-	
+
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 60%;
 	margin: 0 auto;
@@ -614,7 +614,7 @@ color: red;
 .newlisting h2{
 	margin-top: 40px;
 	margin-bottom: 15px;
-			
+
 }
 
 /*.newlistinginput{

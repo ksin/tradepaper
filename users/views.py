@@ -23,14 +23,14 @@ def login(request):
     return render(request, 'paperapp/login.html')
 
 def register(request):
-    form = UserForm(request.POST, auto_id='signup_%s')
+    form = UserForm(request.POST, auto_id='register%s')
     if request.method == 'POST':
         if User.objects.filter(username=request.POST['username']).exists():
-            return render(request, 'paperapp/signup.html', {
+            return render(request, 'paperapp/register.html', {
                 'form': form,
                 'error_message': 'That username is already taken'})
         elif User.objects.filter(email=request.POST['email']).exists():
-            return render(request, 'paperapp/signup.html', {
+            return render(request, 'paperapp/register.html', {
                 'form': form,
                 'error_message': 'There is already a user with that email address'})
         if form.is_valid():
@@ -43,8 +43,8 @@ def register(request):
             u.save()
             return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
         else:
-            return render(request, 'paperapp/signup.html', {
+            return render(request, 'paperapp/register.html', {
                 'form': form,
                 'error_message': 'Please fill in all required fields'})
     else:
-        return render(request, 'paperapp/signup.html', {'form': form})
+        return render(request, 'paperapp/register.html', {'form': form})
