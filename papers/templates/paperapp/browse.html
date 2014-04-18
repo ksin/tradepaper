@@ -3,29 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Browse - trade–paper</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-
+    {% load staticfiles %}
+    <link href="{% static 'paperapp/styles.css' %}" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
-    <link href="../styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-<!-- Frame Links -->
-<div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="textfield_effect3" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div>
-<div class="framelink" id="link5"><a href="/login">Log In</a>
-</div>
-<!--END Frame Links-->
+{% include "paperapp/nav-bar.html" %}
 
 <div class="browse_container">
 			<h2>Browse</h2>

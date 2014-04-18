@@ -8,6 +8,6 @@ urlpatterns = patterns('',
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^papers/', include('papers.urls', namespace='papers')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^/?$', 'general.views.index', name='index'),
+    url(r'^/?$', 'general.views.home', name='home'),
     url(r'^about/?$', 'general.views.about', name='about'),
 )
