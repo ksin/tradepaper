@@ -11,7 +11,7 @@ def prep_deploy(branch_name):
 def deploy_staging():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
         local('git pull origin master')
-        local('export DJANGO_SETTINGS_MODULE="../dev/tradepaper/tradepaper/settings/development.py"')
+        local('export DJANGO_SETTINGS_MODULE=../dev/tradepaper/tradepaper/settings/development.py')
         local('echo $DJANGO_SETTINGS_MODULE')
 
         #users app
