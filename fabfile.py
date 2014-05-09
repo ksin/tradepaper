@@ -8,9 +8,10 @@ def prep_deploy(branch_name):
     local('git add -A . && git commit')
     local('git push origin %s' % branch_name)
 
-def deploy_dev():
+def deploy_staging():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
         local('git pull origin master')
+        local('export DJANGO_SETTINGS_MODULE=tradepaper.staging')
 
         #users app
         local('./manage.py migrate users')
