@@ -13,7 +13,6 @@ def deploy_staging():
         local('git pull origin master')
         local('export DJANGO_SETTINGS_MODULE=tradepaper.settings')
         local('echo $DJANGO_SETTINGS_MODULE')
-        local('workon paper-py2')
         local('pip install -r requirements.txt --allow-all-external')
 
         #users app
