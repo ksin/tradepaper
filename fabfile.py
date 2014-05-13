@@ -1,4 +1,4 @@
-from fabric.api import lcd, local, hosts, run, cd
+from fabric.api import lcd, local, hosts, run, cd, prefix
 
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
@@ -21,10 +21,9 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/paper-py2/'
     git_dir = '/webapps/paper-py2/tradepaper'
-    with cd(app_dir):
-        run('source bin/activate')
+    with cd(app_dir), prefix('source bin/activate'):
         run('pip install -r requirements.txt --allow-all-external')
-    with cd(git_dir), run('source ../bin/activate'):
+    with cd(git_dir), prefix('source ../bin/activate'):
         run('git pull origin master')
         run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
         run('echo $DJANGO_SETTINGS_MODULE')
