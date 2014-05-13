@@ -21,7 +21,7 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/paper-py2/'
     git_dir = '/webapps/paper-py2/tradepaper'
-    with prefix('exec $SHELL'):
+    with settings(shell='/bin/bash -c'):
         with cd(git_dir), prefix('source ../bin/activate'):
             run('git pull origin master')
             run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
