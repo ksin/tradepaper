@@ -26,7 +26,6 @@ def deploy_prod():
         run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
         run('echo $DJANGO_SETTINGS_MODULE')
     with cd(app_dir), prefix('source bin/activate'):
-        run('pyenv rehash')
         run('which python')
         run('which pip')
         run('pip install -r requirements.txt --allow-all-external')
