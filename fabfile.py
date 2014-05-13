@@ -21,18 +21,19 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/paper-py2/'
     git_dir = '/webapps/paper-py2/tradepaper'
-    with cd(git_dir), prefix('source ../bin/activate'):
-        run('git pull origin master')
-        run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
-        run('echo $DJANGO_SETTINGS_MODULE')
-    with cd(app_dir), prefix('source bin/activate'):
-        run('python --version')
-        run('echo $SHELL')
-        run('which python')
-        run('which pip')
-        run('pip install -r requirements.txt --allow-all-external')
-    with cd(git_dir), prefix('source ../bin/activate'):
-        #users app
-        run('./manage.py migrate users')
-        run('./manage.py test users')
-        run('./manage.py runserver localhost:8000')
+    with prefix('exec $SHELL'):
+        with cd(git_dir), prefix('source ../bin/activate'):
+            run('git pull origin master')
+            run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
+            run('echo $DJANGO_SETTINGS_MODULE')
+        with cd(app_dir), prefix('source bin/activate'):
+            run('python --version')
+            run('echo $SHELL')
+            run('which python')
+            run('which pip')
+            run('pip install -r requirements.txt --allow-all-external')
+        with cd(git_dir), prefix('source ../bin/activate'):
+            #users app
+            run('./manage.py migrate users')
+            run('./manage.py test users')
+            run('./manage.py runserver localhost:8000')
