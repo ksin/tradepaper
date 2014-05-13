@@ -17,20 +17,20 @@ def index(request):
 
 def profile(request, username):
   user = get_object_or_404(User, username=username)
-  return render(request, 'paperapp/profile.html', {'user':user})
+  return render(request, 'tradepaper/profile.html', {'user':user})
 
 def login(request):
-    return render(request, 'paperapp/login.html')
+    return render(request, 'tradepaper/login.html')
 
 def register(request):
     form = UserForm(request.POST, auto_id='register%s')
     if request.method == 'POST':
         if User.objects.filter(username=request.POST['username']).exists():
-            return render(request, 'paperapp/register.html', {
+            return render(request, 'tradepaper/register.html', {
                 'form': form,
                 'error_message': 'That username is already taken'})
         elif User.objects.filter(email=request.POST['email']).exists():
-            return render(request, 'paperapp/register.html', {
+            return render(request, 'tradepaper/register.html', {
                 'form': form,
                 'error_message': 'There is already a user with that email address'})
         if form.is_valid():
@@ -43,8 +43,8 @@ def register(request):
             u.save()
             return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
         else:
-            return render(request, 'paperapp/register.html', {
+            return render(request, 'tradepaper/register.html', {
                 'form': form,
                 'error_message': 'Please fill in all required fields'})
     else:
-        return render(request, 'paperapp/register.html', {'form': form})
+        return render(request, 'tradepaper/register.html', {'form': form})

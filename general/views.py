@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 def home(request):
-    return render(request, 'paperapp/home.html')
+    return render(request, 'tradepaper/home.html')
 
 def about(request):
-    return render(request, 'paperapp/about.html')
+    return render(request, 'tradepaper/about.html')

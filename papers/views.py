@@ -3,4 +3,4 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 def browse(request):
-    return render(request, 'paperapp/browse.html')
+    return render(request, 'tradepaper/browse.html')
