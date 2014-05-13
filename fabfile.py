@@ -1,4 +1,4 @@
-from fabric.api import lcd, local, hosts, run, cd, prefix
+from fabric.api import lcd, local, hosts, run, cd, prefix, settings
 
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
