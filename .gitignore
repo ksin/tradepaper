@@ -2,3 +2,4 @@
 *.json
 *.log
 development.py
+db.sqlite3
