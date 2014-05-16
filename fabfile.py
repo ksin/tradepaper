@@ -21,16 +21,12 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/paper-py2/'
     git_dir = '/webapps/paper-py2/tradepaper'
-    with prefix('source ~/.bashrc'), prefix('source %s/bin/activate' % app_dir):
+    with prefix('source %s/bin/activate' % app_dir):
         with cd(git_dir):
-            run('echo $PATH')
             run('git pull origin master')
             run('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production')
             run('echo $DJANGO_SETTINGS_MODULE')
         with cd(app_dir), prefix('source bin/activate'):
-            run('python --version')
-            run('which python')
-            run('which pip')
             run('pip install -r requirements.txt --allow-all-external')
         with cd(git_dir), prefix('source ../bin/activate'):
             #users app
