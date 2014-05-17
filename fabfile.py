@@ -8,8 +8,6 @@ def prep_deploy(branch_name):
 def deploy_dev():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
         local('git pull origin master')
-        local('export DJANGO_SETTINGS_MODULE=tradepaper.settings')
-        local('echo $DJANGO_SETTINGS_MODULE')
         local('pip install -r requirements.txt --allow-all-external')
 
         #users app
@@ -22,11 +20,9 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/paper-py2/'
     git_dir = '/webapps/paper-py2/tradepaper'
-    export_prod_settings = ' && export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'
     with cd(git_dir):
         run('git pull origin master')
-    with prefix(('source %s/bin/activate' % app_dir) + export_prod_settings):
-        run('echo $DJANGO_SETTINGS_MODULE')
+    with prefix('source %s/bin/activate' % app_dir):
         with cd(app_dir):
             run('pip install -r requirements.txt --allow-all-external')
         with cd(git_dir):
