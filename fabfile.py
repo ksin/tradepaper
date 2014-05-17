@@ -18,10 +18,11 @@ def deploy_dev():
 
 @hosts('eli@beta.trade-paper.com')
 def deploy_prod():
-    app_dir = '/webapps/paper-py2/'
+    app_dir = '/webapps/paper-py2'
     git_dir = '/webapps/paper-py2/tradepaper'
     with cd(git_dir):
         run('git pull origin master')
+        run('echo $DJANGO_SETTINGS_MODULE')
     with prefix('source %s/bin/activate' % app_dir):
         with cd(app_dir):
             run('pip install -r requirements.txt --allow-all-external')
