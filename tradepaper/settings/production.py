@@ -12,3 +12,5 @@ DATABASES = {
         'PORT': '',                # Set to empty string for default.
     }
 }
+
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
