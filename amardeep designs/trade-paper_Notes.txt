@@ -1,0 +1,11 @@
+trade-paper Notes:
+
+4/17:
+Make city/website change options in My Account page
+New yellow color, very into it.
+BROWSE page fixed/finished for now.
+PROFILE page needs redesign.
+SINGLE_PAPER_PAGE has other items from users added to footer, maybe can use a larger image size.
+
+
+
