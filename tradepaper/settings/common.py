@@ -98,10 +98,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
 
-STATICFILES_DIRS = (
-    PROJECT_DIR,
-)
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
