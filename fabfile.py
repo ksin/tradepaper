@@ -25,7 +25,7 @@ def deploy_prod():
     with prefix('source %s/bin/activate' % app_dir):
         with cd(app_dir):
             run('pip install -r requirements.txt --allow-all-external')
-        with cd(git_dir):
+        with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
             run('./manage.py syncdb')
             run('./manage.py migrate users')
             run('./manage.py collectstatic')
