@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
 from general import views
@@ -11,3 +12,5 @@ urlpatterns = patterns('',
     url(r'^/?$', 'general.views.home', name='home'),
     url(r'^about/?$', 'general.views.about', name='about'),
 )
+
+urlpatterns += staticfiles_urlpatterns()

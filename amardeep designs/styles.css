@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*#link1 a:hover, #link2 a:hover, #link3 a:hover, #link4 a:hover, #link5 a:hover{
-	Hover color for border links */	
+	Hover color for border links */
 .framelink a:hover {
 color: red;
 }
@@ -94,7 +94,7 @@ color: red;
 	text-align: center;
 	font-size: 18px;
 }
-	
+
 #link2 a{
 	color: black;
 }
@@ -111,7 +111,7 @@ color: red;
 #link4 {
 	bottom: 20px;
 	right: 20px;
-	
+
 }
 
 #link5 {
@@ -123,7 +123,7 @@ color: red;
 /*Sign Up*/
 .signup{
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 50%;
 	margin: 0 auto;
@@ -144,7 +144,7 @@ color: red;
 
 .signup h2{
 	margin-top: 50px;
-	margin-bottom: 15px;		
+	margin-bottom: 15px;
 }
 
 #signup_submit {
@@ -170,7 +170,7 @@ color: red;
 .login{
 	/*vertical-align: middle;*/
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 50%;
 	margin: 0 auto;
@@ -193,7 +193,7 @@ color: red;
 .login h2{
 	margin-top: 50px;
 	margin-bottom: 15px;
-			
+
 }
 
 #loginbutton{
@@ -337,7 +337,7 @@ color: red;
 .profile_head h3 {
 	margin-top: 1px;
 	margin-bottom: 0px;
-	font-weight: 400;	
+	font-weight: 400;
 }
 
 #unamedisp {
@@ -375,7 +375,7 @@ color: red;
 .profile_sort {
 	text-align: right;
 	margin-right: 0;
-	font-size: 13px;	
+	font-size: 13px;
 }
 
 .profile_element {
@@ -405,21 +405,21 @@ color: red;
 .profile_element p {
 	font-size: 16px;
 	color: black;
-} 
+}
 
 .profile_element a{
 	color: black;
 	font-size: 17px;
 	font-weight: 700;
-} 
+}
 
 .profile_element a:hover {
 	color: red;
-} 
+}
 
 /*.paper {
 	height: 220px;
-	border: 2px solid #0147FA; 
+	border: 2px solid #0147FA;
 	margin-top: 5px;
 	margin-bottom: 50px;
 	padding-top: 10px;
@@ -439,18 +439,18 @@ color: red;
 	margin-top: 20px;
 	margin-left: 4%;
 	outline: 0px solid #f9f8f4;
-}	
+}
 
 .paper p {
 	margin-top: 8px;
-	margin-bottom: 2px;	
+	margin-bottom: 2px;
 	font-size: 15px;
 }
 
 .paper_title {
 	padding-top: 20px;
 	font-weight: 700;
-} 
+}
 
 .paper_title p {
 	font-size: 17px;
@@ -461,7 +461,7 @@ color: red;
 }
 
 .paper_condition p{
-	padding-bottom: 10px;	
+	padding-bottom: 10px;
 }
 .paper_text {
 	float:right;
@@ -499,10 +499,10 @@ color: red;
 	width: 70%;
 	margin: auto;
 	text-align: center;
-	margin-top: 8%;	
+	margin-top: 8%;
 }
 
-.paperpageelement{ 
+.paperpageelement{
 }
 
 .paperpageelement img{
@@ -600,17 +600,17 @@ color: red;
 .pp_recs p {
 	font-size: 13px;
 	color: black;
-} 
+}
 
 .pp_recs a{
 	color: black;
 	font-size: 15px;
 	font-weight: 700;
-} 
+}
 
 .pp_recs a:hover {
 	color: red;
-} 
+}
 
 /*END Individual Paper Page*/
 
@@ -671,7 +671,7 @@ color: red;
 
 .browse_element p {
 	margin-top: 8px;
-	margin-bottom: 23px;	
+	margin-bottom: 23px;
 	font-size: 14px;
 	font-weight:400;
 }
@@ -682,7 +682,7 @@ color: red;
 
 .browse_container a:hover {
 	color: red;
-	
+
 }
 
 /*END Browse Page*/
@@ -690,9 +690,9 @@ color: red;
 /*BEGIN New Listing Page*/
 
 .newlisting{
-	
+
 	text-align: center;
-	height: 300px; 
+	height: 300px;
 	padding-top: 80px;
 	width: 60%;
 	margin: 0 auto;
@@ -710,7 +710,7 @@ color: red;
 .newlisting h2{
 	margin-top: 40px;
 	margin-bottom: 15px;
-			
+
 }
 
 /*.newlistinginput{
