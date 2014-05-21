@@ -20,16 +20,16 @@
 
 	<h2>Profile</h2>
 	<!--Get avatar-->
-    <!--<img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />-->
+	<!--<img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />-->
 	<!--Get username-->
 	<div id="unamedisp">{{ user.username }}</div>
-    <!--Get city location-->
+	<!--Get city location-->
 	{% if user.city %}
-	    <h3>{{ user.city }}</h3>
+		<h3>{{ user.city }}</h3>
 	{% endif %}
-    <!--Get website if any-->
+	<!--Get website if any-->
 	{% if user.website %}
-	    <h3><a href="">{{ user.website }}</a></h3>
+		<h3><a href="">{{ user.website }}</a></h3>
 	{% endif %}
 
 </div>
@@ -38,166 +38,59 @@
 <!--Profile Content-->
 <div class="profile">
 
-    <div class="profile_sort">
-    	<p>Sort by: DROP DOWN</p>
-    </div>
-    <!--Get paper 1-->
 
-    	<div class="paper">
+	<!--FIX
+	<div class="profile_sort">
+		<p>Sort by: DROP DOWN</p>
+	</div>
+	FIX-->
 
-            <div class="paper_image">
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            </div>
+		<!--RUN %IF FOR AS MANY ELEMENTS AS THERE ARE-->
+		<div class="profile_element">
+			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+			<p>Publication Edition</p>
+			<div class="tradebutton">
+				<a href="/">Offer Trade</a>
+			</div>
+		</div>
 
-            <div class="paper_text">
-            	<div class="paper_title" style="font-weight: 700;">
-            		<p>Publication Title</p>
-            	</div>
+		<div class="profile_element">
+			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+			<p>Publication Edition</p>
+			<div class="tradebutton">
+				<a href="/">Offer Trade</a>
+			</div>
+		</div>
 
-                <div class="paper_edition">
-                    <p>Publication Edition</p>
-                </div>
+		<div class="profile_element">
+			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+			<p>Publication Edition</p>
+			<div class="tradebutton">
+				<a href="/">Offer Trade</a>
+			</div>
+		</div>
 
-                <div class="paper_condition">
-                    <p>Condition out of 10</p>
-                </div>
+		<div class="profile_element">
+			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+			<p>Publication Edition</p>
+			<div class="tradebutton">
+				<a href="/">Offer Trade</a>
+			</div>
+		</div>
 
-                <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
-
-            </div>
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
-
-        </div>
-
-        <!--END Paper 1-->
-
-        <!--Get paper 1-->
-
-    	<div class="paper">
-
-            <div class="paper_image">
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            </div>
-
-            <div class="paper_text">
-            	<div class="paper_title">
-            		<p>The Plant Journal</p>
-            	</div>
-
-                <div class="paper_edition">
-                    <p>Issue 02</p>
-                </div>
-
-                <div class="paper_condition">
-                    <p>9 / 10</p>
-                </div>
-
-                <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
-
-            </div>
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
-
-        </div>
-
-        <!--END Paper 1-->
-
-        <!--Get paper 1-->
-
-    	<div class="paper">
-
-            <div class="paper_image">
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            </div>
-
-            <div class="paper_text">
-            	<div class="paper_title">
-            		<p>The Plant Journal</p>
-            	</div>
-
-                <div class="paper_edition">
-                    <p>Issue 02</p>
-                </div>
-
-                <div class="paper_condition">
-                    <p>9 / 10</p>
-                </div>
-
-                <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
-
-            </div>
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
-
-        </div>
-
-        <!--END Paper 1-->
-        <!--Get paper 1-->
-
-    	<div class="paper">
-
-            <div class="paper_image">
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            </div>
-
-            <div class="paper_text">
-            	<div class="paper_title">
-            		<p>The Plant Journal</p>
-            	</div>
-
-                <div class="paper_edition">
-                    <p>Issue 02</p>
-                </div>
-
-                <div class="paper_condition">
-                    <p>9 / 10</p>
-                </div>
-
-                <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
-
-            </div>
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
-
-        </div>
-
-        <!--END Paper 1-->
-        <!--Get paper 1-->
-
-    	<div class="paper">
-
-            <div class="paper_image">
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            </div>
-
-            <div class="paper_text">
-            	<div class="paper_title">
-            		<p>The Plant Journal</p>
-            	</div>
-
-                <div class="paper_edition">
-                    <p>Issue 02</p>
-                </div>
-
-                <div class="paper_condition">
-                    <p>Condition: 9 / 10</p>
-                </div>
-
-                <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
-
-            </div>
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
-
-        </div>
-
-        <!--END Paper 1-->
+		<div class="profile_element">
+			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+			<p>Publication Edition</p>
+			<div class="tradebutton">
+				<a href="/">Offer Trade</a>
+			</div>
+		</div>
+		</div>
 
 </div>
 <!--End Profile Content-->

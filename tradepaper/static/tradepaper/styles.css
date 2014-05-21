@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/*COLORS USED :
+#fff318 = YELLOW
+#0147FA = BLUE
+*/
+
 html{
 	font-family: Karla, Helvetica, sans-serif;
 	height: 100%;
@@ -116,7 +121,7 @@ color: red;
 /* END Frame Links */
 
 /*Sign Up*/
-.register{
+.signup{
 	text-align: center;
 	height: 300px;
 	padding-top: 80px;
@@ -124,7 +129,7 @@ color: red;
 	margin: 0 auto;
 }
 
-.register h1{
+.signup h1{
 	font-size: 24px;
 	/*border-bottom: 2px solid white;*/
 	/*border-right: 2px solid red;
@@ -137,12 +142,12 @@ color: red;
 	color: red;
 }
 
-.register h2{
+.signup h2{
 	margin-top: 50px;
 	margin-bottom: 15px;
 }
 
-#register_submit {
+#signup_submit {
 	font-size: 24px;
 	font-weight: 700;
 	text-align: center;
@@ -155,7 +160,7 @@ color: red;
 
 }
 
-#register_submit:hover {
+#signup_submit:hover {
 	color: white;
 	background-color: red;
 }
@@ -308,8 +313,8 @@ color: red;
 	width: 55%;
 /*	letter-spacing:1px;*/
 	font-size: 12px;
-	padding-top: 6.5%;
 	margin: auto;
+	margin-top: 80px;
 	text-align: center;
 }
 
@@ -323,9 +328,9 @@ color: red;
 }
 
 .profile_head h2 {
-	margin-top: 15px;
-	margin-bottom: 0px;
+	font-size: 24px;
 	font-weight:700;
+	color: red;
 	letter-spacing: 0px;
 }
 
@@ -356,32 +361,73 @@ color: red;
 /*Profile Page Content*/
 
 .profile {
-	width: 65%;
+	width: 60%;
 	margin: auto;
-	text-align: center;
-	margin-top: 40px;
+	margin-top: 50px;
 	height:inherit;
+	text-align: justify;
 }
 
 .profile img {
 }
 
+
 .profile_sort {
-	text-align: center;
+	text-align: right;
 	margin-right: 0;
 	font-size: 13px;
 }
 
-.paper {
+.profile_element {
+	width: 37%;
+	border: 2px solid #0147FA;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 10%;
+	padding-top: 15px;
+	text-align: center;
+	display: inline-block;}
+
+
+
+.profile_element:hover {
+	background-color: #fff318;
+}
+
+.profile_element img {
+	width: 65%;
+	border: 0px solid white;
+	padding: 20px;
+	padding-top: 6.25%;
+	padding-bottom: 10px;
+}
+
+.profile_element p {
+	font-size: 16px;
+	color: black;
+}
+
+.profile_element a{
+	color: black;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.profile_element a:hover {
+	color: red;
+}
+
+/*.paper {
 	height: 220px;
-/*	border: 1px solid black;*/
-	border: 2px dashed #0147FA;
+	border: 2px solid #0147FA;
 	margin-top: 5px;
 	margin-bottom: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .paper:hover{
-	background-color: #FF9;
+	background-color: #fff318;
 }
 
 .paper img {
@@ -392,9 +438,8 @@ color: red;
 	background-color: white;
 	margin-top: 20px;
 	margin-left: 4%;
-	outline: 5px solid #f9f8f4;
+	outline: 0px solid #f9f8f4;
 }
-/*Needs to be fixed to have white border around image without moving image*/
 
 .paper p {
 	margin-top: 8px;
@@ -403,26 +448,35 @@ color: red;
 }
 
 .paper_title {
-	padding-top: 30px;
+	padding-top: 20px;
 	font-weight: 700;
+}
+
+.paper_title p {
+	font-size: 17px;
 }
 
 .paper_edition p, .paper_condition p{
-	font-size: 14px;
+	font-size: 15px;
 }
 
+.paper_condition p{
+	padding-bottom: 10px;
+}
 .paper_text {
 	float:right;
 	margin-right: 4%;
-}
+}*/
 
 .tradebutton a{
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 700;
+	width: 55%;
 	text-align: center;
 	display: block;
 	margin: auto;
-	margin-top: 20%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	padding: 10px;
 	background-color: white;
 	border: dashed 1px red;
@@ -462,7 +516,12 @@ color: red;
 	margin-bottom: 0px;
 }
 
+.ppe_title p{
+	font-size: 18px;
+}
+
 .ppe_edition p, .ppe_condition p{
+	margin-top: -8px;
 }
 
 .ppe_tradebutton a{
@@ -485,30 +544,57 @@ color: red;
 	background-color: red;
 }
 
-.pp_recs_container{
+/*.yellowfoot {
+	background-color: #fff318;
+	width: 100%;
+}*/
+
+.pp_recs_container {
 	/*border: 1px dashed black;*/
-	margin-top: 10%;
+	margin-top: 7%;
 	margin-bottom: 50px;
 }
 
+#relatedtext {
+	width: 230px;
+	margin: auto;
+}
+
+#relatedtext p{
+	margin-bottom: 35px;
+	border-top: 3px dashed #0147FA;
+	padding-top: 35px;
+	font-size: 15px;
+}
+
+#relatedtext p a{
+	color: black;
+	font-weight: 700;
+}
+
+#relatedtext p a:hover{
+	color: red;
+}
+
 .pp_recs {
-	width: 24%;
-	border: 2px dashed #0147FA;
-	margin-right: 4%;
-	margin-left: 4%;
-	padding-top: 15px;
+	width: 18%;
+	border: 2px solid #0147FA;
+	margin-right: 7%;
+	margin-left: 7%;
+	padding-top: 20px;
+	padding-bottom: 5px;
 	text-align: center;
 	display: inline-block;
 }
 
 .pp_recs:hover {
-	background-color: #FF9;
+	background-color: #fff318;
 }
 
 .pp_recs img {
-	width: 129px;
-	height: 172px;
-	border: 8px solid white;
+	width: 105px;
+	height: 140px;
+	border: 0px solid white;
 }
 
 .pp_recs p {
@@ -516,7 +602,13 @@ color: red;
 	color: black;
 }
 
-..pp_recs a:hover {
+.pp_recs a{
+	color: black;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.pp_recs a:hover {
 	color: red;
 }
 
@@ -525,10 +617,11 @@ color: red;
 /*BEGIN Browse Page*/
 
 .browse_container{
-	width: 70%;
+	width: 80%;
 	margin: auto;
 	text-align: center;
 	margin-top: 80px;
+	height: inherit;
 }
 
 .browse_container h2 {
@@ -541,13 +634,14 @@ color: red;
 	margin: auto;
 	text-align: center;
 	color: red;
+	margin-bottom: -4%;
 }
 
 .browse_element {
-	width: 40%;
-	border: 2px dashed #0147FA;
-	margin-left: 6%;
-	margin-top: 6%;
+	width: 23%;
+	border: 2px solid #0147FA;
+	margin-left: 7.1%;
+	margin-top: 7%;
 	padding-top: 15px;
 	text-align: center;
 	display: inline-block;
@@ -555,7 +649,7 @@ color: red;
 }
 
 .browse_element:hover{
-	background-color: #FF9;
+	background-color: #fff318;
 }
 
 .browse_paper_title{
@@ -564,8 +658,10 @@ color: red;
 }
 
 .browse_element img {
-	width: 79%;
+	width: 75%;
 	border: 0px solid white;
+	padding-top: 20px;
+	padding-bottom: 15px;
 }
 
 .browse_element img:hover {
