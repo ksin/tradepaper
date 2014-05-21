@@ -36,7 +36,7 @@ def update_dev():
         local('brew update')
         local('brew upgrade')
         with prefix('workon paper-py2'):
-            local('pip install --upgrade requirements.txt --allow-all-external')
+            local('pip install -r requirements.txt --allow-all-external')
             local('pip freeze > requirements.txt')
 
 @hosts('eli@beta.trade-paper.com')
@@ -47,7 +47,7 @@ def update_prod():
     with cd(git_dir):
         run('git pull origin master')
     with cd(app_dir):
-        run('apt-get update')
-        run('apt-get upgrade')
+        sudo('apt-get update')
+        sudo('apt-get upgrade')
         with prefix('source bin/activate'):
-            run('pip install --upgrade requirements.txt --allow-all-external')
+            run('pip install -r requirements.txt --allow-all-external')
