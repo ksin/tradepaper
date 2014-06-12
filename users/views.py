@@ -19,7 +19,11 @@ class LoginForm(ModelForm):
         fields = ['username', 'password',]
 
 def index(request):
-  return HttpResponse("This is the user index.")
+    user = User.objects.get(id=request.session['user_id'])
+    if user:
+        return HttpResponse("Welcome %s!" % user.username)
+    else:
+        return HttpResponse("You're not logged in, but welcome anyway!")
 
 def profile(request, username):
   user = get_object_or_404(User, username=username)
@@ -49,7 +53,6 @@ def login(request):
 def register(request):
     form = UserForm(request.POST, auto_id='register%s')
     if request.method == 'POST':
-        import pdb; pdb.set_trace()
         if User.objects.filter(username=request.POST['username']).exists():
             return render(request, 'tradepaper/register.html', {
                 'form': form,
