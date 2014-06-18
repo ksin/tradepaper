@@ -21,11 +21,20 @@ class UserTestCase(TestCase):
             city='Ridgewood',
             joindate=datetime.datetime.now(),
             )
-        print 'setup:', User.objects.all()
 
     def test_users_have_category(self):
-        print 'test:', User.objects.all()
         first_user = User.objects.get(id=1)
         second_user = User.objects.get(id=2)
         self.assertEqual(first_user.email, 'elibierman@gmail.com')
         self.assertEqual(second_user.email, 'amardeep34@gmail.com')
+
+class UserViewTest(TestCase):
+    def test_create_and_log_in_user_with_correct_credentials(self):
+
+    def test_create_and_log_in_user_with_wrong_password(self):
+
+    def test_create_and_log_in_user_with_nonexistent_username(self):
+
+    def test_create_and_log_in_user_and_log_out(self):
+
+    def test_create_and_log_in_user_and_check_user_index(self):
