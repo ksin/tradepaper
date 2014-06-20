@@ -6,7 +6,6 @@ class User(models.Model):
     email = models.EmailField(unique=True, )
     city = models.CharField(max_length=60, blank=True)
     website = models.URLField(blank=True)
-    joindate = models.DateTimeField()
 
     def __unicode__(self):
         return self.username

@@ -1,6 +1,9 @@
 import datetime
 
-from django.test import TestCase
+from django.test import TestCase, Client
+from users.models import User
+from django.core.urlresolvers import reverse
+
 from users.models import User
 
 class UserTestCase(TestCase):
@@ -11,7 +14,6 @@ class UserTestCase(TestCase):
             password='please',
             website='elibierman.com',
             city='Ridgewood',
-            joindate=datetime.datetime.now(),
             )
         User.objects.create(id=2,
             username='amardeep',
@@ -19,7 +21,6 @@ class UserTestCase(TestCase):
             password='please',
             website='portfolio.amardeeps.com',
             city='Ridgewood',
-            joindate=datetime.datetime.now(),
             )
 
     def test_users_have_category(self):
@@ -28,13 +29,24 @@ class UserTestCase(TestCase):
         self.assertEqual(first_user.email, 'elibierman@gmail.com')
         self.assertEqual(second_user.email, 'amardeep34@gmail.com')
 
-class UserViewTest(TestCase):
-    def test_create_and_log_in_user_with_correct_credentials(self):
+def create_user(username, email, password):
+    User.objects.create(
+        username=username,
+        email=email,
+        password=password,
+        )
 
-    def test_create_and_log_in_user_with_wrong_password(self):
-
-    def test_create_and_log_in_user_with_nonexistent_username(self):
-
-    def test_create_and_log_in_user_and_log_out(self):
-
-    def test_create_and_log_in_user_and_check_user_index(self):
+# class UserViewTest(TestCase):
+#     def test_create_and_log_in_user_with_correct_credentials(self):
+#         user = create_user('eli', 'eli@me.com', 'ok')
+#         c = Client()
+#         logged_in = c.login(username='eli', password='ok')
+#         self.assertEqual(logged_in, True)
+#
+    # def test_create_and_log_in_user_with_wrong_password(self):
+    #
+    # def test_create_and_log_in_user_with_nonexistent_username(self):
+    #
+    # def test_create_and_log_in_user_and_log_out(self):
+    #
+    # def test_create_and_log_in_user_and_check_user_index(self):

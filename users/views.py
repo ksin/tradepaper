@@ -66,7 +66,6 @@ def register(request):
                 username = request.POST['username'],
                 email = request.POST['email'],
                 password = request.POST['password'],
-                joindate=datetime.datetime.now(),
             )
             u.save()
             return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
