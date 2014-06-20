@@ -43,10 +43,18 @@ class UserViewTest(TestCase):
         logged_in = c.login(username='eli', password='ok')
         self.assertEqual(logged_in, True)
 
-    # def test_create_and_log_in_user_with_wrong_password(self):
-    #
-    # def test_create_and_log_in_user_with_nonexistent_username(self):
-    #
+    def test_create_and_log_in_user_with_wrong_password(self):
+        user = create_user('eli', 'eli@me.com', 'ok')
+        c = Client()
+        logged_in = c.login(username='eli', password='NOk')
+        self.assertEqual(logged_in, False)
+
+    def test_create_and_log_in_user_with_wrong_username(self):
+        user = create_user('eli', 'eli@me.com', 'ok')
+        c = Client()
+        logged_in = c.login(username='fred', password='ok')
+        self.assertEqual(logged_in, False)
+
     # def test_create_and_log_in_user_and_log_out(self):
     #
     # def test_create_and_log_in_user_and_check_user_index(self):
