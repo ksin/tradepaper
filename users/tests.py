@@ -36,13 +36,13 @@ def create_user(username, email, password):
         password=password,
         )
 
-# class UserViewTest(TestCase):
-#     def test_create_and_log_in_user_with_correct_credentials(self):
-#         user = create_user('eli', 'eli@me.com', 'ok')
-#         c = Client()
-#         logged_in = c.login(username='eli', password='ok')
-#         self.assertEqual(logged_in, True)
-#
+class UserViewTest(TestCase):
+    def test_create_and_log_in_user_with_correct_credentials(self):
+        user = create_user('eli', 'eli@me.com', 'ok')
+        c = Client()
+        logged_in = c.login(username='eli', password='ok')
+        self.assertEqual(logged_in, True)
+
     # def test_create_and_log_in_user_with_wrong_password(self):
     #
     # def test_create_and_log_in_user_with_nonexistent_username(self):
