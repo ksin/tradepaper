@@ -10,17 +10,17 @@ from users.models import User
 class UserTestCase(TestCase):
     def setUp(self):
         u1 = User.objects.create(id=1,
-            username='eli',
             email='elibierman@gmail.com',
             password='please',
+            name='eli',
             website='elibierman.com',
             city='Ridgewood',
             )
         u1.save()
         u2 = User.objects.create(id=2,
-            username='amardeep',
             email='amardeep34@gmail.com',
             password='please',
+            name='amardeep',
             website='portfolio.amardeeps.com',
             city='Ridgewood',
             )
@@ -32,43 +32,45 @@ class UserTestCase(TestCase):
         self.assertEqual(first_user.email, 'elibierman@gmail.com')
         self.assertEqual(second_user.email, 'amardeep34@gmail.com')
 
-def create_user(username, email, password):
-    User.objects.create(
-        username=username,
-        email=email,
-        password=password,
+def create_user(email, password, name, city):
+    user = User.objects.create(
+        email = email,
+        password = password,
+        name = name,
+        city = city
         )
+    user.save()
 
 class UserViewTest(TestCase):
     def test_create_and_log_in_user_with_correct_credentials(self):
-        user = create_user('eli', 'eli@me.com', 'ok')
-        response = self.client.post(reverse('users:login'), {'username':'eli', 'password':'ok'}, follow=True)
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        response = self.client.post(reverse('users:login'), {'email':'eli', 'password':'ok'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_with_wrong_password(self):
-        user = create_user('eli', 'eli@me.com', 'ok')
-        response = self.client.post(reverse('users:login'), {'username':'eli', 'password':'NOPE'}, follow=True)
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        response = self.client.post(reverse('users:login'), {'email':'eli', 'password':'NOPE'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_with_wrong_username(self):
-        user = create_user('eli', 'eli@me.com', 'ok')
-        response = self.client.post(reverse('users:login'), {'username':'elly', 'password':'ok'}, follow=True)
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        response = self.client.post(reverse('users:login'), {'email':'elly', 'password':'ok'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_and_log_out(self):
-        user = create_user('eli', 'eli@me.com', 'ok')
-        self.client.login(username='eli', password='ok')
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        self.client.login(name='eli', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
         response = self.client.post(reverse('users:logout'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_and_check_user_index(self):
-        user = create_user('eli', 'eli@me.com', 'ok')
-        self.client.login(username='eli', password='ok')
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        self.client.login(name='eli', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
         response = self.client.post(reverse('users:index'))
         self.assertEqual(response.status_code, 200)
