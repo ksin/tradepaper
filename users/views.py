@@ -11,64 +11,64 @@ from users.models import User
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'password', 'email',]
+        fields = ['email', 'password', 'name', 'city']
 
 class LoginForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'password',]
+        fields = ['email', 'password',]
 
 def index(request):
     user = User.objects.get(id=request.session['user_id'])
     if user:
-        return HttpResponse("Welcome %s!" % user.username)
+        return HttpResponse("Welcome %s!" % user.name)
     else:
         return HttpResponse("You're not logged in, but welcome anyway!")
 
-def profile(request, username):
-  user = get_object_or_404(User, username=username)
+def profile(request, name):
+  user = get_object_or_404(User, name=name)
 
   return render(request, 'tradepaper/profile.html', {'user':user})
 
 def login(request):
-    # user = get_object_or_404(User, username=request.POST['username'])
     form = LoginForm(request.POST, auto_id='login%s')
     if request.method != 'POST':
         return render(request, 'tradepaper/login.html', {'form': form})
     try:
-        u = User.objects.get(username=request.POST['username'])
+        u = User.objects.get(email=request.POST['email'])
         form = LoginForm(request.POST, auto_id='login%s', instance=u)
         if u.password == request.POST['password']:
             request.session['user_id'] = u.id
-            return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
+            return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
         else:
             return render(request, 'tradepaper/login.html', {
                 'form': form,
-                'error_message': "Your username and password didn't match."})
+                'error_message': "Your email and password didn't match."})
     except User.DoesNotExist:
         return render(request, 'tradepaper/login.html', {
             'form': form,
-            'error_message': "There is no account for that username."})
+            'error_message': "There is no account for that email."})
 
 def register(request):
     form = UserForm(request.POST, auto_id='register%s')
     if request.method == 'POST':
-        if User.objects.filter(username=request.POST['username']).exists():
+        if User.objects.filter(email=request.POST['email']).exists():
             return render(request, 'tradepaper/register.html', {
                 'form': form,
-                'error_message': 'That username is already taken'})
-        elif User.objects.filter(email=request.POST['email']).exists():
+                'error_message': 'That email already has an account'})
+        elif User.objects.filter(name=request.POST['name']).exists():
             return render(request, 'tradepaper/register.html', {
                 'form': form,
-                'error_message': 'There is already a user with that email address'})
+                'error_message': 'There is already a user with that name'})
         if form.is_valid():
             u = User.objects.create(
-                username = request.POST['username'],
                 email = request.POST['email'],
                 password = request.POST['password'],
+                name = request.POST['name'],
+                city = request.POST['city']
             )
             u.save()
-            return HttpResponseRedirect(reverse('users:profile', args=(u.username,)))
+            return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
         else:
             return render(request, 'tradepaper/register.html', {
                 'form': form,
