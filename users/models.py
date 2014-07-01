@@ -23,11 +23,21 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=40, unique=True)
     city = models.CharField(max_length=60, blank=True)
     website = models.URLField(blank=True)
+    date_joined = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'city']
+    REQUIRED_FIELDS = ['name', 'city']
 
     objects = UserManager()
 
+    # def has_perm(perm, obj=None):
+    #     # Returns True if the user has the named permission. If obj is provided,
+    #     # the permission needs to be checked against a specific object instance
+    # def has_module_perms(app_label):
+    #     # Returns True if the user has permission to access models in the given app.
+
     def __unicode__(self):
-        return self.username
+        return self.email

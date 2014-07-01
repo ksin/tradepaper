@@ -92,6 +92,11 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'users.User'
 
+AUTHENTICATION_BACKENDS = (
+    'users.backends.EmailModelBackend',
+    'django.contrib.auth.backends.ModelBackend'
+)
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 

@@ -32,7 +32,7 @@ class UserTestCase(TestCase):
         self.assertEqual(second_user.email, 'amardeep34@gmail.com')
 
 def create_user(email, password, name, city):
-    user = get_user_model().objects.create(
+    user = get_user_model().objects.create_user(
         email = email,
         password = password,
         name = name,
@@ -43,25 +43,26 @@ def create_user(email, password, name, city):
 class UserViewTest(TestCase):
     def test_create_and_log_in_user_with_correct_credentials(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        response = self.client.post(reverse('users:login'), {'email':'eli', 'password':'ok'}, follow=True)
+        response = self.client.post(reverse('users:login'), {'email':'eli@me.com', 'password':'ok'}, follow=True)
+        import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertTrue(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_with_wrong_password(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        response = self.client.post(reverse('users:login'), {'email':'eli', 'password':'NOPE'}, follow=True)
+        response = self.client.post(reverse('users:login'), {'email':'eli@me.com', 'password':'NOPE'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
-    def test_create_and_log_in_user_with_wrong_username(self):
+    def test_create_and_log_in_user_with_wrong_email(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        response = self.client.post(reverse('users:login'), {'email':'elly', 'password':'ok'}, follow=True)
+        response = self.client.post(reverse('users:login'), {'email':'elly@me.com', 'password':'ok'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_and_log_out(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        authenticate(email='eli', password='ok')
+        authenticate(email='eli@me.com', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
         response = self.client.post(reverse('users:logout'), follow=True)
         self.assertEqual(response.status_code, 200)
@@ -69,7 +70,7 @@ class UserViewTest(TestCase):
 
     def test_create_and_log_in_user_and_check_user_index(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        authenticate(email='eli', password='ok')
+        authenticate(email='eli@me.com', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
         response = self.client.post(reverse('users:index'))
         self.assertEqual(response.status_code, 200)
