@@ -17,7 +17,7 @@
 <div class="login">
 	<h1>Log In</h1>
 	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
-	<form action="{% url 'users:login' %}" method="post">
+	<form action="{% url 'login' %}" method="post">
 		{% csrf_token %}
 	    <h2>Username:</h2>
 	    <input type="text" name="email" placeholder="email" id="login_email" data-required="required" class="textfield_effect">
@@ -30,7 +30,7 @@
 		</div>
 	</form>
 
-    <a href="{% url 'users:register' %}" class="textfield_effect" id="loginregisterlink"> Register </a>
+    <a href="{% url 'register' %}" class="textfield_effect" id="loginregisterlink"> Register </a>
 
 </div>
 <!--END Sign Up-->

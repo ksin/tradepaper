@@ -33,12 +33,18 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
-    def has_perm(perm, obj=None):
-        return False;
+    def get_full_name(self):
+        return self.email
+
+    def get_short_name(self):
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        return True;
         # Returns True if the user has the named permission. If obj is provided,
         # the permission needs to be checked against a specific object instance
-    def has_module_perms(app_label):
-        return False;
+    def has_module_perms(self, app_label):
+        return True;
         # Returns True if the user has permission to access models in the given app.
 
     def __unicode__(self):

@@ -17,7 +17,7 @@
 <div class="signup">
 	<h1>Sign Up</h1>
 	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
-	<form action="{% url 'users:register' %}" method="post">
+	<form action="{% url 'register' %}" method="post">
 		{% csrf_token %}
 	    <h2>Pick a username:</h2>
 		<input type="text" name="username" placeholder="username" id="register_username" data-required="required" class="textfield_effect">

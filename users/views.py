@@ -34,7 +34,6 @@ def login(request):
     form = LoginForm(request.POST, auto_id='login%s')
     if request.method != 'POST':
         return render(request, 'tradepaper/login.html', {'form': form})
-    import pdb;pdb.set_trace()
     u = authenticate(email=request.POST['email'],
                      password=request.POST['password'])
     form = LoginForm(request.POST, auto_id='login%s', instance=u)
@@ -73,9 +72,9 @@ def register(request):
                 city = request.POST['city']
             )
             u.save()
-            authenticate(email=request.POST['email'],
-                        password=request.POST['password'])
-            auth_login(request, u)
+            auth_user = authenticate(email=request.POST['email'],
+                                    password=request.POST['password'])
+            auth_login(request, auth_user)
             return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
         else:
             return render(request, 'tradepaper/register.html', {
