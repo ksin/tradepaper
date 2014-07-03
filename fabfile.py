@@ -1,4 +1,4 @@
-from fabric.api import lcd, local, hosts, run, cd, prefix, sudo
+from fabric.api import lcd, local, hosts, run, cd, prefix, sudo, settings
 
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
@@ -13,7 +13,8 @@ def deploy_dev():
 
         #users app
         local('./manage.py syncdb')
-        local('./manage.py schemamigration --auto users')
+        with settings(warn_only=True):
+            local('./manage.py schemamigration --auto users')
         local('./manage.py migrate users')
         local('./manage.py test users')
         local('./manage.py runserver localhost:8000')

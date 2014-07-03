@@ -34,6 +34,7 @@ def login(request):
     form = LoginForm(request.POST, auto_id='login%s')
     if request.method != 'POST':
         return render(request, 'tradepaper/login.html', {'form': form})
+    import pdb;pdb.set_trace()
     u = authenticate(email=request.POST['email'],
                      password=request.POST['password'])
     form = LoginForm(request.POST, auto_id='login%s', instance=u)
@@ -65,13 +66,16 @@ def register(request):
                 'form': form,
                 'error_message': 'There is already a user with that name'})
         if form.is_valid():
-            u = User.objects.create(
+            u = User.objects.create_user(
                 email = request.POST['email'],
                 password = request.POST['password'],
                 name = request.POST['name'],
                 city = request.POST['city']
             )
             u.save()
+            authenticate(email=request.POST['email'],
+                        password=request.POST['password'])
+            auth_login(request, u)
             return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
         else:
             return render(request, 'tradepaper/register.html', {
