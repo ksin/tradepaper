@@ -19,11 +19,12 @@ class LoginForm(ModelForm):
         fields = ['email', 'password',]
 
 def index(request):
-    user = User.objects.get(id=request.session['user_id'])
-    if user:
-        return HttpResponse("Welcome %s!" % user.name)
-    else:
+    user = request.user
+    if user is None or not user.is_authenticated():
         return HttpResponse("You're not logged in, but welcome anyway!")
+    else:
+        return HttpResponse("Welcome %s!" % user.name)
+
 
 def profile(request, name):
     user = get_object_or_404(User, name=name)

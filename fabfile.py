@@ -2,6 +2,7 @@ from fabric.api import lcd, local, hosts, run, cd, prefix, sudo
 
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
+    local('./manage.py test users')
     local('git add -A . && git commit')
     local('git push origin %s' % branch_name)
 
@@ -12,6 +13,7 @@ def deploy_dev():
 
         #users app
         local('./manage.py syncdb')
+        local('./manage.py schemamigration --auto users')
         local('./manage.py migrate users')
         local('./manage.py test users')
         local('./manage.py runserver localhost:8000')
