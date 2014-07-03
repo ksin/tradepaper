@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
 from django.contrib import sessions
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.forms import ModelForm
 
 from users.models import User
@@ -30,7 +30,7 @@ def profile(request, name):
     user = get_object_or_404(User, name=name)
     return render(request, 'tradepaper/profile.html', {'user':user})
 
-def custom_login(request):
+def login(request):
     form = LoginForm(request.POST, auto_id='login%s')
     if request.method != 'POST':
         return render(request, 'tradepaper/login.html', {'form': form})
@@ -46,11 +46,11 @@ def custom_login(request):
                                 'form': form,
                                 'error_message': "That account has been disabled."})
     # User has authenticated successfully
-    login(request, u)
+    auth_login(request, u)
     return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
 
-def custom_logout(request):
-    logout(request)
+def logout(request):
+    auth_logout(request)
     return HttpResponseRedirect(reverse('home'))
 
 def register(request):
