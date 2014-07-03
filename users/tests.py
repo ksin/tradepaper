@@ -1,7 +1,7 @@
 import datetime
 
 from django.test import TestCase, Client
-from django.contrib.auth import SESSION_KEY, authenticate, login, get_user_model
+from django.contrib.auth import SESSION_KEY, get_user_model
 from django.core.urlresolvers import reverse
 
 from users.models import User
@@ -44,7 +44,6 @@ class UserViewTest(TestCase):
     def test_create_and_log_in_user_with_correct_credentials(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
         response = self.client.post(reverse('users:login'), {'email':'eli@me.com', 'password':'ok'}, follow=True)
-        import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertTrue(SESSION_KEY in self.client.session)
 
@@ -62,16 +61,16 @@ class UserViewTest(TestCase):
 
     def test_create_and_log_in_user_and_log_out(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        authenticate(email='eli@me.com', password='ok')
+        self.client.login(email='eli@me.com', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
-        response = self.client.post(reverse('users:logout'), follow=True)
+        response = self.client.get(reverse('users:logout'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
     def test_create_and_log_in_user_and_check_user_index(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        authenticate(email='eli@me.com', password='ok')
+        self.client.login(email='eli@me.com', password='ok')
         self.assertTrue(SESSION_KEY in self.client.session)
-        response = self.client.post(reverse('users:index'))
+        response = self.client.get(reverse('users:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'eli')
