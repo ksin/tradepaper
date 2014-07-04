@@ -19,14 +19,17 @@
 	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
 	<form action="{% url 'register' %}" method="post">
 		{% csrf_token %}
-	    <h2>Pick a username:</h2>
-		<input type="text" name="username" placeholder="username" id="register_username" data-required="required" class="textfield_effect">
+		<h2>Enter your email address:</h2>
+		<input type="email" name="email" placeholder="email address" id="register_email" data-required="required" class="textfield_effect">
 
 	    <h2>Choose a password:</h2>
 		<input type="password" name="password" placeholder="password" id="register_password" data-required="required" class="textfield_effect">
 
-	    <h2>Enter your email address:</h2>
-		<input type="email" name="email" placeholder="email address" id="register_email" data-required="required" class="textfield_effect">
+		<h2>Enter your name:</h2>
+		<input type="text" name="name" placeholder="name" id="register_name" data-required="required" class="textfield_effect">
+
+		<h2>What city do you live in?:</h2>
+		<input type="text" name="city" placeholder="city" id="register_city" data-required="required" class="textfield_effect">
 
 		<input type="submit" value="Submit" class="textfield_effect" id="register_submit">
 	</form>
