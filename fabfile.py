@@ -6,7 +6,7 @@ def prep_deploy(branch_name):
     migrate_local()
     with settings(warn_only=True):
         local('git add -A . && git commit')
-        local('git push origin %s' % branch_name)
+    local('git push origin %s' % branch_name)
 
 def deploy_dev():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
