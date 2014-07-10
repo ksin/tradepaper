@@ -3,20 +3,15 @@ from fabric.api import lcd, local, hosts, run, cd, prefix, sudo, settings
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
     local('./manage.py test users')
-    local('git add -A . && git commit')
-    local('git push origin %s' % branch_name)
+    migrate_local()
+    with settings(warn_only=True):
+        local('git add -A . && git commit')
+        local('git push origin %s' % branch_name)
 
 def deploy_dev():
     with lcd('~/Documents/Apps/Django/tradepaper/'):
         local('git pull origin master')
         local('pip install -r requirements.txt --allow-all-external')
-
-        #users app
-        local('./manage.py syncdb')
-        with settings(warn_only=True):
-            local('./manage.py schemamigration --auto users')
-        local('./manage.py migrate users')
-        local('./manage.py test users')
         local('./manage.py runserver localhost:8000')
 
 @hosts('eli@beta.trade-paper.com')
@@ -54,3 +49,10 @@ def update_prod():
         sudo('apt-get upgrade')
         with prefix('source bin/activate'):
             run('pip install -r requirements.txt --allow-all-external')
+
+def migrate_local():
+    #users app
+    local('./manage.py syncdb')
+    with settings(warn_only=True):
+        local('./manage.py schemamigration --auto users')
+    local('./manage.py migrate users')
