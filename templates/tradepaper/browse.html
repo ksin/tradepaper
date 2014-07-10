@@ -1,19 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Browse - trade–paper</title>
-    {% load staticfiles %}
-    <link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Browse - trade–paper</title>
+    <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+	{% load staticfiles %}
+	<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
 {% include "tradepaper/nav-bar.html" %}
+<!-- Frame Links -->
+<!-- <div class="top"></div>
+<div class="framelink" id="link1"><a href="look">Browse</a>
+</div>
+<div class="framelink" id="link2"><a href="//">trade–paper</a>
+</div>
+<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
+<input type="text" name="query" class="search_effect" placeholder="Search">
+</form>
+</div>
+<div class="framelink" id="link4"><a href="/about">About</a>
+</div> -->
+<!--If signed in:-->
+<!-- <div class="framelink" id="link5">
+	<a href="http://trade-paper.com/myaccount">My Account</a>
+    <ul>
+    	<li><a href="/">Something</a></li>
+        <li><a href="/">Requests</a></li>
+        <li><a href="/">My Profile</a></li>
+        <li><a href="http://trade-paper.com/logout">Log Out</a></li>
+    </ul>
+</div> -->
+<!--Else:-->
+<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
+<!--END Frame Links-->
+
 
 <div class="browse_container">
+
 			<h2>Browse</h2>
+
            	<!--LINK TO THISMAG PRODUCT PAGE-->
             <div class="browse_element">
             	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
@@ -56,12 +85,9 @@
                 <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
                 <p>Publication Edition</p>
            	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div>
 
+
+            <!--NEXT PAGE OR LOAD MORE ON SAME PAGE-->
 </div>
 <div class="bottom"></div>
 </body>

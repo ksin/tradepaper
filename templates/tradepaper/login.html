@@ -4,14 +4,42 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Login - trade–paper</title>
-	{% load staticfiles %}
-	<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+{% load staticfiles %}
+<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
 {% include "tradepaper/nav-bar.html" %}
+<!-- Frame Links -->
+<!-- <div class="top"></div>
+<div class="framelink" id="link1"><a href="look">Browse</a>
+</div>
+<div class="framelink" id="link2"><a href="//">trade–paper</a>
+</div>
+<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
+<input type="text" name="query" class="search_effect" placeholder="Search">
+</form>
+</div>
+<div class="framelink" id="link4"><a href="/about">About</a>
+</div> -->
+<!--If signed in:-->
+<!-- <div class="framelink" id="link5">
+<a href="http://trade-paper.com/myaccount">My Account</a>
+<ul>
+	<li><a href="/">Something</a></li>
+	<li><a href="/">Requests</a></li>
+	<li><a href="/">My Profile</a></li>
+	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
+</ul>
+</div> -->
+<!--Else:-->
+<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
+<!--END Frame Links-->
+
 
 <!--Sign Up-->
 <div class="login">
@@ -19,7 +47,7 @@
 	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
 	<form action="{% url 'login' %}" method="post">
 		{% csrf_token %}
-	    <h2>Username:</h2>
+	    <h2>Email address:</h2>
 	    <input type="text" name="email" placeholder="email" id="login_email" data-required="required" class="textfield_effect">
 
 	    <h2>Password:</h2>
@@ -30,7 +58,11 @@
 		</div>
 	</form>
 
-    <a href="{% url 'register' %}" class="textfield_effect" id="loginregisterlink"> Register </a>
+	<div id="loginsubmitbutton">
+	<form action="{% url 'register' %}" method="get">
+		<input type="submit" value="Register" class="textfield_effect" id="login_submit">
+	</form>
+	</div>
 
 </div>
 <!--END Sign Up-->

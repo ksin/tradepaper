@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Request Trade – trade–paper</title>
+<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+	{% load staticfiles %}
+	<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+{% include "tradepaper/nav-bar.html" %}
+<!-- Frame Links -->
+<!-- <div class="top"></div>
+<div class="framelink" id="link1"><a href="look">Browse</a>
+</div>
+<div class="framelink" id="link2"><a href="//">trade–paper</a>
+</div>
+<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
+<input type="text" name="query" class="search_effect" placeholder="Search">
+</form>
+</div>
+<div class="framelink" id="link4"><a href="/about">About</a>
+</div> -->
+<!--If signed in:-->
+<!-- <div class="framelink" id="link5">
+<a href="http://trade-paper.com/myaccount">My Account</a>
+<ul>
+	<li><a href="/">Something</a></li>
+	<li><a href="/">Requests</a></li>
+	<li><a href="/">My Profile</a></li>
+	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
+</ul>
+</div> -->
+<!--Else:-->
+<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
+<!--END Frame Links-->
+
+
+<!--Sign Up-->
+<div class="request">
+
+    <h1>Request Trade</h1>
+
+    <!--Fill in blank with message receipient-->
+    <h3>Requesting a trade with <FONT color="#0147FA">user</FONT></h3>
+
+    <!--If this is the first message between the two users, then start new thread with only 1 textarea displayed:-->
+<<<<<<< HEAD
+         <!-- Reinstate this when recoding:
+            <div id="request_outgoing_msg">
+            <textarea class="req_message_out" cols="20" name="req_message_out" rows="1"></textarea>
+         -->
+
+    <!--If this is not the first message between the two users, pull all messages before loading textarea for logged-in user-->
+        <!--If current user was the first sender, then this:-->
+
+    <div class="req_message_out">
+        <!--Import received message text here-->
+        Hey man, would you want to trade my ham and cheese for your meatball sammy?
+    </div>
+
+
+    <div class="req_message_in">
+        <!--Import received message text here-->
+        No thanks.
+        How about for this other one? I like that one a little bit less so I don't really care as much man I can't believe you read all of this.
+    </div>
+
+
+
+    <textarea class="req_message_out_ta" cols="20" name="req_message_out" rows="1"></textarea>
+
+    <!--The submit button should only show up under the bottom-most text field.-->
+    <div id="submitmessage">
+		<input type="submit" value="Send" class="textfield_effect" id="request_msg_send">
+		</form>
+       	<!--Store this textarea's info and send it to the receipient.-->
+    </div>
+<<<<<<< HEAD
+
+    <div id="confirmtrade">
+        <input type="submit" value="Confirm Trade" class="textfield_effect" id="confirmtradebutton">
+        </form>
+    </div>
+
+    <div id="rejecttrade">
+        <input type="submit" value="Reject Trade" class="textfield_effect" id="rejecttradebutton">
+        </form>
+    </div>
+
+=======
+
+	</div>
+
+>>>>>>> FETCH_HEAD
+</div>
+
+<!--END Sign Up-->
+
+<div class="bottom"></div>
+</body>
+</html>

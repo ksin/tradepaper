@@ -4,14 +4,41 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Profile - trade–paper</title>
-	{% load staticfiles %}
-	<link href="{% static "tradepaper/styles.css" %}" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+{% load staticfiles %}
+<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
 {% include "tradepaper/nav-bar.html" %}
+<!-- Frame Links -->
+<!-- <div class="top"></div>
+<div class="framelink" id="link1"><a href="look">Browse</a>
+</div>
+<div class="framelink" id="link2"><a href="//">trade–paper</a>
+</div>
+<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
+<input type="text" name="query" class="search_effect" placeholder="Search">
+</form>
+</div>
+<div class="framelink" id="link4"><a href="/about">About</a>
+</div> -->
+<!--If signed in:-->
+<!-- <div class="framelink" id="link5">
+<a href="http://trade-paper.com/myaccount">My Account</a>
+<ul>
+	<li><a href="/">Something</a></li>
+	<li><a href="/">Requests</a></li>
+	<li><a href="/">My Profile</a></li>
+	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
+</ul>
+</div> -->
+<!--Else:-->
+<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
+<!--END Frame Links-->
+
 
 <!--Set Page Title to "username - trade-paper"-->
 
@@ -19,15 +46,18 @@
 <div class="profile_head">
 
 	<h2>Profile</h2>
-	<!--Get avatar-->
-	<!--<img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />-->
-	<!--Get username-->
+	<!-- Get avatar-->
+    <img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />
+	<!--Get username -->
+	<!-- <div id="unamedisp">amardeep</div> -->
 	<div id="unamedisp">{{ user.username }}</div>
 	<!--Get city location-->
+	<!-- <h3>new york city</h3> -->
 	{% if user.city %}
 		<h3>{{ user.city }}</h3>
 	{% endif %}
 	<!--Get website if any-->
+	<!-- <h3><a href="">portfolio.amardeeps.com</a></h3> -->
 	{% if user.website %}
 		<h3><a href="">{{ user.website }}</a></h3>
 	{% endif %}
@@ -38,58 +68,59 @@
 <!--Profile Content-->
 <div class="profile">
 
-	<!--FIX
-	<div class="profile_sort">
-		<p>Sort by: DROP DOWN</p>
-	</div>
-	FIX-->
 
-		<!--RUN %IF FOR AS MANY ELEMENTS AS THERE ARE-->
-		<div class="profile_element">
-			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-			<p>Publication Edition</p>
-			<div class="tradebutton">
-				<a href="/">Offer Trade</a>
-			</div>
-		</div>
+    <!--FIX
+    <div class="profile_sort">
+    	<p>Sort by: DROP DOWN</p>
+    </div>
+    FIX-->
 
-		<div class="profile_element">
-			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-			<p>Publication Edition</p>
-			<div class="tradebutton">
-				<a href="/">Offer Trade</a>
-			</div>
-		</div>
+    	<!--RUN %IF FOR AS MANY ELEMENTS AS THERE ARE-->
+        <div class="profile_element">
+            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+            <p>Publication Edition</p>
+            <div class="tradebutton">
+                <a href="/">Offer Trade</a>
+            </div>
+        </div>
 
-		<div class="profile_element">
-			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-			<p>Publication Edition</p>
-			<div class="tradebutton">
-				<a href="/">Offer Trade</a>
-			</div>
-		</div>
+        <div class="profile_element">
+            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+            <p>Publication Edition</p>
+            <div class="tradebutton">
+                <a href="/">Offer Trade</a>
+            </div>
+        </div>
 
-		<div class="profile_element">
-			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-			<p>Publication Edition</p>
-			<div class="tradebutton">
-				<a href="/">Offer Trade</a>
-			</div>
-		</div>
+        <div class="profile_element">
+            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+            <p>Publication Edition</p>
+            <div class="tradebutton">
+                <a href="/">Offer Trade</a>
+            </div>
+        </div>
 
-		<div class="profile_element">
-			<!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-			<!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-			<p>Publication Edition</p>
-			<div class="tradebutton">
-				<a href="/">Offer Trade</a>
-			</div>
-		</div>
-		</div>
+        <div class="profile_element">
+            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+            <p>Publication Edition</p>
+            <div class="tradebutton">
+                <a href="/">Offer Trade</a>
+            </div>
+        </div>
+
+        <div class="profile_element">
+            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
+            <p>Publication Edition</p>
+            <div class="tradebutton">
+                <a href="/">Offer Trade</a>
+            </div>
+        </div>
+        </div>
 
 </div>
 <!--End Profile Content-->

@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Register - trade–paper</title>
+	<title>Pending Requests - trade–paper</title>
 <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
 {% load staticfiles %}
 <link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
@@ -39,29 +39,36 @@
 <!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
 <!--END Frame Links-->
 
-
 <!--Sign Up-->
-<div class="signup">
-	<h1>Sign Up</h1>
-	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
-	<form action="{% url 'register' %}" method="post">
-		{% csrf_token %}
-		<h2>Enter your email address:</h2>
-		<input type="email" name="email" placeholder="email address" id="register_email" data-required="required" class="textfield_effect">
+<div class="pendingrequests">
+	<h2>Pending Requests</h2>
+    <!--% if no pending requests:-->
+    <!--<div id="none">
+    	<p>You have no pending requests.</p>
+    </div>-->
+    <!--else:-->
+    <div id="some">
+    	<div class="outer">
+          <div>[[date]]</div>
+          <div class="middle">New trade request from [[user]]</div>
+          <!--Show .mailstatus class only if trade has been accepted
+          <div class="mailstatus"></div>-->
+        </div>
 
-	    <h2>Choose a password:</h2>
-		<input type="password" name="password" placeholder="password" id="register_password" data-required="required" class="textfield_effect">
+        <div class="outer">
+          <div>July 7, 2014</div>
+          <div class="middle">
+          <!--If status of trade is pending:-->
+          	Pending trade request from amardeep33
+          </div>
 
-		<h2>Pick a username:</h2>
-		<input type="text" name="name" placeholder="name" id="register_name" data-required="required" class="textfield_effect">
+          <!--Show .mailstatus class only if trade has been accepted
+          <div class="mailstatus"></div>-->
+        </div>
+    </div>
 
-		<h2>Location:</h2>
-		<input type="text" name="city" placeholder="city" id="register_city" data-required="required" class="textfield_effect">
-
-		<input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
-	</form>
 </div>
-
+<!--END Sign Up-->
 
 <div class="bottom"></div>
 </body>
