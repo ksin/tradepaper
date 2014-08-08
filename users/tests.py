@@ -39,6 +39,7 @@ def create_user(email, password, name, city):
         city = city
         )
     user.save()
+    return user
 
 class UserViewTest(TestCase):
     def test_create_and_log_in_user_with_correct_credentials(self):
