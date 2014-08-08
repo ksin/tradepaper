@@ -1,4 +1,5 @@
-from papers import models
+from papers.models import Listing
+from users.models import User
 
 from django.test import TestCase
 from django.utils import timezone
@@ -28,8 +29,8 @@ class ListingTestCase(TestCase):
     def test_create_listings(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
         listing = create_listing('Playdog', '2nd', 8.5, user)
-        self.assertContains(user.listing_set.all(), user)
+        self.assertEqual(user.listing_set.all()[0], listing)
         self.assertEqual(listing.user, user)
         self.assertEqual('Playdog', listing.title)
         self.assertEqual('eli', listing.user.name)
-        self.assertGreater(timezone.now(), listing.date_created)
+        self.assertGreater(timezone.now(), listing.date_posted)
