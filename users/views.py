@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import sessions
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.forms import ModelForm
+from django.contrib import messages
 
 from users.models import User
 
@@ -38,13 +39,13 @@ def login(request):
                      password=request.POST['password'])
     form = LoginForm(request.POST, auto_id='login%s', instance=u)
     if u is None:
+        messages.error(request, "That email and password didn't match.")
         return render(request, 'tradepaper/login.html', {
-                                'form': form,
-                                'error_message': "That email and password didn't match."})
+                                'form': form})
     if not(u.is_active):
+        messages.error(request, "That account has been disabled.")
         return render(request, 'tradepaper/login.html', {
-                                'form': form,
-                                'error_message': "That account has been disabled."})
+                                'form': form})
     # User has authenticated successfully
     auth_login(request, u)
     return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
@@ -57,13 +58,11 @@ def register(request):
     form = UserForm(request.POST, auto_id='register%s')
     if request.method == 'POST':
         if User.objects.filter(email=request.POST['email']).exists():
-            return render(request, 'tradepaper/register.html', {
-                'form': form,
-                'error_message': 'That email already has an account'})
+            messages.error(request, 'That email already has an account')
+            return render(request, 'tradepaper/register.html', {'form': form})
         elif User.objects.filter(name=request.POST['name']).exists():
-            return render(request, 'tradepaper/register.html', {
-                'form': form,
-                'error_message': 'There is already a user with that name'})
+            messages.error(request, 'There is already a user with that name')
+            return render(request, 'tradepaper/register.html', {'form': form})
         if form.is_valid():
             u = User.objects.create_user(
                 email = request.POST['email'],
@@ -77,8 +76,7 @@ def register(request):
             auth_login(request, auth_user)
             return HttpResponseRedirect(reverse('users:profile', args=(u.name,)))
         else:
-            return render(request, 'tradepaper/register.html', {
-                'form': form,
-                'error_message': 'Please fill in all required fields'})
+            messages.error(request, 'Please fill in all required fields')
+            return render(request, 'tradepaper/register.html', {'form': form})
     else:
         return render(request, 'tradepaper/register.html', {'form': form})

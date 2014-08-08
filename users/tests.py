@@ -95,7 +95,7 @@ class UserViewTest(TestCase):
                 follow=True)
         self.assertFalse(SESSION_KEY in self.client.session)
         self.assertEqual(response.status_code, 200)
-        # missing field
+        # missing city field
         response = self.client.post(reverse('register'),
                 {'email':'eli',
                 'password':'ok',

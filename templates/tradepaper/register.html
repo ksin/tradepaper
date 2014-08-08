@@ -43,7 +43,11 @@
 <!--Sign Up-->
 <div class="signup">
 	<h1>Sign Up</h1>
-	{% if error_message %}<h2>{{ error_message }}</h2>{% endif %}
+	{% if messages %}
+		{% for message in messages %}
+		<h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
+		{% endfor %}
+	{% endif %}
 	<form action="{% url 'register' %}" method="post">
 		{% csrf_token %}
 		<h2>Enter your email address:</h2>
