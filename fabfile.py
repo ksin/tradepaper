@@ -3,6 +3,7 @@ from fabric.api import lcd, local, hosts, run, cd, prefix, sudo, settings
 def prep_deploy(branch_name):
     local('./manage.py test tradepaper')
     local('./manage.py test users')
+    local('./manage.py test papers')
     migrate_local()
     with settings(warn_only=True):
         local('git add -A . && git commit')
