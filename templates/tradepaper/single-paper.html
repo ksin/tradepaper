@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>[[get-paper-title]] from [[get-username]] - trade–paper</title>
+	<title>{{ listing.title }} from {{ listing.user.name }} - trade–paper</title>
 <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
 {% load staticfiles %}
 <link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
@@ -56,15 +56,15 @@
 
             <!--<div class="paper_text">-->
             	<div class="ppe_title">
-            		<p>Plant Journal</p>
+            		<p>{{ listing.title }}</p>
             	</div>
 
                 <div class="ppe_edition">
-                    <p>Issue 2</p>
+                    <p>{{ listing.edition }}</p>
                 </div>
 
                 <div class="ppe_condition">
-                    <p>9 / 10</p>
+                    <p>{{ listing.condition }} / 10</p>
                 </div>
 
                 <div class="ppe_tradebutton">
@@ -102,7 +102,7 @@
         <!--SHOW USER'S OTHER PAPER HERE-->
 
         <div class="pp_recs_container">
-                <div id="relatedtext"><p>Other paper from <a href=""><em>user</em></a> : </p></div>
+                <div id="relatedtext"><p>Other paper from <a href="{% url 'users:profile' name=listing.user.name %}"><em>{{ listing.user.name }}</em></a> : </p></div>
                 <div class="pp_recs">
                     <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
                     <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
