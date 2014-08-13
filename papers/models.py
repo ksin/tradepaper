@@ -10,6 +10,7 @@ class Listing(models.Model):
     condition = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(10)])
     user = models.ForeignKey(User)
     date_posted = models.DateTimeField(default=timezone.now())
+    image_url = models.URLField()
 
     def __unicode__(self):
         return "%s, %s" % (self.title, self.edition)
