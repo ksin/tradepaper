@@ -1,3 +1,5 @@
+import sys
+
 from common import *
 
 DEBUG = False
@@ -13,9 +15,11 @@ DATABASES = {
     }
 }
 
-import sys
+# this is so that tests run using sqlite as test database
 if 'test' in sys.argv:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'tradepaper'
     }
+
+S3_BUCKET = 'trade-paper'

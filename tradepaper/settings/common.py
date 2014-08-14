@@ -126,3 +126,7 @@ LOGGING = {
         },
     },
 }
+
+# Amazon S3 Access Keys
+AWS_ACCESS_KEY_ID='AKIAID3BTQHLTVIG4ITQ'
+AWS_SECRET_ACCESS_KEY='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'
