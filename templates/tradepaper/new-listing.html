@@ -41,36 +41,42 @@
 
 <div class="newlisting">
 <h1>Add New Paper</h1>
-<h2>Publication Title:</h2>
-    <!--text form here-->
-    <label for="paper_title"></label>
-    <!--XXXXXX BELOW MEANS I DON'T KNOW-->
-    <input type="text" name="XXXXXX" placeholder="title" id="signup_username" data-required="required" class="textfield_effect2">
-    <!--^ Make backend capitalize this properly ^-->
+{% if messages %}
+    {% for message in messages %}
+    <h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
+    {% endfor %}
+{% endif %}
+<form action="{% url 'papers:new_listing' %}" method="post">
+    {% csrf_token %}
+    <h2>Publication Title:</h2>
+        <!--text form here-->
+        <label for="paper_title"></label>
+        <!--XXXXXX BELOW MEANS I DON'T KNOW-->
+        <input type="text" name="title" placeholder="title" id="new_listing_title" data-required="required" class="textfield_effect2">
+        <!--^ Make backend capitalize this properly ^-->
 
-<h2>Paper Edition:</h2>
-    <!--text form here-->
-    <label for="paper_edition"></label>
-    <input type="text" name="XXXXXX" placeholder="edition" id="paper_edition" data-required="required" class="textfield_effect2">
+    <h2>Paper Edition:</h2>
+        <!--text form here-->
+        <label for="paper_edition"></label>
+        <input type="text" name="edition" placeholder="edition" id="new_listing_edition" data-required="required" class="textfield_effect2">
 
-<h2>Condition:</h2>
-    <!--text form here-->
-   	<label for="paper_condition"></label>
-    <input type="text" name="XXXXXX" placeholder="condition out of 10" id="paper_condition" data-required="required" class="textfield_effect2">
-    <!--^ Make backend set bounds/restrictions on this to make sure it's a valid number ^-->
+    <h2>Condition:</h2>
+        <!--text form here-->
+       	<label for="paper_condition"></label>
+        <input type="text" name="condition" placeholder="condition out of 10" id="new_listing_condition" data-required="required" class="textfield_effect2">
 
 
-<!--Add category picker here-->
-<!---->
-<!---->
+    <!--Add category picker here-->
+    <!---->
+    <!---->
 
-<h2>Upload Images:</h2>
-<div id="uploadimg">
-</div>
+    <h2>Upload Images:</h2>
+    <div id="uploadimg">
+    </div>
 
-	<input type="submit" value="Submit" class="textfield_effect" id="newlisting_submit">
-	</form>
-    <div class="bottom"></div>
+	<input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
+</form>
+<div class="bottom"></div>
 </div>
 
 </body>

@@ -2,8 +2,9 @@ from papers.models import Listing
 from users.models import User
 
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 from django.utils import timezone
-from django.contrib.auth import get_user_model
+from django.contrib.auth import SESSION_KEY, get_user_model
 
 def create_listing(title, edition, condition, user):
     listing = Listing.objects.create(
@@ -34,3 +35,43 @@ class ListingTestCase(TestCase):
         self.assertEqual('Playdog', listing.title)
         self.assertEqual('eli', listing.user.name)
         self.assertGreater(timezone.now(), listing.date_posted)
+
+class ListingViewTestCase(TestCase):
+    def test_log_in_and_create_new_listing(self):
+        # create user and log in
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        self.client.login(email='eli@me.com', password='ok')
+        self.assertTrue(SESSION_KEY in self.client.session)
+
+        # create new listing
+        response = self.client.post(reverse('papers:new_listing'), {
+                'title':"Art Forum",
+                'edition':'First',
+                'condition':7
+                }, follow=True)
+        l = user.listing_set.all()[0]
+        self.assertEqual(l.title, "Art Forum")
+        self.assertEqual(l.edition, "First")
+        self.assertEqual(l.condition, 7)
+        self.assertEqual(l.user, user)
+        self.assertEqual(response.status_code, 200)
+
+    def test_log_in_and_create_new_listing_with_missing_fields(self):
+        # create user and log in
+        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
+        self.client.login(email='eli@me.com', password='ok')
+        self.assertTrue(SESSION_KEY in self.client.session)
+
+        # create new listing with no condition
+        response = self.client.post(reverse('papers:new_listing'), {
+                'title':"Art Forum",
+                'edition':'First'
+                }, follow=True)
+        self.assertEqual(user.listing_set.count(), 0)
+
+        # create new listing with no edition
+        response = self.client.post(reverse('papers:new_listing'), {
+                'title':"Art Forum",
+                'condition':7
+                }, follow=True)
+        self.assertEqual(user.listing_set.count(), 0)
