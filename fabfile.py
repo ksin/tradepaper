@@ -27,6 +27,7 @@ def deploy_prod():
         with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
             run('./manage.py syncdb')
             run('./manage.py migrate users')
+            run('./manage.py migrate papers')
             run('./manage.py collectstatic')
             sudo('supervisorctl restart tradepaper')
 
@@ -56,4 +57,6 @@ def migrate_local():
     local('./manage.py syncdb')
     with settings(warn_only=True):
         local('./manage.py schemamigration --auto users')
+        local('./manage.py schemamigration --auto papers')
     local('./manage.py migrate users')
+    local('./manage.py migrate papers')
