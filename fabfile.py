@@ -22,7 +22,7 @@ def deploy_prod():
     with cd(git_dir):
         run('git pull origin master')
     with prefix('source %s/bin/activate' % app_dir):
-        with cd(app_dir):
+        with cd(git_dir):
             run('pip install -r requirements.txt --allow-all-external')
         with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
             run('./manage.py syncdb')
