@@ -39,6 +39,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'storages'
 )
 
 LOCAL_APPS = (
@@ -123,6 +124,6 @@ LOGGING = {
     },
 }
 
-# Amazon S3 Access Keys
+# AWS
 AWS_ACCESS_KEY_ID = 'AKIAJH7EFB7DCDWVQJLA'
 AWS_SECRET_ACCESS_KEY = os.environ['TP_AWS_SECRET']

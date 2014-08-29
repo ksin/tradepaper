@@ -22,4 +22,8 @@ if 'test' in sys.argv:
         'NAME': 'tradepaper'
     }
 
-S3_BUCKET = 'trade-paper'
+AWS_STORAGE_BUCKET_NAME = 'trade-paper/'
+
+STATIC_URL = 'https://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
