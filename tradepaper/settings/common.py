@@ -23,7 +23,7 @@ TEMPLATE_DEBUG = True
 
 TEMPLATE_DIRS = 'templates'
 
-ALLOWED_HOSTS = ['198.58.125.106', '.trade-paper.com', '.s3.amazon.com']
+ALLOWED_HOSTS = ['198.58.125.106', '.trade-paper.com']
 
 
 # Application definition
