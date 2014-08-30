@@ -1,8 +1,12 @@
+import os
+
 from papers.models import Listing
 from users.models import User
+from tradepaper.settings import MEDIA_ROOT
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.core.files import File
 from django.utils import timezone
 from django.contrib.auth import SESSION_KEY, get_user_model
 
@@ -44,10 +48,12 @@ class ListingViewTestCase(TestCase):
         self.assertTrue(SESSION_KEY in self.client.session)
 
         # create new listing
+        image = File(open(os.path.join(MEDIA_ROOT, '1x1.GIF')))
         response = self.client.post(reverse('papers:new_listing'), {
                 'title':"Art Forum",
                 'edition':'First',
-                'condition':7
+                'condition':7,
+                'image': image
                 }, follow=True)
         l = user.listing_set.all()[0]
         self.assertEqual(l.title, "Art Forum")

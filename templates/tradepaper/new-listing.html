@@ -46,7 +46,7 @@
     <h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
     {% endfor %}
 {% endif %}
-<form action="{% url 'papers:new_listing' %}" method="post">
+<form action="{% url 'papers:new_listing' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <h2>Publication Title:</h2>
         <!--text form here-->
@@ -71,9 +71,9 @@
     <!---->
 
     <h2>Upload Images:</h2>
-    <div id="uploadimg">
-    </div>
-    <input type="file" id="new_listing_image_upload" class="textfield_effect">
+    <!-- <div id="uploadimg">
+    </div> -->
+    <input type="file" id="new_listing_image" class="textfield_effect">
 
 	<input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
 </form>

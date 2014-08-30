@@ -14,6 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 
+VIRTUAL_ENV_DIR = os.path.dirname(PROJECT_DIR)
+
 SECRET_KEY = os.environ['TP_SECRET']
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -99,11 +101,16 @@ AUTHENTICATION_BACKENDS = (
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
 )
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
+STATIC_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'static/')
+
+MEDIA_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'media/')
 
 LOGGING = {
     'version': 1,
