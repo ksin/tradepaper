@@ -8,10 +8,9 @@ from papers.models import Listing
 from users.models import User
 
 class ListingForm(forms.ModelForm):
-    image = forms.ImageField()
     class Meta:
         model = Listing
-        fields = ['title', 'edition', 'condition']
+        fields = ['title', 'edition', 'condition', 'image']
 
 def browse(request):
     return render(request, 'tradepaper/browse.html')
@@ -22,7 +21,7 @@ def listing(request, id):
 
 def new_listing(request):
     user = request.user
-    form = ListingForm(request.POST, request.FILES, auto_id='new_listing%s')
+    form = ListingForm(request.POST, request.FILES, auto_id='new_listing_%s')
     if request.method == 'POST':
         if form.is_valid():
             l = Listing.objects.create(
@@ -32,7 +31,6 @@ def new_listing(request):
                 image = request.FILES['image'],
                 user = user
             )
-            handle_image(request.FILES['image'])
             l.save()
             return HttpResponseRedirect(reverse('papers:listing', args=(l.id,)))
         else:
@@ -44,6 +42,3 @@ def new_listing(request):
         else:
             messages.error(request, "You need to be logged in to create a listing.")
             return HttpResponseRedirect(reverse('login'))
-
-def handle_image(image):
-    return;
