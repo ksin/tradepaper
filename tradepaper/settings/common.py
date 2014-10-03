@@ -41,7 +41,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
-    'storages'
+    # 'storages'
 )
 
 LOCAL_APPS = (
