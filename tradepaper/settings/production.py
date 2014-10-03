@@ -30,6 +30,6 @@ if 'test' in sys.argv:
 
     STATIC_URL = '/static/'
 
-    MEDIA_URL = '/static/'
+    MEDIA_URL = '/media/'
 
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
