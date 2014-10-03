@@ -18,8 +18,8 @@ DATABASES = {
 # AWS_STORAGE_BUCKET_NAME = 'trade-paper'
 #
 # STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-#
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # this is so for settings to use during tests
 if 'test' in sys.argv:
