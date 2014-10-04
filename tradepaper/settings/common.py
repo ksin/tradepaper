@@ -108,7 +108,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'media'),
 )
 
-STATIC_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'static/')
+# STATIC_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'static/')
 
 MEDIA_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'media/')
 
