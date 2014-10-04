@@ -15,8 +15,6 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = '/webapps/paper-py2/static/'
-
 # AWS_STORAGE_BUCKET_NAME = 'trade-paper'
 #
 # STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
