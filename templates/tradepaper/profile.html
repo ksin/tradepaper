@@ -68,59 +68,23 @@
 <!--Profile Content-->
 <div class="profile">
 
-
     <!--FIX
     <div class="profile_sort">
     	<p>Sort by: DROP DOWN</p>
     </div>
     FIX-->
+    {% for listing in user.listing_set.all %}
 
-    	<!--RUN %IF FOR AS MANY ELEMENTS AS THERE ARE-->
-        <div class="profile_element">
-            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-            <p>Publication Edition</p>
+    <div class="profile_element">
+        <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="{{ listing.image.url }}" /></a>
+            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">{{ listing.title }}</a></p>
+            <p>{{ listing.edition }}</p>
             <div class="tradebutton">
                 <a href="/">Offer Trade</a>
             </div>
         </div>
 
-        <div class="profile_element">
-            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-            <p>Publication Edition</p>
-            <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-            </div>
-        </div>
-
-        <div class="profile_element">
-            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-            <p>Publication Edition</p>
-            <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-            </div>
-        </div>
-
-        <div class="profile_element">
-            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-            <p>Publication Edition</p>
-            <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-            </div>
-        </div>
-
-        <div class="profile_element">
-            <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-            <p>Publication Edition</p>
-            <div class="tradebutton">
-                <a href="/">Offer Trade</a>
-            </div>
-        </div>
-        </div>
+   {% endfor %}
 
 </div>
 <!--End Profile Content-->

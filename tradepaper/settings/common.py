@@ -10,11 +10,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
-PROJECT_DIR = os.path.dirname(BASE_DIR)
+PROJECT_DIR = os.path.realpath(os.path.dirname(BASE_DIR))
 
-VIRTUAL_ENV_DIR = os.path.dirname(PROJECT_DIR)
+VIRTUAL_ENV_DIR = os.path.realpath(os.path.dirname(PROJECT_DIR))
 
 SECRET_KEY = os.environ['TP_SECRET']
 
@@ -41,7 +41,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
-    'storages'
+    # 'storages'
 )
 
 LOCAL_APPS = (
