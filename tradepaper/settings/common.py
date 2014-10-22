@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'tradepaper.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/Ohio/Documents/Apps/Django/dev/tradepaper/db.sqlite3',
+        'NAME': os.path.join(VIRTUAL_ENV_DIR, 'db.sqlite3'),
     }
 }
 
