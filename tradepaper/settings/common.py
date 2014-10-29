@@ -41,6 +41,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'gunicorn'
     # 'storages'
 )
 
