@@ -1,7 +1,6 @@
 import os
 
-from papers.models import Listing
-from users.models import User
+from papers.models import Listing, Request, Message
 from tradepaper.settings import MEDIA_ROOT
 
 from django.test import TestCase
@@ -30,6 +29,33 @@ def create_user(email, password, name, city):
     user.save()
     return user
 
+def create_request():
+    requestee = create_user('che@me.com', 'ok', 'che', 'New Mexico')
+    requestee.save()
+    requester = create_user('eli@me.com', 'ok', 'eli', 'New York')
+    requester.save()
+    listing = create_listing('Playdog', '2nd', 8.5, requestee)
+    listing.save()
+    request = Request.objects.create(
+        requester = requester,
+        requestee = requestee,
+        date_initiated = timezone.now(),
+        listing = listing
+    )
+    request.save()
+    return request
+
+def create_message(request, sender, date, text):
+    message = Message.objects.create(
+        request = request,
+        sender = sender,
+        recipient = request.listing.user,
+        date = date,
+        text = text
+    )
+    message.save()
+    return message
+
 class ListingTestCase(TestCase):
     def test_create_listings(self):
         user = create_user('eli@me.com', 'ok', 'eli', 'New York')
@@ -39,6 +65,33 @@ class ListingTestCase(TestCase):
         self.assertEqual('Playdog', listing.title)
         self.assertEqual('eli', listing.user.name)
         self.assertGreater(timezone.now(), listing.date_posted)
+
+class RequestTestCase(TestCase):
+    def test_create_new_request_with_no_messages(self):
+        request = create_request()
+        self.assertEqual('Playdog', request.listing.title)
+        self.assertEqual('eli', request.requester.name)
+        self.assertEqual('che', request.requestee.name)
+        self.assertEqual(request.message_set.count(), 0)
+
+    def test_create_new_request_with_some_messages(self):
+        request = create_request()
+        first_message = create_message(request,
+                                       request.requester,
+                                       timezone.now()-timezone.timedelta(days=3),
+                                       'Hey! Want to trade?')
+        second_message = create_message(request,
+                                        request.requestee,
+                                        timezone.now()-timezone.timedelta(days=2),
+                                        'Hellllz yeah!')
+        third_message = create_message(request,
+                                       request.requester,
+                                       timezone.now()-timezone.timedelta(days=1),
+                                       'iight coo')
+        self.assertEqual('Playdog', request.listing.title)
+        self.assertEqual('eli', request.requester.name)
+        self.assertEqual('che', request.requestee.name)
+        self.assertEqual(request.message_set.count(), 3)
 
 class ListingViewTestCase(TestCase):
     def test_log_in_and_create_new_listing(self):

@@ -14,3 +14,23 @@ class Listing(models.Model):
 
     def __unicode__(self):
         return "%s, %s" % (self.title, self.edition)
+
+class Request(models.Model):
+    requester = models.ForeignKey(User, related_name='requests_sent')
+    requestee = models.ForeignKey(User, related_name='requests_received')
+    date_initiated = models.DateTimeField(default=timezone.now())
+    listing = models.ForeignKey(Listing)
+
+    def __unicode__(self):
+        return "listing: %s, requester: %s" % (self.listing, self.requester)
+
+class Message(models.Model):
+    sender = models.ForeignKey(User, related_name='messages_sent')
+    recipient = models.ForeignKey(User, related_name='messages_received')
+    date = models.DateTimeField(default=timezone.now())
+    text = models.TextField(max_length=4096)
+    request = models.ForeignKey(Request)
+
+    def __unicode__(self):
+        return "sender: %s, date: %s" % (self.sender, self.date_sent)
+
