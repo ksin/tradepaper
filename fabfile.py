@@ -8,8 +8,8 @@ def deploy_dev():
 
 @hosts('eli@beta.trade-paper.com')
 def deploy_prod():
-    app_dir = '/webapps/paper-py2'
-    git_dir = '/webapps/paper-py2/tradepaper'
+    app_dir = '/webapps/trade-paper.com'
+    git_dir = '/webapps/trade-paper.com/tradepaper'
     with cd(git_dir):
         run('git pull origin master')
     with prefix('source %s/bin/activate' % app_dir):
@@ -25,8 +25,8 @@ def deploy_prod():
 @hosts('eli@beta.trade-paper.com')
 def update_prod():
     print('\n\nMake sure you update your dev environment first!')
-    app_dir = '/webapps/paper-py2'
-    git_dir = '/webapps/paper-py2/tradepaper'
+    app_dir = '/webapps/trade-paper.com'
+    git_dir = '/webapps/trade-paper.com/tradepaper'
     with cd(git_dir):
         run('git pull origin master')
     with cd(app_dir):
