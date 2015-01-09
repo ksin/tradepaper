@@ -20,7 +20,6 @@ def deploy_prod():
             run('./manage.py migrate users')
             run('./manage.py migrate papers')
             run('./manage.py collectstatic')
-            sudo('supervisorctl restart tradepaper')
 
 @hosts('eli@beta.trade-paper.com')
 def update_prod():
