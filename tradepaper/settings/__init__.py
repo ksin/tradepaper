@@ -1,1 +1,1 @@
-from development import *
+from tradepaper.settings.development import *

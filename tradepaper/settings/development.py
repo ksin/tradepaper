@@ -1,4 +1,4 @@
-from common import *
+from tradepaper.settings.common import *
 
 DEBUG = True
 
