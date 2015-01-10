@@ -36,8 +36,8 @@ def migrate_prod():
     with cd(git_dir):
         run('./manage.py syncdb')
         with settings(warn_only=True):
-            run('./manage.py schemamigration --auto users')
-            run('./manage.py schemamigration --auto papers')
+            run('./manage.py makemigrations users')
+            run('./manage.py makemigrations papers')
         run('./manage.py migrate users')
         run('./manage.py migrate papers')
 
