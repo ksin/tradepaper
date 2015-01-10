@@ -10,16 +10,13 @@ def deploy_dev():
 def deploy_prod():
     app_dir = '/webapps/trade-paper.com'
     git_dir = '/webapps/trade-paper.com/tradepaper'
-    with cd(git_dir):
+    with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
         run('git pull origin master')
-    with prefix('source %s/bin/activate' % app_dir):
-        with cd(git_dir):
-            run('pip install -r requirements.txt --allow-all-external')
-        with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
-            run('./manage.py syncdb')
-            run('./manage.py migrate users')
-            run('./manage.py migrate papers')
-            run('./manage.py collectstatic')
+        run('pip install -r requirements.txt --allow-all-external')
+        run('./manage.py syncdb')
+        run('./manage.py migrate users')
+        run('./manage.py migrate papers')
+        run('./manage.py collectstatic')
 
 @hosts('eli@beta.trade-paper.com')
 def update_prod():
@@ -28,11 +25,10 @@ def update_prod():
     git_dir = '/webapps/trade-paper.com/tradepaper'
     with cd(git_dir):
         run('git pull origin master')
+        run('pip install -r requirements.txt --allow-all-external')
     with cd(app_dir):
         sudo('apt-get update')
         sudo('apt-get upgrade')
-        with prefix('source bin/activate'):
-            run('pip install -r requirements.txt --allow-all-external')
 
 def migrate_local():
     local('./manage.py syncdb')
