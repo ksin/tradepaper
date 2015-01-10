@@ -14,8 +14,7 @@ def deploy_prod():
         run('git pull origin master')
         run('pip install -r requirements.txt --allow-all-external')
         run('./manage.py syncdb')
-        run('./manage.py migrate users')
-        run('./manage.py migrate papers')
+        run('./manage.py migrate')
         run('./manage.py collectstatic')
 
 @hosts('eli@beta.trade-paper.com')
