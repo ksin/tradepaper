@@ -16,10 +16,10 @@ class Listing(models.Model):
         return "%s, %s" % (self.title, self.edition)
 
 class Request(models.Model):
-    requester = models.ForeignKey(User, related_name='requests_sent')
-    requestee = models.ForeignKey(User, related_name='requests_received')
     date_initiated = models.DateTimeField(default=timezone.now())
     listing = models.ForeignKey(Listing)
+    requester = models.ForeignKey(User, related_name='requests_sent')
+    requestee = models.ForeignKey(User, related_name='requests_received')
 
     def __unicode__(self):
         return "listing: %s, requester: %s" % (self.listing, self.requester)

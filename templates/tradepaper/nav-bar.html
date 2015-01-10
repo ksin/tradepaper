@@ -16,7 +16,8 @@
     {% if user.is_authenticated %}
         <a href="#">My Account</a>
         <ul>
-            <li><a href="#">Requests</a></li>
+            <li><a href="{% url 'papers:new_listing' %}">New Listing</a></li>
+            <li><a href="{% url 'users:requests' %}">Requests</a></li>
             <li><a href="{% url 'users:profile' name=user.name %}">My Profile</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
         </ul>

@@ -64,7 +64,8 @@ h1, h2, h3, h4, h5, h6 {
 /*#link1 a:hover, #link2 a:hover, #link3 a:hover, #link4 a:hover, #link5 a:hover{
 	Hover color for border links */
 .framelink a:hover {
-color: red;
+	color: red;
+	border-bottom: 2px solid black;
 }
 
 /*#link1 a:visited, #link2 a:visited, #link3 a:visited, #link4 a:visited, #link5 a:visited{*/
@@ -91,7 +92,6 @@ color: red;
 	letter-spacing: 2px;
 	width: 140px;
 	height: 22px;
-	background-color: white;
 	text-align: center;
 	color: #0147FA;
 }
@@ -120,7 +120,7 @@ color: red;
 	left: 20px;
 }
 
-/*My Account Drop Down Menu*/
+/*MY ACCOUNT Drop Up Menu*/
 
 #link5 ul {
   padding: 0px;
@@ -144,7 +144,36 @@ color: red;
   	visibility: visible;
 }
 
-/* END My Account Drop Down Menu*/
+/* END MY ACCOUNT Drop Up Menu*/
+
+/*ABOUT Drop Up Menu*/
+
+#link4 ul {
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 125px;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  text-align: right;
+}
+
+#link4 ul li {
+  display: block;
+  padding-bottom: 3px;
+}
+
+#link4:hover ul{
+	display: block;
+  	opacity: 1;
+  	visibility: visible;
+}
+
+/* END ABOUT Drop Up Menu*/
+
 
 /* END Frame Links */
 
@@ -153,7 +182,7 @@ color: red;
 	text-align: center;
 	height: 300px;
 	padding-top: 80px;
-	width: 50%;
+	width: 95%;
 	margin: 0 auto;
 }
 
@@ -185,7 +214,7 @@ color: red;
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
-
+	color: red;
 }
 
 #signup_submit:hover {
@@ -235,6 +264,7 @@ color: red;
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
+	color: red;
 }
 
 #login_submit:hover {
@@ -270,7 +300,7 @@ color: red;
 }
 /*END Register Link on Login Page*/
 
-/*Text Field Effects*/
+/*Text Field + Button Effects*/
 .textfield_effect {
 	border-width: 1px;
     border-style: solid;
@@ -281,6 +311,8 @@ color: red;
 	font-weight: 700;
 	letter-spacing:1px;
 	text-align: center;
+	height: 35px;
+	border-radius: 4px;
 }
 
 .textfield_effect2 {
@@ -293,7 +325,9 @@ color: red;
 	font-weight: 700;
 	letter-spacing:1px;
 	text-align: center;
-	color: #0147FA;
+	/*	color: #0147FA;*/
+	height: 35px;
+	border-radius: 4px;
 }
 
 .textfield_effect3 {
@@ -304,10 +338,12 @@ color: red;
 	font-weight: 700;
 	text-align: right;
 	color: red;
+	height: 35px;
+	border-radius: 4px;
 }
 
 .search_effect {
-	border: 1px dashed white;
+	border: 0px dashed white;
 	box-shadow: none;
 	font-family: Karla, Helvetica, sans-serif;
 	font-size: 20px;
@@ -343,34 +379,321 @@ color: red;
 	width: 300px;
 }
 
+.mailchimp {
+	border: 3px solid black;
+	box-shadow: none;
+	font-family: Karla, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing:1px;
+	text-align: center;
+	width: 250px;
+	height: 30px;
+	display: inline;
+	border-radius: 4px;
+}
+
+#mc_embed_signup {
+	width: 500px;
+}
+
+#mailchimpbutton {
+	font-family: Karla, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	height: 37px;
+	display: inline;
+	padding: 5px;
+	background-color: white;
+	border: dashed 2px red;
+	color: red;
+	letter-spacing:1px;
+	border-radius: 4px;
+}
+
+#mailchimpbutton:hover {
+	color: white;
+	background-color: red;
+}
+
+#mailchimp_confirmed {
+	font-family: Karla, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	width: 350px;
+	margin: 0 auto;
+	display: none;
+	padding: 10px;
+	background-color: green;
+	color: white;
+	letter-spacing:1px;
+	border-radius: 4px;
+}\
+
+#papertitle {
+	width: 275px;
+}
+#paperedition{
+	width: 200px;
+}
+#papercondition{
+	width: 100px;
+}
+
+#register_email {
+	width: 300px;
+}
+#register_password {
+}
+#register_uname {
+	color: #0147FA;
+}
+#register_city {
+	width: 300px;
+}
+
+.button_effect {
+	border-width: 1px solid white;
+	box-shadow: none;
+	font-family: Karla, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing:1px;
+	text-align: center;
+	border-radius: 4px;
+}
+
 /*END Text Field Effects*/
+
+/*Some Globals*/
+
+#bluebg {
+	background-color: #CFCFC4;
+}
+
+#redbg {
+	background-color: #b40000;
+}
+
+.whitetxt a{
+	color: white !important;
+}
+
+blue {
+	color: #0147FA;
+}
+
+blueh:hover {
+	color: blue;
+}
+
+/*No More Globals*/
+
+
+
+
+/*START Home Page*/
+.home{
+	width: 100%;
+	letter-spacing:1px;
+	font-size: 14px;
+	padding-top: 80px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+.home img {
+	margin-bottom: 20px;
+}
+
+.home p{
+	width: 55%;
+	letter-spacing:1px;
+	font-size: 16px;
+	margin: auto;
+	margin-bottom: 20px;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.home p a {
+	color: black;
+	border-bottom: 2px solid black;
+	letter-spacing:2px;
+}
+
+.home p a:hover {
+	color: red;
+	border-bottom: 2px solid red;
+}
+
+.home h2 {
+	font-size: 24px;
+	margin: 20px auto;
+	text-align: center;
+	color: red;
+}
+.home h3 {
+	font-size: 20px;
+	margin: 20px auto 25px;
+	text-align: center;
+	color: red;
+	padding: 7px;
+	display: inline-block;
+	border: 3px solid yellow;
+	border-radius: 3px;
+	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.home h3:hover{
+	background-color: yellow;
+}
+
+.home blue {
+	color: #0147FA;
+
+}
+
+.home blueh:hover {
+	color: blue;
+}
+
+/*END Home Page*/
+
 
 /*About Page*/
 .about{
-	width: 70%;
+	width: 100%;
 	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
+	text-align: center;
+}
+
+.about img {
+	margin-top: 20px;
+	width: 175px;
 }
 
 .about p{
-	width: 65%;
+	width: 45%;
 	letter-spacing:1px;
 	font-size: 16px;
 	margin: auto;
-	margin-top: 35px;
+	margin-top: 20px;
+	margin-bottom: 75px;
 	font-weight: 700;
+	line-height: 22px;
+}
+
+.about p a {
+	color: red;
+	border-bottom: 2px solid white;
+}
+
+.about p a:hover {
+	border-bottom: 2px solid black;
 }
 
 .about h2 {
 	font-size: 24px;
 	color: red;
-	width: 265px;
 	margin: auto;
 	text-align: center;
 }
+
 /*END About Page*/
+
+/*FAQ Page*/
+
+.faq{
+	width: 100%;
+	letter-spacing:1px;
+	font-size: 14px;
+	padding-top: 80px;
+	margin: auto;
+	text-align: center;
+}
+
+.faq p{
+	width: 40%;
+	letter-spacing:1px;
+	font-size: 16px;
+	margin: auto;
+	margin-top: 35px;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.faq p a {
+	color: red;
+	border-bottom: 2px solid white;
+}
+
+.faq p a:hover {
+	border-bottom: 2px solid black;
+}
+
+.faq h2 {
+	font-size: 24px;
+	margin: auto;
+	text-align: center;
+	color: red;
+}
+
+/*END FAQ Page*/
+
+/*MY ACCOUNT Page*/
+
+.myaccount {
+	width: 100%;
+	letter-spacing:1px;
+	font-size: 14px;
+	padding-top: 80px;
+	margin: auto;
+	text-align: center;
+}
+
+.myaccount h2 {
+	font-size: 24px;
+	color: red;
+	margin: 0 auto 10px;
+	text-align: center;
+}
+
+#mabuttons{
+	width: 75%;
+	margin: auto;
+}
+
+mabutton {
+	width: 275px;
+	height: 40px;
+	line-height: 40px;
+	padding: 8px;
+	margin: 30px 40px;
+	display: inline-block;
+	color: #0147FA;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing:1px;
+	text-align: center;
+	border: 2px dashed #0147FA;
+	border-radius: 4px;
+	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.50);
+}
+
+mabutton:hover {
+	color: white;
+	background-color: #0147FA;
+}
+/*END MY ACCOUNT Page*/
+
 
 /*Profile Header*/
 
@@ -402,23 +725,26 @@ color: red;
 .profile_head h3 {
 	margin-top: 1px;
 	margin-bottom: 0px;
-	font-weight: 400;
+	font-weight: 700;
+	text-transform: lowercase;
 }
 
-#unamedisp {
-	font-weight:300;
+#unamedisp p{
+	display: inline-block;
+	font-weight:700;
 	font-size:18px;
 	margin-top: 15px;
 	margin-bottom:0px;
-	padding: 0px;
+	padding: 0px 6px;
+	text-transform: lowercase;
 }
 
 .profile_head a{
-	color: black;
+	color: red;
 }
 
 .profile_head a:hover{
-	color: red;
+	border-bottom: 1px solid black;
 }
 
 /*END Profile Header*/
@@ -444,97 +770,47 @@ color: red;
 }
 
 .profile_element {
-	width: 37%;
-	border: 2px solid #0147FA;
-	margin-left: 5%;
-	margin-right: 5%;
+	width: 34%;
+	border: 3px solid #0147FA;
+	margin-left: 7%;
+	margin-right: 7%;
 	margin-bottom: 14%;
 	padding-top: 15px;
 	text-align: center;
-	display: inline-block;}
+	display: inline-block;
+	color: black;
+}
 
 
 
 .profile_element:hover {
-	background-color: #fff318;
+	background-color: #0147FA;
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
+	color: white;
 }
 
 .profile_element img {
 	width: 65%;
-	border: 0px solid white;
-	padding: 20px;
-	padding-top: 6.25%;
-	padding-bottom: 10px;
+	border: 3px solid white;
+	margin: 20px;
 }
 
 .profile_element p {
 	font-size: 16px;
 	font-weight: 700;
-	color: black;
 	margin-top: 2px;
 	margin-bottom: 6px;
 }
 
 .profile_element a{
-	color: black;
+	color: inherit;
 	font-size: 16px;
 	font-weight: 700;
 }
 
 .profile_element a:hover {
-	color: red;
+	color: yellow;
 }
-
-/*.paper {
-	height: 220px;
-	border: 2px solid #0147FA;
-	margin-top: 5px;
-	margin-bottom: 50px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.paper:hover{
-	background-color: #fff318;
-}
-
-.paper img {
-	float: left;
-	width: 144px;
-	height: 180px;
-	border: 2px;
-	background-color: white;
-	margin-top: 20px;
-	margin-left: 4%;
-	outline: 0px solid #f9f8f4;
-}
-
-.paper p {
-	margin-top: 8px;
-	margin-bottom: 2px;
-	font-size: 15px;
-}
-
-.paper_title {
-	padding-top: 20px;
-	font-weight: 700;
-}
-
-.paper_title p {
-	font-size: 17px;
-}
-
-.paper_edition p, .paper_condition p{
-	font-size: 15px;
-}
-
-.paper_condition p{
-	padding-bottom: 10px;
-}
-.paper_text {
-	float:right;
-	margin-right: 4%;
-}*/
 
 .tradebutton a{
 	font-size: 20px;
@@ -549,6 +825,7 @@ color: red;
 	background-color: white;
 	border: dashed 2px red;
 	letter-spacing: 1px;
+	color: black;
 }
 
 .tradebutton a:hover{
@@ -561,6 +838,127 @@ color: red;
 /**/
 
 /*END Profile Content*/
+
+/*START Edit Profile Page Content*/
+#editprofile{
+
+	font-size: 16px;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+#editprofile h3 {
+	margin-top: 25px;
+}
+
+#edit_submit {
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	height: 37px;
+	padding: 5px;
+	background-color: white;
+	border: dashed 2px red;
+	color: red;
+	margin: auto;
+	margin-left: 25px;
+	letter-spacing:1px;
+	border-radius: 4px;
+}
+
+#edit_submit:hover {
+	color: white;
+	background-color: red;
+}
+
+#edit_email, #edit_password, #edit_city, #edit_site {
+	width: 200px;
+	text-transform: lowercase;
+}
+/*END Edit Profile Page Content*/
+
+/*START Add/Remove My Magazines Page */
+.mymags {
+	width: 100%;
+	letter-spacing:1px;
+	font-size: 14px;
+	padding-top: 80px;
+	margin: auto;
+	text-align: center;
+}
+
+.mymags a{
+	color: black;
+}
+
+.mymags h2 {
+	color: red;
+}
+
+.mags {
+	width: 80%;
+	margin: auto;
+	margin-top: 35px;
+	font-size: 16px;
+}
+
+.mags h3 {
+	display: inline-block;
+	border-bottom: 2px solid black;
+}
+
+.mags .browse_element a {
+	color: red;
+	margin: 0;
+	padding: 0px 4px;
+	border: 2px solid red;
+	font-weight: 700;
+	font-size: 12px;
+	position: inherit;
+	right: 0;
+}
+
+.addmag {
+	width: 100px;
+	height: 55px;
+	border: 4px solid #0147FA;
+	text-align: center;
+	padding-top: 15px;
+	position: fixed;
+	right: 50px;
+	top: 90px;
+	background-color: #fff318;
+	font-weight: 700;
+	font-size: 16px;
+	cursor: move;
+	z-index: 9999;
+}
+
+.addmag a{
+	color: black;
+}
+
+.addmag:hover {
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
+}
+
+#adding {
+	z-index: 1;
+	width: 100%;
+	position: absolute;
+	margin: 0 auto;
+	top: 0;
+	padding-top: 80px;
+	background-color: #004dbd;
+	height: 1000px;
+	display: none;
+}
+
+#adding h2 {
+	color: white;
+}
+/*END Add/Remove My Magazines Page */
+
 
 /*Individual Paper Page*/
 .paperpage{
@@ -576,6 +974,11 @@ color: red;
 .paperpageelement img{
 	width: 28%;
 	margin-bottom: 0px;
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
+}
+
+.paperpageelement img:hover {
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
 }
 
 .ppe_title{
@@ -619,20 +1022,26 @@ color: red;
 
 .pp_recs_container {
 	/*border: 1px dashed black;*/
-	margin-top: 7%;
-	margin-bottom: 50px;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	padding-bottom: 60px;
+	background-color: #fff318;
+	border-top: 3px solid black;
 }
 
 #relatedtext {
-	width: 230px;
+	padding-top: 0px;
 	margin: auto;
 }
 
 #relatedtext p{
 	margin-bottom: 35px;
-	border-top: 3px dashed #0147FA;
-	padding-top: 35px;
-	font-size: 15px;
+	border-top: 0px dashed black;
+	padding-top: 15px;
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	letter-spacing: 2px;
 }
 
 #relatedtext p a{
@@ -646,17 +1055,19 @@ color: red;
 
 .pp_recs {
 	width: 18%;
-	border: 2px solid #0147FA;
-	margin-right: 7%;
-	margin-left: 7%;
-	padding-top: 20px;
-	padding-bottom: 5px;
+	border: 0px solid #0147FA;
+	margin-right: 5%;
+	margin-left: 5%;
+	padding: 20px 2% 5px;
 	text-align: center;
 	display: inline-block;
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
 }
 
 .pp_recs:hover {
 	background-color: #fff318;
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
+
 }
 
 .pp_recs img {
@@ -684,7 +1095,11 @@ color: red;
 
 /*BEGIN Browse Page*/
 
-.browse_container{
+#yellowbg {
+	background-color: #fff318;
+}
+
+	.browse_container{
 	width: 80%;
 	margin: auto;
 	text-align: center;
@@ -706,18 +1121,17 @@ color: red;
 }
 
 .browse_element {
-	width: 23%;
-	border: 2px solid #0147FA;
-	margin-left: 7.1%;
-	margin-top: 7%;
+	width: 23.3%;
+	border: 0px dashed #0147FA;
+	margin: 20px 3.5%;
 	padding-top: 15px;
 	text-align: center;
 	display: inline-block;
-	float: left;
+	/*box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);*/
 }
 
 .browse_element:hover{
-	background-color: #fff318;
+	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
 }
 
 .browse_paper_title{
@@ -727,13 +1141,12 @@ color: red;
 
 .browse_element img {
 	width: 75%;
-	border: 0px solid white;
-	padding-top: 20px;
-	padding-bottom: 15px;
+	border: 4px solid white;
+	margin: 20px 0px 15px 0px;
 }
 
 .browse_element img:hover {
-	border: 0px solid white;
+	border: 4px solid white;
 }
 
 
@@ -758,9 +1171,7 @@ color: red;
 /*BEGIN New Listing Page*/
 
 .newlisting{
-
 	text-align: center;
-	height: 300px;
 	padding-top: 80px;
 	width: 60%;
 	margin: 0 auto;
@@ -778,7 +1189,6 @@ color: red;
 .newlisting h2{
 	margin-top: 35px;
 	margin-bottom: 15px;
-
 }
 
 /*.newlistinginput{
@@ -801,19 +1211,6 @@ color: red;
 	background-color: white;
 	border: dashed 2px red;
 
-}
-
-#new_listing_image {
-	font-size: 20px;
-	font-weight: 700;
-	text-align: center;
-	display: block;
-	margin: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding: 10px;
-	background-color: white;
-	border: dashed 2px red;
 }
 
 #newlisting_submit:hover {
@@ -915,6 +1312,7 @@ color: red;
 	font-size: 18px;
 	font-weight: 700;
 	padding: 6px;
+	color: red;
 }
 
 #request_msg_send:hover{
@@ -1011,8 +1409,8 @@ color: red;
   display: table;
   table-layout: fixed;
   width: 100%;
-  border: 3px dashed #0147FA;
-  margin-bottom: 20px;
+  border: 2px solid black;
+  margin-bottom: 30px;
 }
 
 .pendingrequests #some .outer div {
@@ -1020,7 +1418,7 @@ color: red;
   padding: 15px;
 }
 
-.pendingrequests #some .outer :first-child {
+.pendingrequests #some .outer #date {
   width: 150px;
   text-align: center;
   background: #fff318;
@@ -1034,15 +1432,21 @@ color: red;
   white-space: nowrap;
   overflow: hidden;
   text-align: center;
+  font-size: 14px;
+}
+
+.pendingrequests #some .middle p{
+  margin-top: 0px;
+  font-size: 14px;
+  color: red;
 }
 
 /*Hover Visuals*/
 .pendingrequests #some .outer:hover {
-  border: 3px solid #0147FA;
-  background-color: #0147FA;
-  color: white;
+  border: 2px solid red;
 }
 .pendingrequests #some .middle:hover {
+
 }
 
 /*END Pending Trade Requests Page*/

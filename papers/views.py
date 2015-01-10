@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django import forms
 
-from papers.models import Listing
+from papers.models import Listing, Request
 from users.models import User
 
 class ListingForm(forms.ModelForm):
@@ -44,4 +44,24 @@ def new_listing(request):
             return render(request, 'tradepaper/new-listing.html')
         else:
             messages.error(request, "You need to be logged in to create a listing.")
+            return HttpResponseRedirect(reverse('login'))
+
+def request(request, id):
+    r = get_object_or_404(Request, id=id)
+    return render(request, 'tradepaper/trade-request.html', {'request': r})
+
+def new_request(request, listing_id):
+    listing = get_object_or_404(Listing, id=listing_id)
+    if request.method == 'POST':
+        user = request.user
+        if(user.is_authenticated()):
+            r = Request(
+                    requester = user,
+                    requestee = listing.user,
+                    listing = listing
+                    )
+            r.save()
+            return HttpResponseRedirect(reverse('papers:request', args=(r.id,)))
+        else:
+            messages.error(request, "You need to be logged in to make a trade request.")
             return HttpResponseRedirect(reverse('login'))

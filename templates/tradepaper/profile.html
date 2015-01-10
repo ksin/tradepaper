@@ -80,7 +80,10 @@
             <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">{{ listing.title }}</a></p>
             <p>{{ listing.edition }}</p>
             <div class="tradebutton">
-                <a href="/">Offer Trade</a>
+              <form action="{% url 'papers:new_request' listing.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Offer Trade" />
+              </form>
             </div>
         </div>
 

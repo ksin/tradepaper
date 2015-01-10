@@ -26,6 +26,16 @@ def index(request):
     else:
         return HttpResponse("Welcome %s!" % user.name)
 
+def requests(request):
+    user = request.user
+    if (not user.is_authenticated()):
+        messages.error(request, "You need to be logged in to create a listing.")
+        return HttpResponseRedirect(reverse('login'))
+    requests = user.requests_sent.all()
+    if (requests.count() > 0):
+        return render(request, 'tradepaper/request.html', {'request': requests[0]})
+    else:
+        raise Http404
 
 def profile(request, name):
     user = get_object_or_404(User, name=name)
