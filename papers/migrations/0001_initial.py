@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-from django.conf import settings
-from django.utils.timezone import utc
 import datetime
+from django.utils.timezone import utc
 import django.core.validators
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
@@ -18,11 +18,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Listing',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('title', models.CharField(max_length=140)),
                 ('edition', models.CharField(max_length=60)),
                 ('condition', models.IntegerField(validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(10)])),
-                ('date_posted', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 19, 10, 41, 86416, tzinfo=utc))),
+                ('date_posted', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 9, 55, 0, 528934, tzinfo=utc))),
                 ('image', models.ImageField(upload_to='images')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
@@ -33,10 +33,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Message',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
-                ('date', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 19, 10, 41, 87967, tzinfo=utc))),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
+                ('date', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 9, 55, 0, 530936, tzinfo=utc))),
                 ('text', models.TextField(max_length=4096)),
-                ('recipient', models.ForeignKey(related_name='messages_received', to=settings.AUTH_USER_MODEL)),
+                ('recipient', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='messages_received')),
             ],
             options={
             },
@@ -45,11 +45,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Request',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
-                ('date_initiated', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 19, 10, 41, 87283, tzinfo=utc))),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
+                ('date_initiated', models.DateTimeField(default=datetime.datetime(2015, 1, 10, 9, 55, 0, 530042, tzinfo=utc))),
                 ('listing', models.ForeignKey(to='papers.Listing')),
-                ('requestee', models.ForeignKey(related_name='requests_received', to=settings.AUTH_USER_MODEL)),
-                ('requester', models.ForeignKey(related_name='requests_sent', to=settings.AUTH_USER_MODEL)),
+                ('requestee', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='requests_received')),
+                ('requester', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='requests_sent')),
             ],
             options={
             },
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='message',
             name='sender',
-            field=models.ForeignKey(related_name='messages_sent', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='messages_sent'),
             preserve_default=True,
         ),
     ]
