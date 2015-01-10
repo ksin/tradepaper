@@ -30,6 +30,17 @@ def update_prod():
         sudo('apt-get update')
         sudo('apt-get upgrade')
 
+@hosts('eli@beta.trade-paper.com')
+def migrate_prod():
+    git_dir = '/webapps/trade-paper.com/tradepaper'
+    with cd(git_dir):
+        run('./manage.py syncdb')
+        with settings(warn_only=True):
+            run('./manage.py schemamigration --auto users')
+            run('./manage.py schemamigration --auto papers')
+        run('./manage.py migrate users')
+        run('./manage.py migrate papers')
+
 def migrate_local():
     local('./manage.py syncdb')
     with settings(warn_only=True):
