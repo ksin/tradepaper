@@ -30,12 +30,3 @@ def update_prod():
         sudo('apt-get update')
         sudo('apt-get upgrade')
 
-def migrate_dev():
-    git_dir = '/webapps/trade-paper.com/tradepaper'
-    with cd(git_dir):
-        local('./manage.py syncdb')
-        with settings(warn_only=True):
-            local('./manage.py makemigrations users')
-            local('./manage.py makemigrations papers')
-        local('./manage.py migrate users')
-        local('./manage.py migrate papers')
