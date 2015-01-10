@@ -14,7 +14,7 @@ BASE_DIR = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
 PROJECT_DIR = os.path.realpath(os.path.dirname(BASE_DIR))
 
-VIRTUAL_ENV_DIR = os.path.realpath(os.path.dirname(PROJECT_DIR))
+TOP_DIR = os.path.realpath(os.path.dirname(PROJECT_DIR))
 
 SECRET_KEY = os.environ['TP_SECRET']
 
@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'tradepaper.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VIRTUAL_ENV_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(TOP_DIR, 'db.sqlite3'),
     }
 }
 
@@ -108,9 +108,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'media'),
 )
 
-STATIC_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'static/')
+STATIC_ROOT = os.path.join(TOP_DIR, 'static/')
 
-MEDIA_ROOT = os.path.join(VIRTUAL_ENV_DIR, 'media/')
+MEDIA_ROOT = os.path.join(TOP_DIR, 'media/')
 
 LOGGING = {
     'version': 1,
