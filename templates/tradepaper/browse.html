@@ -43,49 +43,14 @@
 
 			<h2>Browse</h2>
 
-           	<!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="/">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div>
-           	<!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
+                <!--LINK TO THISMAG PRODUCT PAGE-->
+                {% for listing in listings %}
+                <div class="browse_element">
+                  <a href=""><img src="{{ listing.image.url }}" /></a>
+                <div class="browse_paper_title"> <a href="">{{ listing.title }}</a> </div>
                 <p>Publication Edition</p>
            	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-            <div class="browse_element">
-            	<a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                <div class="browse_paper_title"> <a href="">Publication Title</a> </div>
-                <p>Publication Edition</p>
-           	</div><!--LINK TO THISMAG PRODUCT PAGE-->
-
+                {% endfor %}
 
             <!--NEXT PAGE OR LOAD MORE ON SAME PAGE-->
 </div>

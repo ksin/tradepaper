@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django import forms
@@ -13,7 +13,10 @@ class ListingForm(forms.ModelForm):
         fields = ['title', 'edition', 'condition', 'image']
 
 def browse(request):
-    return render(request, 'tradepaper/browse.html')
+    listings = Listing.objects.all()
+    if (listings == None):
+        raise Http404
+    return render(request, 'tradepaper/browse.html', {'listings' : listings})
 
 def listing(request, id):
     l = get_object_or_404(Listing, id=id)
