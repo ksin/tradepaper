@@ -9,7 +9,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tradepaper',
         'USER': 'eli',
-        'PASSWORD': 'maggie',
+        'PASSWORD': os.environ['POSTGRES_PASSWD'],
         'HOST': 'localhost',
         'PORT': '',                # Set to empty string for default.
     }
