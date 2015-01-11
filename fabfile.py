@@ -13,7 +13,6 @@ def deploy_prod():
     with cd(git_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
         run('git pull origin master')
         run('pip install -r requirements.txt --allow-all-external')
-        run('./manage.py syncdb')
         run('./manage.py migrate')
         run('./manage.py collectstatic')
 
