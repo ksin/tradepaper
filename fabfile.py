@@ -15,6 +15,10 @@ def deploy_prod():
         run('pip install -r requirements.txt --allow-all-external')
         run('./manage.py migrate')
         run('./manage.py collectstatic')
+        run('./manage.py clear_cache')
+        sudo('service nginx restart tradepaper')
+    with cd(app_dir), prefix('export DJANGO_SETTINGS_MODULE=tradepaper.settings.production'):
+        run('kill -HUP `cat tmp/gunicorn.pid`')
 
 @hosts('eli@beta.trade-paper.com')
 def update_prod():
