@@ -8,7 +8,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tradepaper',
-        'USER': 'eli',
+        'USER': 'postgres',
         'PASSWORD': 'maggie',
         'HOST': 'localhost',
         'PORT': '',                # Set to empty string for default.
