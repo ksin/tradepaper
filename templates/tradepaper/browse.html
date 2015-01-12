@@ -46,8 +46,8 @@
                 <!--LINK TO THISMAG PRODUCT PAGE-->
                 {% for listing in listings %}
                 <div class="browse_element"u>
-                  <a href=""><img src="{{ listing.image.url }}" /></a>
-                <div class="browse_paper_title"> <a href="">{{ listing.title }}</a> </div>
+                  <a href="{% url 'papers:listing' listing.id %}"><img src="{{ listing.image.url }}" /></a>
+                  <div class="browse_paper_title"> <a href="{% url 'papers:listing' listing.id %}">{{ listing.title }}</a> </div>
                 <p>Publication Edition</p>
            	</div><!--LINK TO THISMAG PRODUCT PAGE-->
                 {% endfor %}
