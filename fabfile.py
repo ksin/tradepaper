@@ -7,15 +7,15 @@ def deploy_dev():
         local('./manage.py runserver localhost:8000')
 
 def prep_deploy():
-    git_dir = '/webapps/trade-paper.com/tradepaper'
-    with cd(git_dir):
-        local('./manage.py test')
+    py = '~/.pyenv/versions/paper/bin/python '
+    with lcd('~/projects/tradepaper.com/trade-paper.com'):
+        local(py + './manage.py test')
         local('git add -A .')
         with settings(warn_only=True):
             local('git commit')
-        local('./manage.py makemigrations')
-        local('./manage.py migrate')
-        local('./manage.py test')
+        local(py + './manage.py makemigrations')
+        local(py + './manage.py migrate')
+        local(py + './manage.py test')
         local('git add -A .')
         with settings(warn_only=True):
             local('git commit -m "added migrations"')
