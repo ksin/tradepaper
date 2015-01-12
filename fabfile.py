@@ -6,6 +6,22 @@ def deploy_dev():
         local('pip install -r requirements.txt --allow-all-external')
         local('./manage.py runserver localhost:8000')
 
+def prep_deploy():
+    git_dir = '/webapps/trade-paper.com/tradepaper'
+    with cd(git_dir):
+        local('./manage.py test')
+        local('git add -A .')
+        with settings(warn_only=True):
+            local('git commit')
+        local('./manage.py makemigrations')
+        local('./manage.py migrate')
+        local('./manage.py test')
+        local('git add -A .')
+        with settings(warn_only=True):
+            local('git commit -m "added migrations"')
+        local('git push origin master')
+
+
 @hosts('eli@beta.trade-paper.com')
 def deploy_prod():
     app_dir = '/webapps/trade-paper.com'

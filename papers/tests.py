@@ -1,4 +1,5 @@
 import os
+import codecs
 
 from papers.models import Listing, Request, Message
 from tradepaper.settings import MEDIA_ROOT
@@ -101,12 +102,12 @@ class ListingViewTestCase(TestCase):
         self.assertTrue(SESSION_KEY in self.client.session)
 
         # create new listing
-        image = File(open(os.path.join(MEDIA_ROOT, '1x1.GIF')))
+        image = codecs.open(os.path.join(MEDIA_ROOT, '1x1.GIF'))
         response = self.client.post(reverse('papers:new_listing'), {
-                'title':"Art Forum",
-                'edition':'First',
-                'condition':7,
-                'image': image
+                "title":"Art Forum",
+                "edition":"First",
+                "condition":7,
+                "image": image
                 }, follow=True)
         l = user.listing_set.all()[0]
         self.assertEqual(l.title, "Art Forum")
