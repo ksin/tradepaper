@@ -2,53 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>About - trade–paper</title>
-    <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-	{% load staticfiles %}
-	<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+	{% include "tradepaper/header.html" %}
 </head>
 
 <body>
+	{% include "tradepaper/nav-bar.html" %}
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-	<a href="http://trade-paper.com/myaccount">My Account</a>
-    <ul>
-    	<li><a href="/">Something</a></li>
-        <li><a href="/">Requests</a></li>
-        <li><a href="/">My Profile</a></li>
-        <li><a href="http://trade-paper.com/logout">Log Out</a></li>
-    </ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
-
-<!--Sign Up-->
-<div class="about">
-	<h2>About trade-paper</h2>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <a href="/look">So take a look around.</a></p>
-
-
-</div>
-<!--END Sign Up-->
-
-<div class="bottom"></div>
+	<!--About-->
+	<div class="about">
+		<h2>About trade-paper</h2>
+		<img src="http://trade-paper.com/assets/img/t-p-logo.png" />
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <a href="/browse">So take a look around.</a></p>
+		<h2>Frequently Asked Questions</font></h2>
+		<p>Head over to the <a href="/faq">FAQ page.</a></p>
+		<h2>Contact trade-paper</h2>
+		<p>If you have any questions, requests, or any other thing you'd like to ask or tell us directly, shoot us an email at <br/><a href="mailto:info@trade-paper.com">info @ trade-paper.com</a></p>
+	</div>
+	<!--END About-->
+	<div class="bottom"></div>
 </body>
+
 </html>

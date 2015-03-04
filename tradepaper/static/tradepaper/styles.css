@@ -59,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 .framelink a{
 	text-decoration: none;
 	color: black;
+	padding-bottom: 2px;
 }
 
 /*#link1 a:hover, #link2 a:hover, #link3 a:hover, #link4 a:hover, #link5 a:hover{
@@ -102,6 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #link2 a:hover{
 	color: #0147FA;
+	border-bottom: 2px solid #0147FA;
 }
 
 #link3 {
@@ -624,8 +626,7 @@ blueh:hover {
 	width: 40%;
 	letter-spacing:1px;
 	font-size: 16px;
-	margin: auto;
-	margin-top: 35px;
+	margin: 10px auto;
 	font-weight: 700;
 	line-height: 22px;
 }
@@ -641,10 +642,23 @@ blueh:hover {
 
 .faq h2 {
 	font-size: 24px;
-	margin: auto;
+	margin: 0 auto 15px;
 	text-align: center;
 	color: red;
 }
+
+.faq h3 {
+	font-size: 20px;
+	display: inline-block;
+	margin: 20px auto 0px;
+	padding-bottom: 2px;
+	text-align: center;
+	color: black;
+	border-bottom: 2px solid yellow;
+}
+
+
+
 
 /*END FAQ Page*/
 
@@ -921,7 +935,7 @@ mabutton:hover {
 .addmag {
 	width: 100px;
 	height: 55px;
-	border: 4px solid #0147FA;
+	border: 3px solid black;
 	text-align: center;
 	padding-top: 15px;
 	position: fixed;
@@ -939,7 +953,7 @@ mabutton:hover {
 }
 
 .addmag:hover {
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
 }
 
 #adding {
@@ -962,7 +976,7 @@ mabutton:hover {
 
 /*Individual Paper Page*/
 .paperpage{
-	width: 70%;
+	width: 75%;
 	margin: auto;
 	text-align: center;
 	margin-top: 8%;
@@ -974,11 +988,13 @@ mabutton:hover {
 .paperpageelement img{
 	width: 28%;
 	margin-bottom: 0px;
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
+	padding: 5px;
+	border: 1px solid black;
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.07);
 }
 
 .paperpageelement img:hover {
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.14);
 }
 
 .ppe_title{
@@ -1013,6 +1029,7 @@ mabutton:hover {
 .ppe_tradebutton a:hover{
 	color: white;
 	background-color: red;
+	border: solid 2px red;
 }
 
 /*.yellowfoot {
@@ -1054,20 +1071,25 @@ mabutton:hover {
 }
 
 .pp_recs {
-	width: 18%;
-	border: 0px solid #0147FA;
+	width: 150px;
+	border: 1px solid black;
 	margin-right: 5%;
 	margin-left: 5%;
 	padding: 20px 2% 5px;
 	text-align: center;
 	display: inline-block;
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.04);
 }
 
 .pp_recs:hover {
 	background-color: #fff318;
+<<<<<<< Updated upstream
 	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
 
+=======
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.08);
+	
+>>>>>>> Stashed changes
 }
 
 .pp_recs img {
@@ -1099,8 +1121,8 @@ mabutton:hover {
 	background-color: #fff318;
 }
 
-	.browse_container{
-	width: 80%;
+.browse_container{
+	width: 85%;
 	margin: auto;
 	text-align: center;
 	margin-top: 80px;
@@ -1112,41 +1134,44 @@ mabutton:hover {
 	/*border-bottom: 2px solid white;*/
 	/*border-right: 2px solid red;
 	border-left: 2px solid blue;*/
-
 	width: 100px;
 	margin: auto;
 	text-align: center;
 	color: red;
-	margin-bottom: -4%;
 }
 
 .browse_element {
-	width: 23.3%;
-	border: 0px dashed #0147FA;
-	margin: 20px 3.5%;
-	padding-top: 15px;
+	width: 250px;
+	border: 3px solid black;
+	background:  rgba(255,243,24, 0.5); 
+	margin: 30px 3.5%;
+	padding: 10px;
 	text-align: center;
 	display: inline-block;
 	/*box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.12);*/
 }
 
 .browse_element:hover{
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
 }
 
 .browse_paper_title{
 	padding-top: 7px;
 	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 0px;
 }
 
 .browse_element img {
 	width: 75%;
-	border: 4px solid white;
+	padding: 4px;
+	background: white;
+	border: 0px solid black;
 	margin: 20px 0px 15px 0px;
 }
 
 .browse_element img:hover {
-	border: 4px solid white;
+	border: 0px solid white;
 }
 
 
@@ -1155,6 +1180,7 @@ mabutton:hover {
 	margin-bottom: 23px;
 	font-size: 14px;
 	font-weight:400;
+	letter-spacing: 0px;
 }
 
 .browse_container a {
@@ -1252,7 +1278,7 @@ mabutton:hover {
 }
 
 .req_message_out {
-	width: 100%;
+	/*width: 100%;*/
 	height:auto;
 	border:1px solid black;
 	border-right: 4px solid black;
@@ -1280,10 +1306,11 @@ mabutton:hover {
 	margin-top: 20px;
 	overflow: scroll;
 	border-radius: 10px;
+	box-sizing: border-box;
 }
 
 .req_message_in {
-	width: 100%;
+	/*width: 100%;*/
 	border: 1px solid #0147FA;
 	border-left: 4px solid #0147FA;
 	font-family: Karla, Helvetica, sans-serif;
@@ -1303,7 +1330,6 @@ mabutton:hover {
 	margin-top: 15px;
 	margin-bottom: 20px;
 	margin-left: 25px;
-	width: 100%;
 }
 
 #request_msg_send {
@@ -1344,7 +1370,6 @@ mabutton:hover {
 	text-align: right;
 	margin-bottom: 20px;
 	float: right;
-	margin-right: -25px;
 }
 
 #rejecttradebutton {
@@ -1450,7 +1475,6 @@ mabutton:hover {
 }
 
 /*END Pending Trade Requests Page*/
-
 
 /*
 * {
