@@ -7,42 +7,39 @@
 </head>
 
 <body>
+	{% include "tradepaper/nav-bar.html" %}
+	<div class="home">
+		<img src="http://trade-paper.com/assets/img/t-p-logo.png" width=400px/><br/>
+		<h3><blue>trade-paper</blue> is coming soon!</h3>
+		<p><blue>trade-paper</blue> is a service created to connect you, a magazine owner, to other magazine owners, letting you trade your shelved magazines for other publications that you're after.</p>
+		<h3>How does it work?</h3>
+		<p>Add your magazines to your profile, search for a magazine you want, and send a trade request to the user with that magazine. Once both parties agree to a trade, we'll generate your shipping label and walk you through the shipping process to make sure everyone's happy.</p>
+		<h3>When does it launch?</h3>
+		<p>Everything should be up and ready around <blueh>the end of September</blueh>.<br/> Sign up to get updates on our launch here:
+		<!-- Begin MailChimp Signup Form -->
+			<style type="text/css">
+				#mc_embed_signup{ background:#fff; width:350px; margin: 0 auto;}
+				/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+				   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+			</style>
+			<div id="mc_embed_signup" style="width:500px;">
+				<form action="//trade-paper.us8.list-manage.com/subscribe/post?u=4fd53c1fa23b2b07b47f44910&amp;id=ffb777b130" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				<label for="mce-EMAIL"></label>
+				<input type="email" placeholder="email address" name="EMAIL" class="mailchimp" id="">
+				<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			    <div style="position: absolute; left: -5000px;"><input type="text" name="b_4fd53c1fa23b2b07b47f44910_ffb777b130" tabindex="-1" value=""></div>
+			    <input type="submit" value="Submit" name="subscribe" class="button_effect" id="mailchimpbutton">
+			  </form>
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-	<a href="http://trade-paper.com/myaccount">My Account</a>
-    <ul>
-    	<li><a href="/">Something</a></li>
-        <li><a href="/">Requests</a></li>
-        <li><a href="/">My Profile</a></li>
-        <li><a href="http://trade-paper.com/logout">Log Out</a></li>
-    </ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
+			</div>
+			<script type='text/javascript' src='https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+		<!-- End MailChimp Signup Form -->
+		<!-- Signup Confirmation-->
+		<div id="mailchimp_confirmed"></div>
 
-
-<div class="pending_requests">
-
-</div>
-
-
-
-
-<div class="bottom"></div>
+		</p>
+	</div>
+	<div class="bottom"></div>
 </body>
+
 </html>
