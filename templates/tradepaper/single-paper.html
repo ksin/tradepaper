@@ -2,126 +2,93 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{{ listing.title }} from {{ listing.user.name }} - trade–paper</title>
-<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-{% load staticfiles %}
-<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+  <title>[[get-paper-title]] from [[get-username]] - trade–paper</title>
+  {% include "tradepaper/header.html" %}
 </head>
 
 <body>
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-<a href="http://trade-paper.com/myaccount">My Account</a>
-<ul>
-	<li><a href="/">Something</a></li>
-	<li><a href="/">Requests</a></li>
-	<li><a href="/">My Profile</a></li>
-	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
-</ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
+  {% include "tradepaper/nav-bar.html" %}
 
+  <!--Set Page Title to "username - trade-paper"-->
 
-<!--Set Page Title to "username - trade-paper"-->
-
-<!--Individual Paper Page Content-->
-<div class="paperpage">
+  <!--Individual Paper Page Content-->
+  <div class="paperpage">
 
     <!--Get selected paper element details-->
 
-    	<div class="paperpageelement">
+    <div class="paperpageelement">
 
-            <!--IMPLEMENT CLICK TO ZOOM-->
-            <a href="/">
-            <img src="{{ listing.image.url }}" />
-            </a>
+      <!--IMPLEMENT CLICK TO ZOOM-->
 
-            <!--<div class="paper_text">-->
-            	<div class="ppe_title">
-            		<p>{{ listing.title }}</p>
-            	</div>
+      <a href="/">
+        <img src="{{ listing.image.url }}" />
+      </a>
 
-                <div class="ppe_edition">
-                    <p>{{ listing.edition }}</p>
-                </div>
+      <!--<div class="paper_text">-->
+      <div class="ppe_title">
+        <p>{{ listing.title }}</p>
+      </div>
 
-                <div class="ppe_condition">
-                    <p>{{ listing.condition }} / 10</p>
-                </div>
+      <div class="ppe_edition">
+        <p>{{ listing.edition }}</p>
+      </div>
 
-                <div class="ppe_tradebutton">
-                <a href="/">Offer Trade</a>
-                </div>
+      <div class="ppe_condition">
+        <p>{{ listing.condition }} / 10</p>
+      </div>
 
-            <!--</div>-->
-    		<!--Make one-column layout populate with all of [profile]'s paper for trade.-->
+      <div class="ppe_tradebutton">
+        <a href="/">Offer Trade</a>
+      </div>
 
+      <!--</div>-->
+      <!--Make one-column layout populate with all of [profile]'s paper for trade.-->
+
+    </div>
+
+    <!--IMPLEMENT RELATED ITEMS / ISSUES HERE-->
+
+    <!--<div class="yellowfoot">-->
+    <div class="pp_recs_container">
+      <div id="relatedtext">
+        <p>Related Paper : </p>
+      </div>
+      {% for i in "xxx"  %}
+      <div class="pp_recs">
+        <!--LINK TO THISMAG PRODUCT PAGE-->
+        <a href="">
+        <img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
+        <!--LINK TO THISMAG PRODUCT PAGE-->
+        <p>
+          <a href="">Publication Title</a>
+        </p>
+        <p>Publication Edition</p>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!--SHOW USER'S OTHER PAPER HERE-->
+
+    <div class="pp_recs_container">
+      <div id="relatedtext"><p>Other paper from <a href=""><em>user</em></a> : </p></div>
+      {% for i in "xxx" %}
+        <div class="pp_recs">
+        <!--LINK TO THISMAG PRODUCT PAGE-->
+          <a href="">
+            <img src="http://i.imgur.com/GRbsrKN.jpg" />
+          </a>
+          <!--LINK TO THISMAG PRODUCT PAGE-->
+          <p>
+            <a href="">Publication Title</a>
+          </p>
+          <p>Publication Edition</p>
         </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!--END Individual Paper Page Content-->
 
-        <!--IMPLEMENT RELATED ITEMS / ISSUES HERE-->
-
-        <!--<div class="yellowfoot">-->
-            <div class="pp_recs_container">
-                <div id="relatedtext"><p>Related Paper : </p></div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-        	</div>
-        <!--</div>-->
-
-        <!--SHOW USER'S OTHER PAPER HERE-->
-
-        <div class="pp_recs_container">
-                <div id="relatedtext"><p>Other paper from <a href="{% url 'users:profile' name=listing.user.name %}"><em>{{ listing.user.name }}</em></a> : </p></div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-                <div class="pp_recs">
-                    <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="http://i.imgur.com/GRbsrKN.jpg" /></a>
-                    <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">Publication Title</a></p>
-                    <p>Publication Edition</p>
-                </div>
-        	</div>
-</div>
-<!--END Individual Paper Page Content-->
-
-<div class="bottom"></div>
+  <div class="bottom"></div>
 </body>
 </html>
