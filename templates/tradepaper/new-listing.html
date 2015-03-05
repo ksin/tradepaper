@@ -1,84 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>List Paper - trade–paper</title>
-<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-{% load staticfiles %}
-<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+  <title>List Paper - trade–paper</title>
+  {% include "tradepaper/header.html" %}
 </head>
 
 <body>
+  {% include "tradepaper/nav-bar.html" %}
+  <div class="newlisting">
+    <h1>Add New Paper</h1>
+    <!-- Start Error Message -->
+    {% if messages %}
+        {% for message in messages %}
+        <h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
+        {% endfor %}
+    {% endif %}
+    <!-- End Error Message -->
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-<a href="http://trade-paper.com/myaccount">My Account</a>
-<ul>
-    <li><a href="/">Something</a></li>
-    <li><a href="/">Requests</a></li>
-    <li><a href="/">My Profile</a></li>
-    <li><a href="http://trade-paper.com/logout">Log Out</a></li>
-</ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
+    <form action="{% url 'papers:new_listing' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
 
+      <h2>Publication Title:</h2>
+      <input type="text" name="title" placeholder="title" id="new_listing_title" data-required="required" class="textfield_effect2">
+      <!--^ Make backend capitalize this properly ^-->
 
-<div class="newlisting">
-<h1>Add New Paper</h1>
-{% if messages %}
-    {% for message in messages %}
-    <h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
-    {% endfor %}
-{% endif %}
-<form action="{% url 'papers:new_listing' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h2>Publication Title:</h2>
-        <!--text form here-->
-        <label for="paper_title"></label>
-        <!--XXXXXX BELOW MEANS I DON'T KNOW-->
-        <input type="text" name="title" placeholder="title" id="new_listing_title" data-required="required" class="textfield_effect2">
-        <!--^ Make backend capitalize this properly ^-->
+      <h2>Paper Edition:</h2>
+      <input type="text" name="edition" placeholder="edition" id="new_listing_edition" data-required="required" class="textfield_effect2">
 
-    <h2>Paper Edition:</h2>
-        <!--text form here-->
-        <label for="paper_edition"></label>
-        <input type="text" name="edition" placeholder="edition" id="new_listing_edition" data-required="required" class="textfield_effect2">
+      <h2>Condition:</h2>
+      <input type="text" name="condition" placeholder="condition out of 10" id="new_listing_condition" data-required="required" class="textfield_effect2">
 
-    <h2>Condition:</h2>
-        <!--text form here-->
-       	<label for="paper_condition"></label>
-        <input type="text" name="condition" placeholder="condition out of 10" id="new_listing_condition" data-required="required" class="textfield_effect2">
-
-
-    <!--Add category picker here-->
-    <!---->
-    <!---->
-
-    <h2>Upload Images:</h2>
-    <!-- <div id="uploadimg">
-    </div> -->
-    <input type="file" name="image" id="new_listing_image" class="textfield_effect">
-
-	<input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
-</form>
-<div class="bottom"></div>
-</div>
-
+      <!--Add category picker here-->
+      <h2>Upload Images:</h2>
+      <input type="file" name="image" id="new_listing_image" class="textfield_effect">
+  	  <input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
+    </form>
+    <div class="bottom"></div>
+  </div>
 </body>
+
 </html>
