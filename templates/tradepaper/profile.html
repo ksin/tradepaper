@@ -2,96 +2,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Profile - trade–paper</title>
-<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-{% load staticfiles %}
-<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+	{% include "tradepaper/header.html" %}
 </head>
 
 <body>
+	{% include "tradepaper/nav-bar.html" %}
+	<!--Set Page Title to "username - trade-paper"-->
+	<!--Profile Header-->
+	<div class="profile_head">
+		<h2>Profile</h2>
+		<!-- Get avatar-->
+	  <img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />
+		<!--Get username -->
+		<div id="unamedisp">{{ user.name }}</div>
+		<!--Get city location-->
+		{% if user.city %}
+			<h3>{{ user.city }}</h3>
+		{% endif %}
+		<!--Get website if any-->
+		{% if user.website %}
+			<h3><a href="">{{ user.website }}</a></h3>
+		{% endif %}
+	</div>
+	<!--END Profile Header-->
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-<a href="http://trade-paper.com/myaccount">My Account</a>
-<ul>
-	<li><a href="/">Something</a></li>
-	<li><a href="/">Requests</a></li>
-	<li><a href="/">My Profile</a></li>
-	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
-</ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
+	<!--Profile Content-->
+	<div class="profile">
+    <!-- Maybe add Profile Sorting here-->
 
-
-<!--Set Page Title to "username - trade-paper"-->
-
-<!--Profile Header-->
-<div class="profile_head">
-
-	<h2>Profile</h2>
-	<!-- Get avatar-->
-    <img src="https://pbs.twimg.com/profile_images/433092997828202496/Lj3L-jIF_bigger.jpeg" />
-	<!--Get username -->
-	<!-- <div id="unamedisp">amardeep</div> -->
-	<div id="unamedisp">{{ user.name }}</div>
-	<!--Get city location-->
-	<!-- <h3>new york city</h3> -->
-	{% if user.city %}
-		<h3>{{ user.city }}</h3>
-	{% endif %}
-	<!--Get website if any-->
-	<!-- <h3><a href="">portfolio.amardeeps.com</a></h3> -->
-	{% if user.website %}
-		<h3><a href="">{{ user.website }}</a></h3>
-	{% endif %}
-
-</div>
-<!--END Profile Header-->
-
-<!--Profile Content-->
-<div class="profile">
-
-    <!--FIX
-    <div class="profile_sort">
-    	<p>Sort by: DROP DOWN</p>
+		{% for listing in user.listing_set.all %}
+    <div class="browse_element">
+			<a href=""><img src="{{ listing.image.url }}" /></a>
+			<div class="browse_paper_title">
+				<p><a href="">{{ listing.title }}</a></p>
+      	<p>{{ listing.edition }}</p>
+			</div>
     </div>
-    FIX-->
-    {% for listing in user.listing_set.all %}
+  	{% endfor %}
+	</div>
+	<!--End Profile Content-->
 
-    <div class="profile_element">
-        <!--LINK TO THISMAG PRODUCT PAGE--><a href=""><img src="{{ listing.image.url }}" /></a>
-            <!--LINK TO THISMAG PRODUCT PAGE--><p><a href="">{{ listing.title }}</a></p>
-            <p>{{ listing.edition }}</p>
-            <div class="tradebutton">
-              <form action="{% url 'papers:new_request' listing.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" value="Offer Trade" />
-              </form>
-            </div>
-        </div>
-
-   {% endfor %}
-
-</div>
-<!--End Profile Content-->
-
-<div class="bottom"></div>
+	<div class="bottom"></div>
 </body>
+
 </html>
