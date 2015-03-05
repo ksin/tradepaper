@@ -2,71 +2,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Register - trade–paper</title>
-<!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-{% load staticfiles %}
-<link href="{% static 'tradepaper/styles.css' %}" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+	{% include "tradepaper/header.html" %}
 </head>
 
 <body>
+	{% include "tradepaper/nav-bar.html" %}
+	<div class="signup">
+		<h1>Sign Up</h1>
 
-{% include "tradepaper/nav-bar.html" %}
-<!-- Frame Links -->
-<!-- <div class="top"></div>
-<div class="framelink" id="link1"><a href="look">Browse</a>
-</div>
-<div class="framelink" id="link2"><a href="//">trade–paper</a>
-</div>
-<div class="framelink" id="link3"><form action="/search.jsp" method="GET">
-<input type="text" name="query" class="search_effect" placeholder="Search">
-</form>
-</div>
-<div class="framelink" id="link4"><a href="/about">About</a>
-</div> -->
-<!--If signed in:-->
-<!-- <div class="framelink" id="link5">
-<a href="http://trade-paper.com/myaccount">My Account</a>
-<ul>
-	<li><a href="/">Something</a></li>
-	<li><a href="/">Requests</a></li>
-	<li><a href="/">My Profile</a></li>
-	<li><a href="http://trade-paper.com/logout">Log Out</a></li>
-</ul>
-</div> -->
-<!--Else:-->
-<!--<div class="framelink" id="link5"><a href="/login">Log In</a></div>-->
-<!--END Frame Links-->
+		<!-- Start Error Message -->
+		{% if messages %}
+			{% for message in messages %}
+			<h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
+			{% endfor %}
+		{% endif %}
+		<!-- End Error Message -->
 
+		<form action="{% url 'register' %}" method="post">
+			{% csrf_token %}
+			<h2>Enter your email address:</h2>
+			<input type="email" name="email" placeholder="Email Address" id="register_email" data-required="required" class="textfield_effect" autofocus>
 
-<!--Sign Up-->
-<div class="signup">
-	<h1>Sign Up</h1>
-	{% if messages %}
-		{% for message in messages %}
-		<h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
-		{% endfor %}
-	{% endif %}
-	<form action="{% url 'register' %}" method="post">
-		{% csrf_token %}
-		<h2>Enter your email address:</h2>
-		<input type="email" name="email" placeholder="email address" id="register_email" data-required="required" class="textfield_effect">
+		  <h2>Choose a password:</h2>
+			<input type="password" name="password" placeholder="Password" id="register_password" data-required="required" class="textfield_effect">
 
-	    <h2>Choose a password:</h2>
-		<input type="password" name="password" placeholder="password" id="register_password" data-required="required" class="textfield_effect">
+			<h2>Pick a username:</h2>
+			<input type="text" name="name" placeholder="Username" id="register_uname" data-required="required" class="textfield_effect">
 
-		<h2>Pick a username:</h2>
-		<input type="text" name="name" placeholder="name" id="register_name" data-required="required" class="textfield_effect">
+			<h2>Location:</h2>
+			<input type="text" name="city" placeholder="City, State" id="register_city" data-required="required" class="textfield_effect">
 
-		<h2>Location:</h2>
-		<input type="text" name="city" placeholder="city" id="register_city" data-required="required" class="textfield_effect">
-
-		<input type="submit" value="Submit" class="textfield_effect" id="signup_submit">
-	</form>
-</div>
-
-
+			<input type="submit" value="Submit" class="button_effect" id="signup_submit">
+		</form>
+	</div>
 <div class="bottom"></div>
 </body>
+
 </html>
