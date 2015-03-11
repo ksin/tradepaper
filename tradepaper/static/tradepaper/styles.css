@@ -549,6 +549,7 @@ blueh:hover {
 	border: 3px solid yellow;
 	border-radius: 3px;
 	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+	cursor: default;
 }
 
 .home h3:hover{
@@ -768,9 +769,9 @@ mabutton:hover {
 .profile {
 	width: 60%;
 	margin: auto;
-	margin-top: 50px;
+	margin-top: 20px;
 	height:inherit;
-	text-align: justify;
+	text-align: center;
 }
 
 .profile img {
@@ -979,7 +980,7 @@ mabutton:hover {
 	width: 75%;
 	margin: auto;
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 95px;
 }
 
 .paperpageelement{
@@ -999,7 +1000,7 @@ mabutton:hover {
 
 .ppe_title{
 	font-weight: 700;
-	margin-top: 3.8%;
+	margin-top: 40px;
 	margin-bottom: 0px;
 }
 
@@ -1018,7 +1019,7 @@ mabutton:hover {
 	display: block;
 	width: 33%;
 	margin: auto;
-	margin-top: 3.8%;
+	margin-top: 40px;;
 	margin-bottom: 0px;
 	padding: 10px;
 	background-color: white;
@@ -1073,9 +1074,9 @@ mabutton:hover {
 .pp_recs {
 	width: 150px;
 	border: 1px solid black;
-	margin-right: 5%;
-	margin-left: 5%;
-	padding: 20px 2% 5px;
+	margin-right: 40px;
+	margin-left: 40px;
+	padding: 30px 10px 5px;
 	text-align: center;
 	display: inline-block;
 	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.04);
@@ -1088,7 +1089,7 @@ mabutton:hover {
 
 =======
 	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.08);
-	
+
 >>>>>>> Stashed changes
 }
 
@@ -1143,7 +1144,7 @@ mabutton:hover {
 .browse_element {
 	width: 250px;
 	border: 3px solid black;
-	background:  rgba(255,243,24, 0.5); 
+	background:  rgba(255,243,24, 0.5);
 	margin: 30px 3.5%;
 	padding: 10px;
 	text-align: center;
