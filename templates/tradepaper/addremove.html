@@ -14,7 +14,7 @@
 	<h2>Add/Remove My Magazines</h2>
 	<div class="addmag" id="draggable"><a id="jq">+ Add a magazine</a></div>
 
-	<!--Add Magazine button shows:-->
+	<!--Add Magazine dialogue:-->
 	<div id="adding">
 		<div class="newlisting">
 			<h1>Add New Paper</h1>
@@ -46,45 +46,26 @@
 	  	  <input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
 	    </form>
 
-    </div>
-	</div>
-	<!--End "Add Magazine" dialogue-->
+    </div><!--End #newlisting dropdown-->
+	</div><!--End "#adding"-->
 
 	<div class="mags">
 		<h3>Magazines currently listed:</h3><br/>
+		{% for listing in listings %}
+    	<div class="browse_element"u>
+      	<a class="remove" href="{% url 'papers:listing' listing.id %}">
+					Remove<br/>
+					<img src="{{ listing.image.url }}" />
+				</a>
+				<div class="browse_paper_title">
+					<a href="{% url 'papers:listing' listing.id %}">{{ listing.title }}</a>
+				</div>
+				<p>Publication Edition</p>
+			</div>
+		{% endfor %}
+	</div><!--End ".mags"-->
+</div> <!--End ".mymags"-->
 
-        <div class="browse_element">
-           	<a class="remove">Remove</a><br/>
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            <div class="browse_paper_title">Publication Title </div>
-            <p>Publication Edition</p>
-       	</div>
-
-       	<div class="browse_element">
-           	<a class="remove">Remove</a><br/>
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            <div class="browse_paper_title">Publication Title </div>
-            <p>Publication Edition</p>
-       	</div>
-
-       	 <div class="browse_element">
-           	<a class="remove">Remove</a><br/>
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            <div class="browse_paper_title">Publication Title </div>
-            <p>Publication Edition</p>
-       	</div>
-
-       	 <div class="browse_element">
-           	<a class="remove">Remove</a><br/>
-        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
-            <div class="browse_paper_title">Publication Title </div>
-            <p>Publication Edition</p>
-       	</div>
-
-
-	</div>
-</div>
-<!--End My Account Content-->
 
 <div class="bottom"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
