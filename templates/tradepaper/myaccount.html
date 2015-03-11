@@ -12,7 +12,7 @@
 	<div class="myaccount">
 		<h2>My Account</h2>
 		<div id="mabuttons">
-                  <a href="{% url 'users:requests' %}"><mabutton>View Trade Requests</mabutton></a><!--Link to trade-request page-->
+                  <a href="{% url 'requests' %}"><mabutton>View Trade Requests</mabutton></a><!--Link to trade-request page-->
 			<a href=""><mabutton>Add/Remove My Magazines</mabutton></a>
 			<a href="{% url 'users:profile' name=user.name %}"><mabutton>View My Profile</mabutton></a><!--Have this link to the logged-in user's profile-->
 			<a href=""><mabutton>Edit Profile Details</mabutton></a>
