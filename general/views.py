@@ -7,3 +7,6 @@ def home(request):
 
 def about(request):
     return render(request, 'tradepaper/about.html')
+
+def faq(request):
+    return render(request, 'tradepaper/faq.html')
