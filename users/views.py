@@ -26,6 +26,14 @@ def index(request):
     else:
         return HttpResponse("Welcome %s!" % user.name)
 
+def my_account(request):
+    user = request.user
+    if user is None or not user.is_authenticated():
+        messages.error(request, "You need to be logged in to view your account.")
+        return HttpResponseRedirect(reverse('login'))
+    else:
+        return render(request, 'tradepaper/myaccount.html')
+
 def requests(request):
     user = request.user
     if (not user.is_authenticated()):
