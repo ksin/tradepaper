@@ -47,7 +47,7 @@ def manage(request):
         messages.error(request, "You need to be logged in to manage your account.")
         return HttpResponseRedirect(reverse('login'))
     else:
-        return render(request, 'tradepaper/addremove.html')
+        return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
 
 def preferences(request):
     user = request.user
