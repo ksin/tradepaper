@@ -32,14 +32,20 @@
     <!-- Maybe add Profile Sorting here-->
 
 		{% for listing in user.listing_set.all %}
-    <div class="browse_element">
-			<a href=""><img src="{{ listing.image.url }}" /></a>
-			<div class="browse_paper_title">
-				<p><a href="">{{ listing.title }}</a></p>
-      	<p>{{ listing.edition }}</p>
-			</div>
-    </div>
-  	{% endfor %}
+	    <div class="browse_container">
+			<h2>Browse</h2>
+			{% for listing in listings %}
+		    	<div class="browse_element"u>
+		        	<a href="{% url 'papers:listing' listing.id %}">
+						<img src="{{ listing.image.url }}" />
+					</a>
+					<div class="browse_paper_title">
+						<a href="{% url 'papers:listing' listing.id %}">{{ listing.title }}</a>
+					</div>
+					<p>Publication Edition</p>
+				</div>
+			{% endfor %}
+		</div>
 	</div>
 	<!--End Profile Content-->
 
