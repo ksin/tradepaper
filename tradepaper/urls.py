@@ -16,10 +16,12 @@ urlpatterns = patterns('',
     url(r'^about/?$', 'general.views.about', name='about'),
     url(r'^faq/?$', 'general.views.faq', name='faq'),
     url(r'^shipping/?$', 'general.views.shipping', name='shipping'),
+
     url(r'^login/?$', 'users.views.login', name='login'),
     url(r'^logout/?$', 'users.views.logout', name='logout'),
     url(r'^register/?$', 'users.views.register', name='register'),
-
+    url(r'^myaccount/?$', 'users.views.my_account', name='my_account'),
+    url(r'^myaccount/preferences/?$', 'users.views.preferences', name='preferences'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

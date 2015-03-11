@@ -17,7 +17,7 @@
 <div class="framelink" id="link5">
     <!--If signed in:-->
     {% if user.is_authenticated %}
-        <a href="{% url 'users:my_account' %}">My Account</a>
+        <a href="{% url 'my_account' %}">My Account</a>
         <ul>
             <li><a href="{% url 'papers:new_listing' %}">New Listing</a></li>
             <li><a href="{% url 'users:requests' %}">Requests</a></li>

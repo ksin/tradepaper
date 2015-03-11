@@ -34,6 +34,14 @@ def my_account(request):
     else:
         return render(request, 'tradepaper/myaccount.html')
 
+def preferences(request):
+    user = request.user
+    if user is None or not user.is_authenticated():
+        messages.error(request, "You need to be logged in to view your preferences.")
+        return HttpResponseRedirect(reverse('login'))
+    else:
+        return render(request, 'tradepaper/preferences.html')
+
 def requests(request):
     user = request.user
     if (not user.is_authenticated()):
