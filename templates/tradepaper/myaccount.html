@@ -16,7 +16,7 @@
 			<a href=""><mabutton>Add/Remove My Magazines</mabutton></a>
 			<a href="{% url 'users:profile' name=user.name %}"><mabutton>View My Profile</mabutton></a><!--Have this link to the logged-in user's profile-->
 			<a href=""><mabutton>Edit Profile Details</mabutton></a>
-			<a href=""><mabutton>Preferences</mabutton></a>
+                        <a href="{% url 'preferences' %}"><mabutton>Preferences</mabutton></a>
 			<a href=""><mabutton>Other Link</mabutton></a>
 		</div>
 	</div>
