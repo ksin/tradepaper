@@ -1084,13 +1084,7 @@ mabutton:hover {
 
 .pp_recs:hover {
 	background-color: #fff318;
-<<<<<<< Updated upstream
-	box-shadow: 0px 10px 35px 12px rgba(0,0,0,0.25);
-
-=======
 	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.08);
-
->>>>>>> Stashed changes
 }
 
 .pp_recs img {
@@ -1144,7 +1138,8 @@ mabutton:hover {
 .browse_element {
 	width: 250px;
 	border: 3px solid black;
-	background:  rgba(255,243,24, 0.5);
+	/*background:  rgba(255,243,24, 0.5);*/
+	background: #fff318;
 	margin: 30px 3.5%;
 	padding: 10px;
 	text-align: center;
@@ -1159,7 +1154,7 @@ mabutton:hover {
 .browse_paper_title{
 	padding-top: 7px;
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 16px;
 	letter-spacing: 0px;
 }
 
