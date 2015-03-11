@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Add / Remove Magazines - trade–paper</title>
+	{% include "tradepaper/header.html" %}
+</head>
+
+<body>
+	{% include "tradepaper/nav-bar.html" %}
+
+<!--My Account Content-->
+<div class="mymags">
+	<h2>Add/Remove My Magazines</h2>
+	<div class="addmag" id="draggable"><a id="jq">+ Add a magazine</a></div>
+
+	<!--Add Magazine button shows:-->
+	<div id="adding">
+		<div class="newlisting">
+			<h1>Add New Paper</h1>
+
+			<!-- Start Error Message -->
+	    {% if messages %}
+	        {% for message in messages %}
+	        <h2{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>
+	        {% endfor %}
+	    {% endif %}
+	    <!-- End Error Message -->
+
+			<form action="{% url 'papers:new_listing' %}" method="post" enctype="multipart/form-data">
+	      {% csrf_token %}
+
+	      <h2>Publication Title:</h2>
+	      <input type="text" name="title" placeholder="title" id="new_listing_title" data-required="required" class="textfield_effect2">
+	      <!--^ Make backend capitalize this properly ^-->
+
+	      <h2>Paper Edition:</h2>
+	      <input type="text" name="edition" placeholder="edition" id="new_listing_edition" data-required="required" class="textfield_effect2">
+
+	      <h2>Condition:</h2>
+	      <input type="text" name="condition" placeholder="condition out of 10" id="new_listing_condition" data-required="required" class="textfield_effect2">
+
+	      <!--Add category picker here-->
+	      <h2>Upload Images:</h2>
+	      <input type="file" name="image" id="new_listing_image" class="textfield_effect">
+	  	  <input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
+	    </form>
+
+    </div>
+	</div>
+	<!--End "Add Magazine" dialogue-->
+
+	<div class="mags">
+		<h3>Magazines currently listed:</h3><br/>
+
+        <div class="browse_element">
+           	<a class="remove">Remove</a><br/>
+        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
+            <div class="browse_paper_title">Publication Title </div>
+            <p>Publication Edition</p>
+       	</div>
+
+       	<div class="browse_element">
+           	<a class="remove">Remove</a><br/>
+        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
+            <div class="browse_paper_title">Publication Title </div>
+            <p>Publication Edition</p>
+       	</div>
+
+       	 <div class="browse_element">
+           	<a class="remove">Remove</a><br/>
+        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
+            <div class="browse_paper_title">Publication Title </div>
+            <p>Publication Edition</p>
+       	</div>
+
+       	 <div class="browse_element">
+           	<a class="remove">Remove</a><br/>
+        	<img src="http://i.imgur.com/GRbsrKN.jpg" />
+            <div class="browse_paper_title">Publication Title </div>
+            <p>Publication Edition</p>
+       	</div>
+
+
+	</div>
+</div>
+<!--End My Account Content-->
+
+<div class="bottom"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<script>
+	$(function() {
+    	$( "#draggable" ).draggable();
+    	});
+</script>
+<script>
+	$(document).ready(function() {
+		$(".addmag").on("click", function() {
+			$("#adding").slideToggle(400);
+			$(".mags").slideToggle(400);
+		});
+		$("#newlisting_submit").on("click", function() {
+			$("#adding").slideToggle(400);
+			$(".mags").slideToggle(400);
+		});
+		$(".remove").on("click", function() {
+			$(this).closest(".browse_element").hide(800);
+		});
+	});
+</script>
+</body>
+</html>
