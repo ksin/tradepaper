@@ -10,3 +10,6 @@ def about(request):
 
 def faq(request):
     return render(request, 'tradepaper/faq.html')
+
+def shipping(request):
+    return render(request, 'tradepaper/shippinginstructions.html')
