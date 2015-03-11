@@ -41,6 +41,14 @@ def my_account(request):
     else:
         return render(request, 'tradepaper/myaccount.html')
 
+def manage(request):
+    user = request.user
+    if user is None or not user.is_authenticated():
+        messages.error(request, "You need to be logged in to manage your account.")
+        return HttpResponseRedirect(reverse('login'))
+    else:
+        return render(request, 'tradepaper/addremove.html')
+
 def preferences(request):
     user = request.user
     if user is None or not user.is_authenticated():

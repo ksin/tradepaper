@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^myaccount/?$', 'users.views.my_account', name='my_account'),
     url(r'^myaccount/preferences/?$', 'users.views.preferences', name='preferences'),
     url(r'^requests/?$', 'users.views.requests', name='requests'),
+    url(r'^manage/?$', 'users.views.manage', name='manage'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
