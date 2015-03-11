@@ -33,7 +33,6 @@
 
 		{% for listing in user.listing_set.all %}
 	    <div class="browse_container">
-			<h2>Browse</h2>
 			{% for listing in listings %}
 		    	<div class="browse_element"u>
 		        	<a href="{% url 'papers:listing' listing.id %}">
