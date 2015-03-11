@@ -54,9 +54,9 @@
 		{% for listing in listings %}
     	<div class="browse_element"u>
       	<a class="remove" href="{% url 'papers:listing' listing.id %}">
-					Remove<br/>
-					<img src="{{ listing.image.url }}" />
+					Remove
 				</a>
+				<img src="{{ listing.image.url }}" />
 				<div class="browse_paper_title">
 					<a href="{% url 'papers:listing' listing.id %}">{{ listing.title }}</a>
 				</div>
