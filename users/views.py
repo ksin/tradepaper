@@ -26,13 +26,6 @@ class LoginForm(ModelForm):
 #     else:
 #         return HttpResponse("Welcome %s!" % user.name)
 
-def index(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        return HttpResponse("You're not logged in, but welcome anyway!")
-    else:
-        return HttpResponse("Welcome %s!" % user.name)
-
 def my_account(request):
     user = request.user
     if user is None or not user.is_authenticated():
