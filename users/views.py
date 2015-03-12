@@ -79,7 +79,7 @@ def login(request):
                                 'form': form})
     # User has authenticated successfully
     auth_login(request, u)
-    return HttpResponseRedirect(reverse('users:myaccount', args=(u.name,)))
+    return HttpResponseRedirect(reverse('my_account'))
 
 def logout(request):
     auth_logout(request)
