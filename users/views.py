@@ -19,12 +19,15 @@ class LoginForm(ModelForm):
         model = User
         fields = ['email', 'password',]
 
-# def check_return_user(request):
-#     user = request.user
-#     if user is None or not user.is_authenticated():
-#         return HttpResponse("You're not logged in, but welcome anyway!")
-#     else:
-#         return HttpResponse("Welcome %s!" % user.name)
+class LoginException(Exception):
+    pass
+
+def vet_user(request, message):
+    user = request.user
+    if user is None or not user.is_authenticated():
+        return HttpResponse("You're not logged in, but welcome anyway!")
+    else:
+        return HttpResponse("Welcome %s!" % user.name)
 
 def my_account(request):
     user = request.user
