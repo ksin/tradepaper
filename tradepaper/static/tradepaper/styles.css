@@ -303,10 +303,22 @@ h1, h2, h3, h4, h5, h6 {
 /*END Register Link on Login Page*/
 
 /*Text Field + Button Effects*/
+#adding .uploaddialogue {
+	font-family: Karla, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing:1px;
+	text-align: center;
+	width: 275px;
+	color: white;
+	display: inline-block;
+}
+input[type="file" i]::-webkit-file-upload-button {
+	color: white;
+}
+
 .textfield_effect {
-	border-width: 1px;
-    border-style: solid;
-	border-color: white;
+	border: 1px solid white;
 	box-shadow: none;
 	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
@@ -318,9 +330,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .textfield_effect2 {
-	border-width: 1px;
-    border-style: solid;
-	border-color: white;
+	border: 1px solid white;
 	box-shadow: none;
 	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
@@ -355,9 +365,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .password_effect {
-	border-width: 1px;
-    border-style: solid;
-	border-color: white;
+	border: 1px solid white;
 	box-shadow: none;
 	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
@@ -368,9 +376,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .email_effect {
-	border-width: 1px;
-    border-style: solid;
-	border-color: white;
+	border: 1px solid white;
 	box-shadow: none;
 	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
@@ -897,8 +903,7 @@ mabutton:hover {
 	width: 100%;
 	letter-spacing:1px;
 	font-size: 14px;
-	padding-top: 80px;
-	margin: auto;
+	margin: 80px auto 0;
 	text-align: center;
 }
 
@@ -908,6 +913,8 @@ mabutton:hover {
 
 .mymags h2 {
 	color: red;
+	margin: 0 auto;
+	font-size: 24px;
 }
 
 .mags {

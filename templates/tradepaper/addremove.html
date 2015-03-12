@@ -42,7 +42,7 @@
 
 	      <!--Add category picker here-->
 	      <h2>Upload Images:</h2>
-	      <input type="file" name="image" id="new_listing_image" class="textfield_effect">
+				<input type="file" name="image" class="uploaddialogue">
 	  	  <input type="submit" value="Submit" class="textfield_effect" id="new_listing_submit">
 	    </form>
 
@@ -53,12 +53,12 @@
 		<h3>Magazines currently listed:</h3><br/>
 		{% for listing in listings %}
     	<div class="browse_element"u>
-      	<a class="remove" href="{% url 'papers:listing' listing.id %}">
+      	<a class="remove" href="#">
 					Remove
 				</a>
 				<img src="{{ listing.image.url }}" />
 				<div class="browse_paper_title">
-					<a href="{% url 'papers:listing' listing.id %}">{{ listing.title }}</a>
+					{{ listing.title }}
 				</div>
 				<p>Publication Edition</p>
 			</div>
@@ -86,7 +86,8 @@
 			$(".mags").slideToggle(400);
 		});
 		$(".remove").on("click", function() {
-			$(this).closest(".browse_element").hide(800);
+			$(this).closest(".browse_element").hide(100);
+			return false;
 		});
 	});
 </script>
