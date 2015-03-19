@@ -42,26 +42,24 @@ def my_account(request):
     return render(request, 'tradepaper/myaccount.html')
 
 def manage(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to manage your account.")
-        return HttpResponseRedirect(reverse('login'))
-    else:
-        return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
+    try:
+        user = vet_user(request, "You need to be logged in to manage your account.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
 
 def preferences(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to view your preferences.")
-        return HttpResponseRedirect(reverse('login'))
-    else:
-        return render(request, 'tradepaper/preferences.html')
+    try:
+        user = vet_user(request, "You need to be logged in to view your preferences.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/preferences.html')
 
 def requests(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to view your requests.")
-        return HttpResponseRedirect(reverse('login'))
+    try:
+        user = vet_user(request, "You need to be logged in to view your requests.")
+    except LoginException as exception:
+        return exception.redirect
     requests = user.requests_sent.all()
     return render(request, 'tradepaper/pending-requests.html', {'requests': requests})
 

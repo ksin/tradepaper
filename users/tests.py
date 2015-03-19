@@ -72,14 +72,6 @@ class UserViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertFalse(SESSION_KEY in self.client.session)
 
-    def test_create_and_log_in_user_and_check_user_index(self):
-        user = create_user('eli@me.com', 'ok', 'eli', 'New York')
-        self.client.login(email='eli@me.com', password='ok')
-        self.assertTrue(SESSION_KEY in self.client.session)
-        response = self.client.get(reverse('users:index'))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'eli')
-
     def test_register_new_user_with_all_fields_and_check_if_logged_in(self):
         response = self.client.post(reverse('register'),
                 {'email':'eli@me.com',
