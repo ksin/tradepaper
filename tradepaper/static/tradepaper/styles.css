@@ -1479,6 +1479,21 @@ mabutton:hover {
 
 /*END Pending Trade Requests Page*/
 
+/* START 404 Page */
+.404 {
+  font-size: 36px;
+  line-height: 36px;
+  text-transform: uppercase;
+  position: fixed;
+  padding: 0px;
+  text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+}
+/* END 404 Page */
+
 /*
 * {
 	border: 1px solid black;}
