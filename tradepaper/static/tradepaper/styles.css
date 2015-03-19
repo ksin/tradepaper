@@ -313,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 	display: inline-block;
 }
-input[type="file" i]::-webkit-file-upload-button {
+.uploaddialogue btn {
 	color: white;
 }
 
@@ -932,7 +932,7 @@ mabutton:hover {
 .mags .browse_element a {
 	color: red;
 	margin: 0;
-	padding: 0px 4px;
+	padding: 1px 5px;
 	border: 2px solid red;
 	font-weight: 700;
 	font-size: 12px;
@@ -972,7 +972,7 @@ mabutton:hover {
 	top: 0;
 	padding-top: 80px;
 	background-color: #004dbd;
-	height: 1000px;
+	height: 100%;
 	display: none;
 }
 
