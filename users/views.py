@@ -20,7 +20,10 @@ class LoginForm(ModelForm):
         fields = ['email', 'password',]
 
 class LoginException(Exception):
-    pass
+    def __init__(self, redirect):
+        self.redirect = redirect
+    def __str__(self):
+        return repr(self.redirect)
 
 def vet_user(request, message):
     user = request.user
@@ -34,8 +37,8 @@ def vet_user(request, message):
 def my_account(request):
     try:
         user = vet_user(request, "You need to be logged in to view your account.")
-    except LoginException, redirect:
-        return redirect
+    except LoginException as exception:
+        return exception.redirect
     return render(request, 'tradepaper/myaccount.html')
 
 def manage(request):
