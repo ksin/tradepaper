@@ -29,7 +29,7 @@ def vet_user(request, message):
     user = request.user
     if user is None or not user.is_authenticated():
         messages.error(request, message)
-        redirect = HttpResponseRedirect(reverse('login'))
+        redirect = HttpResponseRedirect("{0}?next={1}".format(reverse('login'), request.path))
         raise LoginException(redirect)
     else:
         return user
@@ -84,7 +84,12 @@ def login(request):
                                 'form': form})
     # User has authenticated successfully
     auth_login(request, u)
-    return HttpResponseRedirect(reverse('my_account'))
+    next = request.GET.get('next')
+    if next is None:
+        return HttpResponseRedirect(reverse('my_account'))
+    else:
+        return HttpResponseRedirect(next)
+
 
 def logout(request):
     auth_logout(request)
