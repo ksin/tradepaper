@@ -387,6 +387,10 @@ h1, h2, h3, h4, h5, h6 {
 	width: 300px;
 }
 
+.addmagup {
+	color: white;
+}
+
 .mailchimp {
 	border: 3px solid black;
 	box-shadow: none;
@@ -1494,7 +1498,20 @@ mabutton:hover {
 }
 /* END 404 Page */
 
+/* ERROR MESSAGE Styles */
+.errors {
+	color: blueviolet;
+}
 /*
 * {
 	border: 1px solid black;}
 */
+
+/* CSS ANIMATIONS */
+/* @group Blink */
+
+.blink {
+  animation: blink 1s steps(3, start) infinite;
+  -webkit-animation: blink 1s steps(3, start) infinite;
+}
+/* @end CSS ANIMATIONS */
