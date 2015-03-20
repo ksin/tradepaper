@@ -1,3 +1,6 @@
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+
 """
 Django settings for tradepaper project.
 
@@ -120,6 +123,10 @@ LOGGING = {
         },
     },
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
 
 # # AWS
 # AWS_ACCESS_KEY_ID = 'AKIAJH7EFB7DCDWVQJLA'

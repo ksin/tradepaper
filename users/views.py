@@ -19,42 +19,47 @@ class LoginForm(ModelForm):
         model = User
         fields = ['email', 'password',]
 
-# def check_return_user(request):
-#     user = request.user
-#     if user is None or not user.is_authenticated():
-#         return HttpResponse("You're not logged in, but welcome anyway!")
-#     else:
-#         return HttpResponse("Welcome %s!" % user.name)
+class LoginException(Exception):
+    def __init__(self, redirect):
+        self.redirect = redirect
+    def __str__(self):
+        return repr(self.redirect)
+
+def vet_user(request, message):
+    user = request.user
+    if user is None or not user.is_authenticated():
+        messages.error(request, message)
+        redirect = HttpResponseRedirect("{0}?next={1}".format(reverse('login'), request.path))
+        raise LoginException(redirect)
+    else:
+        return user
 
 def my_account(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to view your account.")
-        return HttpResponseRedirect(reverse('login'))
-    else:
-        return render(request, 'tradepaper/myaccount.html')
+    try:
+        user = vet_user(request, "You need to be logged in to view your account.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/myaccount.html')
 
 def manage(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to manage your account.")
-        return HttpResponseRedirect(reverse('login'))
-    else:
-        return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
+    try:
+        user = vet_user(request, "You need to be logged in to manage your account.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
 
 def preferences(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to view your preferences.")
-        return HttpResponseRedirect(reverse('login'))
-    else:
-        return render(request, 'tradepaper/preferences.html')
+    try:
+        user = vet_user(request, "You need to be logged in to view your preferences.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/preferences.html')
 
 def requests(request):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, "You need to be logged in to view your requests.")
-        return HttpResponseRedirect(reverse('login'))
+    try:
+        user = vet_user(request, "You need to be logged in to view your requests.")
+    except LoginException as exception:
+        return exception.redirect
     requests = user.requests_sent.all()
     return render(request, 'tradepaper/pending-requests.html', {'requests': requests})
 
@@ -79,7 +84,12 @@ def login(request):
                                 'form': form})
     # User has authenticated successfully
     auth_login(request, u)
-    return HttpResponseRedirect(reverse('my_account'))
+    next = request.GET.get('next')
+    if next is None:
+        return HttpResponseRedirect(reverse('my_account'))
+    else:
+        return HttpResponseRedirect(next)
+
 
 def logout(request):
     auth_logout(request)
