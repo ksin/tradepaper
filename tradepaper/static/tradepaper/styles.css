@@ -1489,12 +1489,15 @@ mabutton:hover {
   line-height: 36px;
   position: fixed;
   padding: 0px;
-  text-align: center;
   margin: 0 auto;
   top: 50%;
   transform: translate(0, -50%);
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
+}
+
+.fourohfour p {
+  text-align: center;
 }
 /* END 404 Page */
 
