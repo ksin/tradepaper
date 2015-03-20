@@ -6,7 +6,7 @@
 */
 
 html{
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: "Apercu Regular",  Helvetica, sans-serif;
 	height: 100%;
 }
 
@@ -211,8 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	text-align: center;
 	display: block;
-	margin: auto;
-	margin-top: 40px;
+	margin: 10px auto 30px;
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
@@ -304,7 +303,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Text Field + Button Effects*/
 #adding .uploaddialogue {
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -320,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -332,7 +331,7 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect2 {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -345,7 +344,7 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect3 {
 	border: 1px dashed white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: 700;
 	text-align: right;
@@ -357,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
 .search_effect {
 	border: 0px dashed white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	text-align: right;
@@ -367,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
 .password_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -378,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
 .email_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -394,7 +393,7 @@ h1, h2, h3, h4, h5, h6 {
 .mailchimp {
 	border: 3px solid black;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -410,7 +409,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mailchimpbutton {
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
@@ -430,7 +429,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mailchimp_confirmed {
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
@@ -469,7 +468,7 @@ h1, h2, h3, h4, h5, h6 {
 .button_effect {
 	border-width: 1px solid white;
 	box-shadow: none;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -1289,7 +1288,7 @@ mabutton:hover {
 	height:auto;
 	border:1px solid black;
 	border-right: 4px solid black;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -1305,7 +1304,7 @@ mabutton:hover {
 	height:140px;
 	border:1px solid black;
 	border-right: 4px solid black;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
@@ -1320,7 +1319,7 @@ mabutton:hover {
 	/*width: 100%;*/
 	border: 1px solid #0147FA;
 	border-left: 4px solid #0147FA;
-	font-family: Karla, Helvetica, sans-serif;
+	font-family: Apercu Regular,  Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing:1px;
