@@ -6,7 +6,7 @@
 */
 
 html{
-	font-family: "Apercu Regular",  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	height: 100%;
 }
 
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 	left: 50%;
 	display: inline;
 	margin-left: -68px;
-	letter-spacing: 0px;
+	letter-spacing: 2px;
 	width: 140px;
 	height: 22px;
 	text-align: center;
@@ -211,7 +211,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	text-align: center;
 	display: block;
-	margin: 10px auto 30px;
+	margin: auto;
+	margin-top: 40px;
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
@@ -303,10 +304,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Text Field + Button Effects*/
 #adding .uploaddialogue {
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	width: 275px;
 	color: white;
@@ -319,10 +320,10 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	height: 35px;
 	border-radius: 4px;
@@ -331,10 +332,10 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect2 {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	/*	color: #0147FA;*/
 	height: 35px;
@@ -344,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 .textfield_effect3 {
 	border: 1px dashed white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: 700;
 	text-align: right;
@@ -356,7 +357,7 @@ h1, h2, h3, h4, h5, h6 {
 .search_effect {
 	border: 0px dashed white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	text-align: right;
@@ -366,10 +367,10 @@ h1, h2, h3, h4, h5, h6 {
 .password_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	color: #0147FA;
 }
@@ -377,10 +378,10 @@ h1, h2, h3, h4, h5, h6 {
 .email_effect {
 	border: 1px solid white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	color: #0147FA;
 	width: 300px;
@@ -393,10 +394,10 @@ h1, h2, h3, h4, h5, h6 {
 .mailchimp {
 	border: 3px solid black;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	width: 250px;
 	height: 30px;
@@ -409,7 +410,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mailchimpbutton {
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
@@ -419,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: white;
 	border: dashed 2px red;
 	color: red;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	border-radius: 4px;
 }
 
@@ -429,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mailchimp_confirmed {
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
@@ -439,7 +440,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 10px;
 	background-color: green;
 	color: white;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	border-radius: 4px;
 }\
 
@@ -468,10 +469,10 @@ h1, h2, h3, h4, h5, h6 {
 .button_effect {
 	border-width: 1px solid white;
 	box-shadow: none;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	border-radius: 4px;
 }
@@ -508,7 +509,7 @@ blueh:hover {
 /*START Home Page*/
 .home{
 	width: 100%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: 0 auto;
@@ -523,7 +524,7 @@ blueh:hover {
 
 .home p{
 	width: 55%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 16px;
 	margin: auto;
 	margin-bottom: 20px;
@@ -534,7 +535,7 @@ blueh:hover {
 .home p a {
 	color: black;
 	border-bottom: 2px solid black;
-	letter-spacing: 0px;
+	letter-spacing:2px;
 }
 
 .home p a:hover {
@@ -580,7 +581,7 @@ blueh:hover {
 /*About Page*/
 .about{
 	width: 100%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
@@ -594,7 +595,7 @@ blueh:hover {
 
 .about p{
 	width: 45%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 16px;
 	margin: auto;
 	margin-top: 20px;
@@ -625,7 +626,7 @@ blueh:hover {
 
 .faq{
 	width: 100%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
@@ -634,7 +635,7 @@ blueh:hover {
 
 .faq p{
 	width: 40%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 16px;
 	margin: 10px auto;
 	font-weight: 700;
@@ -676,7 +677,7 @@ blueh:hover {
 
 .myaccount {
 	width: 100%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
@@ -705,7 +706,7 @@ mabutton {
 	color: #0147FA;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	text-align: center;
 	border: 2px dashed #0147FA;
 	border-radius: 4px;
@@ -723,7 +724,7 @@ mabutton:hover {
 
 .profile_head {
 	width: 55%;
-/*	letter-spacing: 0px;*/
+/*	letter-spacing:1px;*/
 	font-size: 12px;
 	margin: auto;
 	margin-top: 80px;
@@ -848,7 +849,7 @@ mabutton:hover {
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
-	letter-spacing: 0px;
+	letter-spacing: 1px;
 	color: black;
 }
 
@@ -886,7 +887,7 @@ mabutton:hover {
 	color: red;
 	margin: auto;
 	margin-left: 25px;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	border-radius: 4px;
 }
 
@@ -904,7 +905,7 @@ mabutton:hover {
 /*START Add/Remove My Magazines Page */
 .mymags {
 	width: 100%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	margin: 80px auto 0;
 	text-align: center;
@@ -1034,7 +1035,7 @@ mabutton:hover {
 	padding: 10px;
 	background-color: white;
 	border: dashed 2px red;
-	letter-spacing: 0px;
+	letter-spacing: 1px;
 }
 
 .ppe_tradebutton a:hover{
@@ -1069,7 +1070,7 @@ mabutton:hover {
 	font-size: 18px;
 	font-weight: bold;
 	color: black;
-	letter-spacing: 0px;
+	letter-spacing: 2px;
 }
 
 #relatedtext p a{
@@ -1261,7 +1262,7 @@ mabutton:hover {
 
 .request {
 	width: 35%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
@@ -1288,10 +1289,10 @@ mabutton:hover {
 	height:auto;
 	border:1px solid black;
 	border-right: 4px solid black;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	padding: 10px;
 	margin-top: 20px;
 	overflow: scroll;
@@ -1304,10 +1305,10 @@ mabutton:hover {
 	height:140px;
 	border:1px solid black;
 	border-right: 4px solid black;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	padding: 10px;
 	margin-top: 20px;
 	overflow: scroll;
@@ -1319,10 +1320,10 @@ mabutton:hover {
 	/*width: 100%;*/
 	border: 1px solid #0147FA;
 	border-left: 4px solid #0147FA;
-	font-family: Apercu Regular,  Helvetica, sans-serif;
+	font-family: Karla, Helvetica, sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	color: #0147FA;
 	padding: 10px;
 	margin-top: 20px;
@@ -1397,7 +1398,7 @@ mabutton:hover {
 
 .pendingrequests {
 	width: 70%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 14px;
 	padding-top: 80px;
 	margin: auto;
@@ -1405,7 +1406,7 @@ mabutton:hover {
 
 .pendingrequests p {
 	width: 65%;
-	letter-spacing: 0px;
+	letter-spacing:1px;
 	font-size: 16px;
 	margin: auto;
 	margin-top: 35px;
