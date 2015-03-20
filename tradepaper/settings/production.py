@@ -2,6 +2,8 @@ import sys
 
 from tradepaper.settings.common import *
 
+TEMPLATE_DEBUG = False
+
 DEBUG = False
 
 DATABASES = {
