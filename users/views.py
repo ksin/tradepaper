@@ -55,6 +55,13 @@ def preferences(request):
         return exception.redirect
     return render(request, 'tradepaper/preferences.html')
 
+def edit_profile(request):
+    try:
+        user = vet_user(request, "You need to be logged in to edit your profile.")
+    except LoginException as exception:
+        return exception.redirect
+    return render(request, 'tradepaper/editprofile.html')
+
 def requests(request):
     try:
         user = vet_user(request, "You need to be logged in to view your requests.")
