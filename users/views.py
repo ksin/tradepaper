@@ -19,12 +19,6 @@ class LoginForm(ModelForm):
         model = User
         fields = ['email', 'password',]
 
-class LoginException(Exception):
-    def __init__(self, redirect):
-        self.redirect = redirect
-    def __str__(self):
-        return repr(self.redirect)
-
 def vet_user(message="You need to be logged in to do that."):
     def _decorated(view):
         def _view(request, *args, **kwargs):
@@ -41,32 +35,21 @@ def vet_user(message="You need to be logged in to do that."):
 def my_account(request):
     return render(request, 'tradepaper/myaccount.html')
 
+@vet_user("You need to be logged in to manage your account.")
 def manage(request):
-    try:
-        user = vet_user(request, "You need to be logged in to manage your account.")
-    except LoginException as exception:
-        return exception.redirect
     return render(request, 'tradepaper/addremove.html', {'listings': user.listing_set.all()})
 
+@vet_user("You need to be logged in to view your preferences.")
 def preferences(request):
-    try:
-        user = vet_user(request, "You need to be logged in to view your preferences.")
-    except LoginException as exception:
-        return exception.redirect
     return render(request, 'tradepaper/preferences.html')
 
+@vet_user("You need to be logged in to edit your profile.")
 def edit_profile(request):
-    try:
-        user = vet_user(request, "You need to be logged in to edit your profile.")
-    except LoginException as exception:
-        return exception.redirect
     return render(request, 'tradepaper/editprofile.html')
 
+@vet_user("You need to be logged in to view your requests.")
 def requests(request):
-    try:
-        user = vet_user(request, "You need to be logged in to view your requests.")
-    except LoginException as exception:
-        return exception.redirect
+    user = request.user
     requests = user.requests_sent.all()
     return render(request, 'tradepaper/pending-requests.html', {'requests': requests})
 
