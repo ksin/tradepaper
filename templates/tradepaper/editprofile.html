@@ -14,20 +14,22 @@
 		<h2>Edit Profile Details</h2>
 		<div id="editprofile">
 			
-			<form action="{% url 'register' %}" method="post">
+			<form action="{% url 'edit_profile' %}" method="post">
 				{% csrf_token %}
 				
 				<h3>Set a new account email address:</h3>
-				<input type="email" name="email" placeholder="Email Address" id="edit_email" data-required="required" class="textfield_effect" autofocus>
+                                <input type="email" name="email" placeholder="Email Address" id="edit_email" data-required="required" class="textfield_effect" value="{{user.email}}" autofocus>
 				
+                                <!--
 				<h3>Set a new password:</h3>
 				<input type="password" name="password" placeholder="Password" id="edit_password" data-required="required" class="textfield_effect">
+                                -->
 				
 				<h3>Set a location:</h3>
-				<input type="text" name="city" placeholder="City, State" id="edit_city" data-required="required" class="textfield_effect">
+                                <input type="text" name="city" placeholder="City, State" id="edit_city" data-required="required" class="textfield_effect" value="{{user.city}}">
 				
 				<h3>Set a personal website:</h3>
-				<input type="url" name="site" placeholder="internet.com" id="edit_site" data-required="required" class="textfield_effect">
+				<input type="url" name="site" placeholder="internet.com" id="edit_site" data-required="required" class="textfield_effect" value="{{user.website}}">
 				<br><br>
 				<input type="submit" value="Submit" name="subscribe" class="button_effect" id="edit_submit">
 			</form>
