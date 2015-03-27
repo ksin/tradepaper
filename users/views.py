@@ -25,20 +25,20 @@ class LoginException(Exception):
     def __str__(self):
         return repr(self.redirect)
 
-def vet_user(request, message):
-    user = request.user
-    if user is None or not user.is_authenticated():
-        messages.error(request, message)
-        redirect = HttpResponseRedirect("{0}?next={1}".format(reverse('login'), request.path))
-        raise LoginException(redirect)
-    else:
-        return user
+def vet_user(message="You need to be logged in to do that."):
+    def _decorated(view):
+        def _view(request, *args, **kwargs):
+            user = request.user
+            if user is None or not user.is_authenticated():
+                messages.error(request, message)
+                return HttpResponseRedirect("{0}?next={1}".format(reverse('login'), request.path))
+            else:
+                return view(request, *args, **kwargs)
+        return _view
+    return _decorated
 
+@vet_user("You need to be logged in to view your account.")
 def my_account(request):
-    try:
-        user = vet_user(request, "You need to be logged in to view your account.")
-    except LoginException as exception:
-        return exception.redirect
     return render(request, 'tradepaper/myaccount.html')
 
 def manage(request):
