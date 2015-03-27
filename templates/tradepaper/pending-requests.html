@@ -2,44 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title>Pending Requests - trade–paper</title>
-	{% include "tradepaper/header.html" %}
+  <title>Pending Requests - trade–paper</title>
+  {% include "tradepaper/header.html" %}
 </head>
 
 <body>
-	{% include "tradepaper/nav-bar.html" %}
-	<div class="pendingrequests">
-		<h2>Pending Requests</h2>
-	  <!--% if no pending requests:-->
-	  <!--<div id="none">
-	  	<p>You have no pending requests.</p>
-		</div>-->
-	  <!--else:-->
-	  <div id="some">	
-	  	<div class="outer">
-	      <div>[[date]]</div>
-	      
-	      <div class="middle">
-		    <a href="">New trade request from [[user]]</a>
-	      </div>
-        <!--Show .mailstatus class only if trade has been accepted
-        <div class="mailstatus"></div>-->
-	    </div>
-
-	    <div class="outer">
-          <div>July 7, 2014</div>
-      	  <div class="middle">
-	      	<!--If status of trade is pending:-->
-      	  	<a href="">Pending trade request from amardeep33</a>
-	      </div>
-      	  <!--Show .mailstatus class only if trade has been accepted
-	      <div class="mailstatus"></div>-->
-	  	</div>
-
-	  </div>
-	</div>
+  {% include "tradepaper/nav-bar.html" %}
+  <div class="pendingrequests">
+    <h2>Pending Requests</h2>
+    {% if requests %}
+      {% for request in requests %}
+      <div id="some">	
+        <div class="outer">
+          <div>{{request.date_initiated}}</div>
+          
+          <div class="middle">
+            <a href="{% url 'requests' request.id %}">New trade request from {{request.requester.name}}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div id="none">
+        <p>You have no pending requests.</p>
+      </div>
+    {% endif %}
+  <!--Show .mailstatus class only if trade has been accepted
+  <div class="mailstatus"></div>-->
+  </div>
 	
-<div class="bottom"></div>
+  <div class="bottom"></div>
 </body>
 
 </html>
