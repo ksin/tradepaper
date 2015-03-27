@@ -886,7 +886,6 @@ mabutton:hover {
 	border: dashed 2px red;
 	color: red;
 	margin: auto;
-	margin-left: 25px;
 	letter-spacing:1px;
 	border-radius: 4px;
 }
