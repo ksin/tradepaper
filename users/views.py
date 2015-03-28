@@ -19,6 +19,11 @@ class LoginForm(ModelForm):
         model = User
         fields = ['email', 'password',]
 
+class EditProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'city', 'website',]
+
 def vet_user(message="You need to be logged in to do that."):
     def _decorated(view):
         def _view(request, *args, **kwargs):
@@ -45,7 +50,36 @@ def preferences(request):
 
 @vet_user("You need to be logged in to edit your profile.")
 def edit_profile(request):
-    return render(request, 'tradepaper/editprofile.html')
+    user = request.user
+    form = EditProfileForm(request.POST, instance=user, auto_id="edit%s")
+
+    if request.method != 'POST':
+        return render(request, 'tradepaper/editprofile.html', {'form': form})
+
+    email = request.POST.get('email')
+    city = request.POST.get('city')
+    name = request.POST.get('name')
+
+    if email != user.email:
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'That email already has an account')
+            return render(request, 'tradepaper/editprofile.html', {'form': form})
+    if name != user.name:
+        if User.objects.filter(name=name).exists():
+            messages.error(request, 'There is already a user with that name')
+            return render(request, 'tradepaper/editprofile.html', {'form': form})
+    if form.is_valid():
+        if (email is not None):
+            user.email = email
+        if (city is not None):
+            user.city = city
+        if (name is not None):
+            user.name = name
+        user.save()
+        messages.error(request, 'Successfully Updated!')
+    else:
+        messages.error(request, 'Please fill in all required fields')
+    return render(request, 'tradepaper/editprofile.html', {'form': form})
 
 @vet_user("You need to be logged in to view your requests.")
 def requests(request):
