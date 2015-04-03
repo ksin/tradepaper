@@ -322,6 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 .resetpassword h3 {
 	margin: 0 auto 40px;
 	font-size: 18px;
+	color: blueviolet;
 }
 .resetpassword #signup_submit {
 	margin-top: 25px;
@@ -1466,8 +1467,9 @@ mabutton:hover {
   display: table;
   table-layout: fixed;
   width: 100%;
-  border: 2px solid black;
   margin-bottom: 30px;
+	border-radius: 10px;
+	border: 2px solid black;
 }
 
 .pendingrequests #some .outer div {
@@ -1480,6 +1482,9 @@ mabutton:hover {
   text-align: center;
   background: #fff318;
   color: black;
+	border-right: 2px dashed black;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .pendingrequests #some .outer :last-child {
@@ -1487,23 +1492,26 @@ mabutton:hover {
 
 .pendingrequests #some .middle {
   white-space: nowrap;
-  overflow: hidden;
+  overflow: scroll;
   text-align: center;
   font-size: 14px;
 }
 
-.pendingrequests #some .middle p{
+.pendingrequests #some .middle a{
   margin-top: 0px;
   font-size: 14px;
-  color: red;
+  color: #0147fa;
 }
 
 /*Hover Visuals*/
 .pendingrequests #some .outer:hover {
-  border: 2px solid red;
+  border: 2px solid #0147FA;
 }
 .pendingrequests #some .middle:hover {
-
+	background-color: #0147FA;
+}
+.pendingrequests #some .middle:hover a{
+	color: white;
 }
 
 /*END Pending Trade Requests Page*/
