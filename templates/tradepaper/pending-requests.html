@@ -14,10 +14,10 @@
       {% for request in requests %}
       <div id="some">	
         <div class="outer">
-          <div>{{request.date_initiated}}</div>
+          <div>{{request.date_initiated|date:"F j, Y"}}</div>
           
           <div class="middle">
-            <a href="{% url 'requests' request.id %}">New trade request from {{request.requester.name}}</a>
+            <a href="{% url 'papers:request' request.id %}">Trade request from {{request.requester.name}}</a>
           </div>
         </div>
       </div>

@@ -35,30 +35,29 @@
 
     -->
 
-    <textarea class="req_message_out_ta" cols="20" name="req_message_out" rows="1"></textarea>
+  <form action="{% url 'papers:new_request' listing.id %}" method="POST">
+    {% csrf_token %}
+    <textarea class="req_message_out_ta" cols="20" name="message" rows="1"></textarea>
 
     <div id="submitmessage">
-		<input type="submit" value="Send" class="button_effect" id="request_msg_send">
-		</form>
-       	<!--Store this textarea's info and send it to the receipient.-->
+      <input type="submit" value="Send" class="button_effect" id="request_msg_send" name="send">
     </div>
 
-  {% if user == request.requester %}
-    <div id="cancel_trade_container">
-        <input type="submit" value="Cancel Trade" class="button_effect" id="cancel_trade">
-        </form>
-    </div>
+    {% if user == request.requester %}
+      <div id="cancel_trade_container">
+        <input type="submit" value="Cancel Trade" class="button_effect" id="cancel_trade" name="cancel">
+      </div>
 
-  {% elif user == request.requestee %}
+    {% elif user == request.requestee %}
       <div id="confirm_trade_container">
-        <input type="submit" value="Confirm Trade" class="button_effect" id="confirm_trade">
+        <input type="submit" value="Confirm Trade" class="button_effect" id="confirm_trade" name="confirm">
       </div>
       
       <div id="reject_trade_container">
-        <input type="submit" value="Reject Trade" class="button_effect" id="reject_trade">
+        <input type="submit" value="Reject Trade" class="button_effect" id="reject_trade" name="reject">
       </div>
-    </form>
-  {% endif %}
+    {% endif %}
+  </form>
     
 </div>
 
