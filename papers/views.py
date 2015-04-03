@@ -60,6 +60,13 @@ def request(request, id=None, trade_request=None):
 def new_request(http_request, listing_id):
     listing = get_object_or_404(Listing, id=listing_id)
     user = http_request.user
+
+    # don't allow duplicate requests
+    old_request_set = Request.objects.filter(requester=user, listing=listing)
+    if old_request_set.exists():
+        old_request = old_request_set[0]
+        return HttpResponseRedirect(reverse('papers:request', args=(old_request.id,)))
+
     # create request, but don't save it until it's posted
     trade_request = Request(
             requester = user,
