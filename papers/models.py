@@ -29,7 +29,7 @@ class Message(models.Model):
     recipient = models.ForeignKey(User, related_name='messages_received')
     date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
-    request = models.ForeignKey(Request)
+    request = models.ForeignKey(Request, related_name='messages')
 
     def __unicode__(self):
         return "sender: %s, date: %s" % (self.sender, self.date_sent)

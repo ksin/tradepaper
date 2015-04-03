@@ -22,18 +22,17 @@
   <h3>Trade Request from <FONT color="#0147FA">{{ request.requester.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
   {% endif %}
 
-  <!--
-    <div class="req_message_out">
-        Hey man, would you want to trade my ham and cheese for your meatball sammy?
-    </div>
-
-
-    <div class="req_message_in">
-        No thanks.
-        How about for this other one? I like that one a little bit less so I don't really care as much man I can't believe you read all of this.
-    </div>
-
-    -->
+  {% for message in request.messages.all %}
+    {% if message.sender == user %}
+      <div class="req_message_out">
+        {{ message.text }}
+      </div>
+    {% elif message.recipient == user %}
+      <div class="req_message_in">
+        {{ message.text }}
+      </div>
+    {% endif %}
+  {% endfor %}
 
   <form action="{% url 'papers:new_request' listing.id %}" method="POST">
     {% csrf_token %}
