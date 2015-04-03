@@ -16,50 +16,50 @@
   <h1>Trade Request</h1>
 
   <!--Fill in blank with message receipient-->
-  <h3>Trade Request with <FONT color="#0147FA">user</FONT><br/> for <FONT color="red">Papertitle, Paperissue</FONT></h3>
+  {% if user == request.requester %}
+  <h3>Trade Request to <FONT color="#0147FA">{{ request.requestee.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  {% elif user == request.requestee %}
+  <h3>Trade Request from <FONT color="#0147FA">{{ request.requester.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  {% endif %}
 
-    <!--If this is the first message between the two users, then start new thread with only 1 textarea displayed:-->
-         <!-- Reinstate this when recoding: 
-            <div id="request_outgoing_msg">
-            <textarea class="req_message_out" cols="20" name="req_message_out" rows="1"></textarea>
-         -->
-    
-    <!--If this is not the first message between the two users, pull all messages before loading textarea for logged-in user--> 
-        <!--If current user was the first sender, then this:-->
-
+  <!--
     <div class="req_message_out">
-        <!--Import received message text here-->
         Hey man, would you want to trade my ham and cheese for your meatball sammy?
     </div>
 
 
     <div class="req_message_in">
-        <!--Import received message text here-->
         No thanks.
         How about for this other one? I like that one a little bit less so I don't really care as much man I can't believe you read all of this.
     </div>
 
-
+    -->
 
     <textarea class="req_message_out_ta" cols="20" name="req_message_out" rows="1"></textarea>
 
-    <!--The submit button should only show up under the bottom-most text field.-->
     <div id="submitmessage">
 		<input type="submit" value="Send" class="button_effect" id="request_msg_send">
 		</form>
        	<!--Store this textarea's info and send it to the receipient.-->
     </div>
 
-    
-    <div id="confirmtrade">
-        <input type="submit" value="Confirm Trade" class="button_effect" id="confirmtradebutton">
+  {% if user == request.requester %}
+    <div id="cancel_trade_container">
+        <input type="submit" value="Cancel Trade" class="button_effect" id="cancel_trade">
         </form>
     </div>
+
+  {% elif user == request.requestee %}
+      <div id="confirm_trade_container">
+        <input type="submit" value="Confirm Trade" class="button_effect" id="confirm_trade">
+      </div>
+      
+      <div id="reject_trade_container">
+        <input type="submit" value="Reject Trade" class="button_effect" id="reject_trade">
+      </div>
+    </form>
+  {% endif %}
     
-    <div id="rejecttrade">
-        <input type="submit" value="Reject Trade" class="button_effect" id="rejecttradebutton">
-        </form>
-    </div>
 </div>
 
 <!--END Sign Up-->

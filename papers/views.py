@@ -44,22 +44,30 @@ def new_listing(request):
     else:
         return render(request, 'tradepaper/new-listing.html')
 
-def request(request, id):
-    r = get_object_or_404(Request, id=id)
-    return render(request, 'tradepaper/trade-request.html', {'request': r})
+def request(request, id=None, trade_request=None):
+    if trade_request is None:
+        if id is None:
+            raise Http404
+        else:
+            trade_request = get_object_or_404(Request, id=id)
+    return render(request, 'tradepaper/trade-request.html', 
+            {
+                'request': trade_request,
+                'listing': trade_request.listing
+                })
 
 @vet_user("You need to be logged in to make a trade request.")
-def new_request(request, listing_id):
+def new_request(http_request, listing_id):
     listing = get_object_or_404(Listing, id=listing_id)
-    user = request.user
+    user = http_request.user
     # create request, but don't save it until it's posted
-    r = Request(
+    trade_request = Request(
             requester = user,
             requestee = listing.user,
             listing = listing
             )
-    if request.method == 'POST':
-        r.save()
-        return HttpResponseRedirect(reverse('papers:request', args=(r.id,)))
+    if http_request.method == 'POST':
+        trade_request.save()
+        return HttpResponseRedirect(reverse('papers:request', args=(trade_request.id,)))
     else:
-        return render(request, 'tradepaper/trade-request.html', {'request': r})
+        return request(http_request, trade_request=trade_request)
