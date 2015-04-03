@@ -13,3 +13,9 @@ def faq(request):
 
 def shipping(request):
     return render(request, 'tradepaper/shippinginstructions.html')
+
+def reset_password(request):
+    return render(request, 'tradepaper/resetpassword.html')
+
+def reset_link(request):
+    return render(request, 'tradepaper/resetpasswordhere.html')

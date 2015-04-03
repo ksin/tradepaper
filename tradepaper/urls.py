@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^about/?$', 'general.views.about', name='about'),
     url(r'^faq/?$', 'general.views.faq', name='faq'),
     url(r'^shipping/?$', 'general.views.shipping', name='shipping'),
+    url(r'^resetpassword/?$', 'general.views.reset_password', name='reset_password'),
+    url(r'^resetlink/?$', 'general.views.reset_link', name='reset_link'),
 
     # users views
     url(r'^login/?$', 'users.views.login', name='login'),
