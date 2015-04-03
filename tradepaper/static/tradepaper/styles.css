@@ -142,8 +142,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #link5:hover ul{
 	display: block;
-  	opacity: 1;
-  	visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
 
 #link5 p {
@@ -174,8 +174,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #link4:hover ul{
 	display: block;
-  	opacity: 1;
-  	visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
 .uparr {
 	cursor: n-resize;
@@ -1475,8 +1475,6 @@ mabutton:hover {
   table-layout: fixed;
   width: 100%;
   margin-bottom: 30px;
-	border-radius: 10px;
-	border: 2px solid black;
 }
 
 .pendingrequests #some .outer div {
@@ -1489,6 +1487,7 @@ mabutton:hover {
   text-align: center;
   background: #fff318;
   color: black;
+	border: 2px solid black;
 	border-right: 2px dashed black;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -1502,17 +1501,21 @@ mabutton:hover {
   overflow: scroll;
   text-align: center;
   font-size: 14px;
+	border: 2px solid black;
+	border-left: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .pendingrequests #some .middle a{
   margin-top: 0px;
   font-size: 14px;
-  color: #0147fa;
+  color: black;
 }
 
 /*Hover Visuals*/
-.pendingrequests #some .outer:hover {
-  border: 2px solid #0147FA;
+.pendingrequests #some .outer #date:hover {
+  border-color: #0147FA;
 }
 .pendingrequests #some .middle:hover {
 	background-color: #0147FA;
