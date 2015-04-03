@@ -146,6 +146,10 @@ h1, h2, h3, h4, h5, h6 {
   	visibility: visible;
 }
 
+#link5 p {
+	margin:0;
+}
+
 /* END MY ACCOUNT Drop Up Menu*/
 
 /*ABOUT Drop Up Menu*/
@@ -172,6 +176,9 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
   	opacity: 1;
   	visibility: visible;
+}
+.uparr {
+	cursor: n-resize;
 }
 
 /* END ABOUT Drop Up Menu*/
