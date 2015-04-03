@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 /*Sign Up*/
 .signup{
 	text-align: center;
-	height: 300px;
+
 	padding-top: 80px;
 	width: 95%;
 	margin: 0 auto;
@@ -277,7 +277,6 @@ h1, h2, h3, h4, h5, h6 {
 #loginsubmitbutton{
 	margin-top: 40px;
 }
-/*END Log In*/
 
 /*Register Link on Login Page*/
 #loginregisterlink{
@@ -301,6 +300,33 @@ h1, h2, h3, h4, h5, h6 {
 	border: none;
 }
 /*END Register Link on Login Page*/
+/*END Log In*/
+
+/*START Reset Password Pages*/
+.resetpassword {
+	text-align: center;
+	padding-top: 80px;
+	width: 50%;
+	margin: 0 auto;
+}
+.resetpassword h1 {
+	font-size: 24px;
+	margin: auto;
+	margin-bottom: 35px;
+	text-align: center;
+	color: red;
+}
+.resetpassword h2 {
+	padding-bottom: 0px;
+}
+.resetpassword h3 {
+	margin: 0 auto 40px;
+	font-size: 18px;
+}
+.resetpassword #signup_submit {
+	margin-top: 25px;
+}
+/*END Reset Password Pages*/
 
 /*Text Field + Button Effects*/
 #adding .uploaddialogue {
