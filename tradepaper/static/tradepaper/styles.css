@@ -1338,7 +1338,7 @@ mabutton:hover {
 	margin-left: 25px;
 }
 
-#request_msg_send {
+#send_message {
 	background-color: white;
 	border: dashed 2px red;
 	font-size: 18px;
@@ -1347,7 +1347,7 @@ mabutton:hover {
 	color: red;
 }
 
-#request_msg_send:hover{
+#send_message:hover{
 	color: white;
 	background-color: red;
 }

@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django import forms
 
-from papers.models import Listing, Request
+from papers.models import Listing, Request, Message
 from users.models import User
 from users.views import vet_user
 
@@ -12,6 +12,9 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = ['title', 'edition', 'condition', 'image']
+
+class RequestForm(forms.Form):
+    message = forms.CharField(max_length=4096)
 
 def browse(request):
     listings = Listing.objects.all()
@@ -77,7 +80,20 @@ def new_request(http_request, listing_id):
             listing = listing
             )
     if http_request.method == 'POST':
-        trade_request.save()
-        return HttpResponseRedirect(reverse('papers:request', args=(trade_request.id,)))
+        text = http_request.POST.get('message')
+        form = RequestForm(http_request.POST, auto_id=False)
+        import pdb; pdb.set_trace()
+        if form.is_valid() and text:
+            message = Message(
+                    request = trade_request,
+                    text = text,
+                    sent_by_requester = True
+                    )
+            trade_request.save()
+            message.save()
+            return HttpResponseRedirect(reverse('papers:request', args=(trade_request.id,)))
+        else:
+            messages.error("Please enter a message and try again.")
+            return request(http_request, trade_request=trade_request)
     else:
         return request(http_request, trade_request=trade_request)
