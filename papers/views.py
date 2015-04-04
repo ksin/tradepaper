@@ -50,6 +50,9 @@ def request(request, id=None, trade_request=None):
             raise Http404
         else:
             trade_request = get_object_or_404(Request, id=id)
+    user = request.user
+    if user not in [trade_request.requester, trade_request.requestee]:
+        raise Http404
     return render(request, 'tradepaper/trade-request.html', 
             {
                 'request': trade_request,
