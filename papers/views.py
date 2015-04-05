@@ -48,6 +48,7 @@ def new_listing(request):
         return render(request, 'tradepaper/new-listing.html')
 
 def request(request, id=None, trade_request=None):
+    import pdb; pdb.set_trace()
     if trade_request is None:
         if id is None:
             raise Http404
@@ -82,14 +83,12 @@ def new_request(http_request, listing_id):
     if http_request.method == 'POST':
         text = http_request.POST.get('message')
         form = RequestForm(http_request.POST, auto_id=False)
-        import pdb; pdb.set_trace()
         if form.is_valid() and text:
-            message = Message(
-                    request = trade_request,
+            trade_request.save()
+            message = trade_request.messages.create(
                     text = text,
                     sent_by_requester = True
                     )
-            trade_request.save()
             message.save()
             return HttpResponseRedirect(reverse('papers:request', args=(trade_request.id,)))
         else:

@@ -23,11 +23,11 @@
   {% endif %}
 
   {% for message in request.messages.all %}
-    {% if message.sender == user %}
+    {% if message.sent_by_requester and request.requester.id == user.id %}
       <div class="req_message_out">
         {{ message.text }}
       </div>
-    {% elif message.recipient == user %}
+    {% else %}
       <div class="req_message_in">
         {{ message.text }}
       </div>
