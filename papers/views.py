@@ -48,7 +48,6 @@ def new_listing(request):
         return render(request, 'tradepaper/new-listing.html')
 
 def request(request, id=None, trade_request=None):
-    import pdb; pdb.set_trace()
     if trade_request is None:
         if id is None:
             raise Http404
@@ -57,11 +56,23 @@ def request(request, id=None, trade_request=None):
     user = request.user
     if user not in [trade_request.requester, trade_request.requestee]:
         raise Http404
-    return render(request, 'tradepaper/trade-request.html', 
-            {
-                'request': trade_request,
-                'listing': trade_request.listing
-                })
+    if request.method == 'POST':
+        text = request.POST.get('message')
+        form = RequestForm(request.POST, auto_id=False)
+        cancelled = 'cancel_trade' in request.POST
+        if form.is_valid() and text and not cancelled:
+            message = trade_request.messages.create(
+                    text = text,
+                    sent_by_requester = True
+                    )
+            message.save()
+            return HttpResponseRedirect(reverse('papers:request', args=(trade_request.id,)))
+    else:
+        return render(request, 'tradepaper/trade-request.html', 
+                {
+                    'request': trade_request,
+                    'listing': trade_request.listing
+                    })
 
 @vet_user("You need to be logged in to make a trade request.")
 def new_request(http_request, listing_id):
@@ -83,7 +94,8 @@ def new_request(http_request, listing_id):
     if http_request.method == 'POST':
         text = http_request.POST.get('message')
         form = RequestForm(http_request.POST, auto_id=False)
-        if form.is_valid() and text:
+        cancelled = 'cancel_trade' in http_request.POST
+        if form.is_valid() and text and not cancelled:
             trade_request.save()
             message = trade_request.messages.create(
                     text = text,

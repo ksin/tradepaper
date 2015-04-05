@@ -34,7 +34,11 @@
     {% endif %}
   {% endfor %}
 
+  {% if request.messages.all|length > 0 %}
+  <form action="{% url 'papers:request' listing.id %}" method="POST">
+  {% else %}
   <form action="{% url 'papers:new_request' listing.id %}" method="POST">
+  {% endif %}
     {% csrf_token %}
     <textarea class="req_message_out_ta" cols="20" name="message" rows="1"></textarea>
 
