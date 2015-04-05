@@ -25,11 +25,10 @@ class Request(models.Model):
         return "listing: %s, requester: %s" % (self.listing, self.requester)
 
 class Message(models.Model):
-    sender = models.ForeignKey(User, related_name='messages_sent')
-    recipient = models.ForeignKey(User, related_name='messages_received')
+    sent_by_requester = models.BooleanField(default=True)
     date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
-    request = models.ForeignKey(Request)
+    request = models.ForeignKey(Request, related_name='messages', null=True)
 
     def __unicode__(self):
         return "sender: %s, date: %s" % (self.sender, self.date_sent)

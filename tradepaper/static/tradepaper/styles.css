@@ -1372,7 +1372,7 @@ mabutton:hover {
 	margin-left: 25px;
 }
 
-#request_msg_send {
+#send_message {
 	background-color: white;
 	border: dashed 2px red;
 	font-size: 18px;
@@ -1381,18 +1381,18 @@ mabutton:hover {
 	color: red;
 }
 
-#request_msg_send:hover{
+#send_message:hover{
 	color: white;
 	background-color: red;
 }
 
-#confirmtrade{
+#confirm_trade_container {
 	text-align: left;
 	margin-bottom: 20px;
 	float: left;
 }
 
-#confirmtradebutton {
+#confirm_trade {
 	background-color: white;
 	border: dashed 2px #0147FA;
 	font-size: 18px;
@@ -1401,18 +1401,18 @@ mabutton:hover {
 	color: #0147FA;
 }
 
-#confirmtradebutton:hover{
+#confirm_trade:hover{
 	color: white;
 	background-color: #0147FA;
 }
 
-#rejecttrade{
+#reject_trade_container, #cancel_trade_container {
 	text-align: right;
 	margin-bottom: 20px;
 	float: right;
 }
 
-#rejecttradebutton {
+#reject_trade, #cancel_trade {
 	background-color: white;
 	border: dashed 2px black;
 	font-size: 18px;
@@ -1420,7 +1420,7 @@ mabutton:hover {
 	padding: 6px;
 }
 
-#rejecttradebutton:hover{
+#reject_trade:hover, #cancel_trade:hover {
 	color: white;
 	background-color: black;
 }
