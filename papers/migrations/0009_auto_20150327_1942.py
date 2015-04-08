@@ -13,22 +13,4 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='listing',
-            name='date_posted',
-            field=models.DateTimeField(default=datetime.datetime(2015, 3, 28, 0, 42, 41, 574440, tzinfo=utc)),
-            preserve_default=True,
-        ),
-        migrations.AlterField(
-            model_name='message',
-            name='date',
-            field=models.DateTimeField(default=datetime.datetime(2015, 3, 28, 0, 42, 41, 576165, tzinfo=utc)),
-            preserve_default=True,
-        ),
-        migrations.AlterField(
-            model_name='request',
-            name='date_initiated',
-            field=models.DateTimeField(default=datetime.datetime(2015, 3, 28, 0, 42, 41, 575468, tzinfo=utc)),
-            preserve_default=True,
-        ),
     ]
