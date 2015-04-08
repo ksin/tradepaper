@@ -10,27 +10,35 @@
   {% include "tradepaper/nav-bar.html" %}
   <div class="pendingrequests">
     <h2>Pending Requests</h2>
-    {% if requests %}
-      {% for request in requests %}
-      <div id="some">	
-        <div class="outer">
-          <div id="date">{{request.date_initiated|date:"F j, Y"}}</div>
-          
-          <div class="middle">
-            <a href="{% url 'papers:request' request.id %}">Pending trade request for {{request.listing.title}}</a>
+
+    <div class="receivedrequests">
+      <h3><span>Received Requests</span></h3>
+    </div>
+
+    <div class="sentrequests">
+      <h3><span>Sent Requests<span></h3>
+      {% if requests %}
+        {% for request in requests %}
+        <div id="some">
+          <div class="outer">
+            <div id="date">{{request.date_initiated|date:"F j, Y"}}</div>
+
+            <div class="middle">
+              <a href="{% url 'papers:request' request.id %}">Pending trade request for {{request.listing.title}}</a>
+            </div>
           </div>
         </div>
-      </div>
-      {% endfor %}
-    {% else %}
-      <div id="none">
-        <p>You have no pending requests.</p>
-      </div>
-    {% endif %}
+        {% endfor %}
+      {% else %}
+        <div id="none">
+          <p>You have no pending requests.</p>
+        </div>
+      {% endif %}
+    </div>
   <!--Show .mailstatus class only if trade has been accepted
   <div class="mailstatus"></div>-->
   </div>
-	
+
   <div class="bottom"></div>
 </body>
 

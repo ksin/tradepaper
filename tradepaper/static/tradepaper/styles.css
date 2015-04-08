@@ -501,7 +501,7 @@ h1, h2, h3, h4, h5, h6 {
 #papertitle {
 	width: 275px;
 }
-#paperedition{
+#paperissue{
 	width: 200px;
 }
 #papercondition{
@@ -1072,7 +1072,7 @@ mabutton:hover {
 	font-size: 18px;
 }
 
-.ppe_edition p, .ppe_condition p{
+.ppe_issue p, .ppe_condition p{
 	margin-top: -8px;
 }
 
@@ -1473,7 +1473,14 @@ mabutton:hover {
 	margin: auto;
 	text-align: center;
 }
-
+.pendingrequests .sentrequests h3, .pendingrequests .receivedrequests h3{
+	text-align: center;
+}
+.pendingrequests .sentrequests span, .pendingrequests .receivedrequests span{
+	font-size: 20px;
+	color: black;
+	border-bottom: 2px solid;
+}
 .pendingrequests #none p {
 	text-align: center;
 	font-size: 20px;
@@ -1568,8 +1575,11 @@ mabutton:hover {
 /* ERROR MESSAGE Styles */
 .error {
 	color: white;
+	padding: 10px 0;
 	width: 650px;
+	margin: 0 auto;
 	background-color: blueviolet;
+	border-radius: 10px;
 }
 /*
 * {
