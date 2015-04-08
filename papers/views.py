@@ -88,7 +88,7 @@ def new_request(http_request, listing_id):
     # don't allow user to trade their own magazine
 
     if user == listing.user:
-        messages.error(http_request, "You cannot trade your own magazine. Sorry, will be in V2! jk")
+        messages.error(http_request, "You cannot trade for your own magazine.")
         raise Http404
 
     # create request, but don't save it until it's posted
