@@ -46,13 +46,12 @@ def create_request():
     request.save()
     return request
 
-def create_message(request, sender, date, text):
+def create_message(request, sent_by_requester, date, text):
     message = Message.objects.create(
         request = request,
-        sender = sender,
-        recipient = request.listing.user,
         date = date,
-        text = text
+        text = text,
+        sent_by_requester = sent_by_requester
     )
     message.save()
     return message
@@ -73,26 +72,26 @@ class RequestTestCase(TestCase):
         self.assertEqual('Playdog', request.listing.title)
         self.assertEqual('eli', request.requester.name)
         self.assertEqual('che', request.requestee.name)
-        self.assertEqual(request.message_set.count(), 0)
+        self.assertEqual(request.messages.count(), 0)
 
     def test_create_new_request_with_some_messages(self):
         request = create_request()
         first_message = create_message(request,
-                                       request.requester,
+                                       True,
                                        timezone.now()-timezone.timedelta(days=3),
                                        'Hey! Want to trade?')
         second_message = create_message(request,
-                                        request.requestee,
+                                        False,
                                         timezone.now()-timezone.timedelta(days=2),
                                         'Hellllz yeah!')
         third_message = create_message(request,
-                                       request.requester,
+                                       True,
                                        timezone.now()-timezone.timedelta(days=1),
                                        'iight coo')
         self.assertEqual('Playdog', request.listing.title)
         self.assertEqual('eli', request.requester.name)
         self.assertEqual('che', request.requestee.name)
-        self.assertEqual(request.message_set.count(), 3)
+        self.assertEqual(request.messages.count(), 3)
 
 class ListingViewTestCase(TestCase):
     def test_log_in_and_create_new_listing(self):
