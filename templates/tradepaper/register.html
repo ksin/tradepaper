@@ -11,13 +11,7 @@
 	<div class="signup">
 		<h1>Sign Up</h1>
 
-		<!-- Start Error Message -->
-		{% if messages %}
-			{% for message in messages %}
-			<h2{% if message.tags %} class="{{ message.tags }} errors"{% endif %}>{{ message }}</h2>
-			{% endfor %}
-		{% endif %}
-		<!-- End Error Message -->
+                {% include "tradepaper/error-message.html" %}
 
 		<form action="{% url 'register' %}" method="post">
 			{% csrf_token %}
