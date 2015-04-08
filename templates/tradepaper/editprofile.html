@@ -12,41 +12,41 @@
 	<!--My Account Content-->
 
 	<div class="myaccount">
-          <!-- Start Error Message -->
-          {% if messages %}
-                  {% for message in messages %}
-                  <h2{% if message.tags %} class="{{ message.tags }} errors"{% endif %}>{{ message }}</h2>
-                  {% endfor %}
-          {% endif %}
-          <!-- End Error Message -->
+    <!-- Start Error Message -->
+      {% if messages %}
+        {% for message in messages %}
+	        <h2{% if message.tags %} class="{{ message.tags }} errors"{% endif %}>{{ message }}</h2>
+        {% endfor %}
+      {% endif %}
+    <!-- End Error Message -->
 
 		<h2>Edit Profile Details</h2>
 		<div id="editprofile">
-			
+
 			<form action="{% url 'edit_profile' %}" method="post">
 				{% csrf_token %}
-				
+
 				<h3>Set a new account email address:</h3>
-                                <input type="email" name="email" placeholder="Email Address" id="edit_email" class="textfield_effect" value="{{user.email}}" autofocus>
-				
-                                <!--
+        <input type="email" name="email" placeholder="Email Address" id="edit_email" class="textfield_effect" value="{{user.email}}" autofocus>
+
+        <!--
 				<h3>Set a new password:</h3>
 				<input type="password" name="password" placeholder="Password" id="edit_password" class="textfield_effect">
-                                -->
-				
+        -->
+
 				<h3>Set a location:</h3>
-                                <input type="text" name="city" placeholder="City, State" id="edit_city" class="textfield_effect" value="{{user.city}}">
-				
+        <input type="text" name="city" placeholder="City, State" id="edit_city" class="textfield_effect" value="{{user.city}}">
+
 				<h3>Set a personal website:</h3>
 				<input type="text" name="website" placeholder="internet.com" id="edit_website" class="textfield_effect" value="{{user.website}}">
 				<br><br>
 				<input type="submit" value="Submit" name="subscribe" class="button_effect" id="edit_submit">
 			</form>
-			
+
 		</div>
 	</div>
 	<!--End My Account Content-->
-	
+
 	<div class="bottom"></div>
 </body>
 </html>
