@@ -1547,7 +1547,9 @@ mabutton:hover {
 
 /* ERROR MESSAGE Styles */
 .error {
-	color: blueviolet;
+	color: white;
+	width: 650px;
+	background-color: blueviolet;
 }
 /*
 * {
