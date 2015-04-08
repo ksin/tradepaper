@@ -85,6 +85,12 @@ def new_request(http_request, listing_id):
         old_request = old_request_set[0]
         return HttpResponseRedirect(reverse('papers:request', args=(old_request.id,)))
 
+    # don't allow user to trade their own magazine
+
+    if user == listing.user:
+        messages.error(http_request, "You cannot trade your own magazine. Sorry, will be in V2! jk")
+        raise Http404
+
     # create request, but don't save it until it's posted
     trade_request = Request(
             requester = user,
