@@ -23,7 +23,7 @@
           <div class="outer">
             <div id="date">{{request.date_initiated|date:"F j, Y"}}</div>
 
-            <div class="middle">
+            <div class="middle trans">
               <a href="{% url 'papers:request' request.id %}">Pending trade request for {{request.listing.title}}</a>
             </div>
           </div>

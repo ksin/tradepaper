@@ -43,21 +43,21 @@
     <textarea class="req_message_out_ta" cols="20" name="message" rows="1"></textarea>
 
     <div id="submitmessage">
-      <input type="submit" value="Send" class="button_effect" id="send_message" name="send_message"/>
+      <input type="submit" value="Send" class="button_effect trans" id="send_message" name="send_message"/>
     </div>
 
     {% if user == request.requester %}
       <div id="cancel_trade_container">
-        <input type="submit" value="Cancel Trade" class="button_effect" id="cancel_trade" name="cancel"/>
+        <input type="submit" value="Cancel Trade" class="button_effect trans" id="cancel_trade" name="cancel"/>
       </div>
 
     {% elif user == request.requestee %}
       <div id="confirm_trade_container">
-        <input type="submit" value="Confirm Trade" class="button_effect" id="confirm_trade" name="confirm"/>
+        <input type="submit" value="Confirm Trade" class="button_effect trans" id="confirm_trade" name="confirm"/>
       </div>
 
       <div id="reject_trade_container">
-        <input type="submit" value="Reject Trade" class="button_effect" id="reject_trade" name="reject"/>
+        <input type="submit" value="Reject Trade" class="button_effect trans" id="reject_trade" name="reject"/>
       </div>
     {% endif %}
   </form>

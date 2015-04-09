@@ -1479,6 +1479,7 @@ mabutton:hover {
 .pendingrequests .sentrequests span, .pendingrequests .receivedrequests span{
 	font-size: 20px;
 	color: black;
+	padding-bottom: 1px;
 	border-bottom: 2px solid;
 }
 .pendingrequests #none p {
@@ -1532,6 +1533,8 @@ mabutton:hover {
 	border-left: none;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 }
 
 .pendingrequests #some .middle a{
@@ -1592,5 +1595,10 @@ mabutton:hover {
 .blink {
   animation: blink 1s steps(3, start) infinite;
   -webkit-animation: blink 1s steps(3, start) infinite;
+}
+
+.trans{
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
 }
 /* @end CSS ANIMATIONS */
