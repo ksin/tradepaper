@@ -12,7 +12,7 @@ class Listing(models.Model):
     date_posted = models.DateTimeField(default=timezone.now())
     image = models.ImageField(upload_to='images')
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s, %s" % (self.title, self.edition)
 
 class Request(models.Model):
@@ -21,7 +21,7 @@ class Request(models.Model):
     requester = models.ForeignKey(User, related_name='requests_sent')
     requestee = models.ForeignKey(User, related_name='requests_received')
 
-    def __unicode__(self):
+    def __str__(self):
         return "listing: %s, requester: %s" % (self.listing, self.requester)
 
 class Message(models.Model):
@@ -30,6 +30,8 @@ class Message(models.Model):
     text = models.TextField(max_length=4096)
     request = models.ForeignKey(Request, related_name='messages', null=True)
 
-    def __unicode__(self):
-        return "sender: %s, date: %s" % (self.sender, self.date_sent)
-
+    def __str__(self):
+        if self.sent_by_requester:
+            return "%s: %s" % (self.request.requester.name, self.text)
+        else:
+            return "%s: %s" % (self.request.requestee.name, self.text)

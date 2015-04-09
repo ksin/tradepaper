@@ -47,5 +47,5 @@ class User(AbstractBaseUser):
         return True;
         # Returns True if the user has permission to access models in the given app.
 
-    def __unicode__(self):
+    def __str__(self):
         return self.email
