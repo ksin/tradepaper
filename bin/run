@@ -1,5 +1,0 @@
-#!/bin/sh
-
-export DJANGO_SETTINGS_MODULE='edbedbe.settings.production'
-cd /webapps/elibierman.com/edbedbe
-gunicorn -c conf/gunicorn.py edbedbe.wsgi &
