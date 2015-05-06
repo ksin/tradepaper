@@ -86,7 +86,6 @@ def new_request(http_request, listing_id):
         return HttpResponseRedirect(reverse('papers:request', args=(old_request.id,)))
 
     # don't allow user to trade their own magazine
-
     if user == listing.user:
         messages.error(http_request, "You cannot trade for your own magazine.")
         raise Http404
