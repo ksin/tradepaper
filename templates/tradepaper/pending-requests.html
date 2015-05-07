@@ -13,14 +13,14 @@
 
     <div class="receivedrequests">
       <h3><span>Received Requests</span></h3>
-      {% if received_requests %}
-        {% for request in received_requests %}
+      {% if received_trades %}
+        {% for trade in received_trades %}
         <div id="some">
           <div class="outer">
-            <div id="date">{{request.date_initiated|date:"F j, Y"}}</div>
+            <div id="date">{{trade.date_initiated|date:"F j, Y"}}</div>
 
             <div class="middle trans">
-              <a href="{% url 'papers:request' request.id %}">Pending trade request for {{request.listing.title}}</a>
+              <a href="{% url 'papers:trade' trade.id %}">Pending trade request for {{trade.listing.title}}</a>
             </div>
           </div>
         </div>
@@ -34,14 +34,14 @@
 
     <div class="sentrequests">
       <h3><span>Sent Requests<span></h3>
-      {% if sent_requests %}
-        {% for request in sent_requests %}
+      {% if sent_trades %}
+        {% for trade in sent_trades %}
         <div id="some">
           <div class="outer">
-            <div id="date">{{request.date_initiated|date:"F j, Y"}}</div>
+            <div id="date">{{trade.date_initiated|date:"F j, Y"}}</div>
 
             <div class="middle trans">
-              <a href="{% url 'papers:request' request.id %}">Pending trade request for {{request.listing.title}}</a>
+              <a href="{% url 'papers:trade' trade.id %}">Pending trade request for {{trade.listing.title}}</a>
             </div>
           </div>
         </div>

@@ -82,12 +82,12 @@ def edit_profile(request):
     return render(request, 'tradepaper/editprofile.html', {'form': form})
 
 @vet_user("You need to be logged in to view your requests.")
-def requests(request):
+def trades(request):
     user = request.user
-    sent = user.requests_sent.all()
-    received = user.requests_received.all()
+    sent = user.trades_sent.all()
+    received = user.trades_received.all()
     return render(request, 'tradepaper/pending-requests.html', 
-            {'sent_requests': sent, 'received_requests': received})
+            {'sent_trades': sent, 'received_trades': received})
 
 def profile(request, name):
     user = get_object_or_404(User, name=name)

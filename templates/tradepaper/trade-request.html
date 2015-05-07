@@ -16,14 +16,14 @@
   <h1>Trade Request</h1>
 
   <!--Fill in blank with message receipient-->
-  {% if user == request.requester %}
-  <h3>Trade Request to <FONT color="#0147FA">{{ request.requestee.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
-  {% elif user == request.requestee %}
-  <h3>Trade Request from <FONT color="#0147FA">{{ request.requester.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  {% if user == trade.trader %}
+  <h3>Trade Request to <FONT color="#0147FA">{{ trade.tradee.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  {% elif user == trade.tradee %}
+  <h3>Trade Request from <FONT color="#0147FA">{{ trade.trader.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
   {% endif %}
 
-  {% for message in request.messages.all %}
-    {% if message.sent_by_requester and request.requester.id == user.id %}
+  {% for message in trade.messages.all %}
+    {% if message.sent_by_trader and trade.trader.id == user.id %}
       <div class="req_message_out">
         {{ message.text }}
       </div>
@@ -34,10 +34,10 @@
     {% endif %}
   {% endfor %}
 
-  {% if request.messages.all|length > 0 %}
-  <form action="{% url 'papers:request' listing.id %}" method="POST">
+  {% if trade.messages.all|length > 0 %}
+  <form action="{% url 'papers:trade' listing.id %}" method="POST">
   {% else %}
-  <form action="{% url 'papers:new_request' listing.id %}" method="POST">
+  <form action="{% url 'papers:new_trade' listing.id %}" method="POST">
   {% endif %}
     {% csrf_token %}
     <textarea class="req_message_out_ta" cols="20" name="message" rows="1"></textarea>
@@ -46,12 +46,12 @@
       <input type="submit" value="Send" class="button_effect trans" id="send_message" name="send_message"/>
     </div>
 
-    {% if user == request.requester %}
+    {% if user == trade.trader %}
       <div id="cancel_trade_container">
         <input type="submit" value="Cancel Trade" class="button_effect trans" id="cancel_trade" name="cancel"/>
       </div>
 
-    {% elif user == request.requestee %}
+    {% elif user == trade.tradee %}
       <div id="confirm_trade_container">
         <input type="submit" value="Confirm Trade" class="button_effect trans" id="confirm_trade" name="confirm"/>
       </div>

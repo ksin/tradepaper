@@ -15,23 +15,23 @@ class Listing(models.Model):
     def __str__(self):
         return "%s, %s" % (self.title, self.edition)
 
-class Request(models.Model):
+class Trade(models.Model):
     date_initiated = models.DateTimeField(default=timezone.now())
     listing = models.ForeignKey(Listing)
-    requester = models.ForeignKey(User, related_name='requests_sent')
-    requestee = models.ForeignKey(User, related_name='requests_received')
+    trader = models.ForeignKey(User, related_name='trades_sent')
+    tradee = models.ForeignKey(User, related_name='trades_received')
 
     def __str__(self):
-        return "listing: %s, requester: %s" % (self.listing, self.requester)
+        return "listing: %s, trader: %s" % (self.listing, self.trader)
 
 class Message(models.Model):
-    sent_by_requester = models.BooleanField(default=True)
+    sent_by_trader = models.BooleanField(default=True)
     date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
-    request = models.ForeignKey(Request, related_name='messages', null=True)
+    trade = models.ForeignKey(Trade, related_name='messages', null=True)
 
     def __str__(self):
-        if self.sent_by_requester:
-            return "%s: %s" % (self.request.requester.name, self.text)
+        if self.sent_by_trader:
+            return "%s: %s" % (self.trade.trader.name, self.text)
         else:
-            return "%s: %s" % (self.request.requestee.name, self.text)
+            return "%s: %s" % (self.trade.tradee.name, self.text)
