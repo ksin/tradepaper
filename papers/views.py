@@ -54,6 +54,7 @@ def trade(request, id=None, trade=None):
         else:
             trade = get_object_or_404(Trade, id=id)
     user = request.user
+    user_is_trader = (trade.trader.id == user.id)
     if user not in [trade.trader, trade.tradee]:
         raise Http404
     if request.method == 'POST':
@@ -63,7 +64,7 @@ def trade(request, id=None, trade=None):
         if form.is_valid() and text and not cancelled:
             message = trade.messages.create(
                     text = text,
-                    sent_by_trader = True
+                    sent_by_trader = user_is_trader
                     )
             message.save()
             return HttpResponseRedirect(reverse('papers:trade', args=(trade.id,)))
@@ -71,7 +72,6 @@ def trade(request, id=None, trade=None):
         for message in trade.messages.all():
             if message.sent_by_trader == (user == trade.tradee):
                 message.read = True
-        user_is_trader = (trade.trader.id == user.id)
         return render(request, 'tradepaper/trade-request.html', 
                 {
                     'trade': trade,
