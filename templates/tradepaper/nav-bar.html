@@ -17,11 +17,11 @@
 <div class="framelink" id="link5">
     <!--If signed in:-->
     {% if user.is_authenticated %}
-        <p class="uparr badge1" data-badge="1">Account</p>
+    <p {% if user.unread_count %}class="uparr badge1" data-badge="{{user.unread_count}}"{% endif %}>Account</p>
         <ul>
             <li><a href="{% url 'my_account' %}">My Account</a></li>
             <li><a href="{% url 'papers:new_listing' %}">New Listing</a></li>
-            <li><a href="{% url 'trades' %}" id="red">Requests</a></li>
+            <li><a href="{% url 'trades' %}" {% if user.unread_count %}id="red"{% endif %}>Requests</a></li>
             <!--<li><a href="{% url 'users:profile' name=user.name %}">My Profile</a></li>-->
             <li><a href="{% url 'logout' %}">Log Out</a></li>
         </ul>

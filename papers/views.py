@@ -72,6 +72,7 @@ def trade(request, id=None, trade=None):
         for message in trade.messages.all():
             if message.sent_by_trader == (user == trade.tradee):
                 message.read = True
+                message.save()
         return render(request, 'tradepaper/trade-request.html', 
                 {
                     'trade': trade,

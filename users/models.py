@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
+from papers.models import Message
 
 class UserManager(BaseUserManager):
 
@@ -32,6 +33,23 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['name', 'city']
 
     objects = UserManager()
+
+    def unread_count(self):
+        unread_trader = Message.objects.filter(
+                sent_by_trader=False
+            ).filter(
+                trade__trader__id=self.id
+            ).filter(
+                read=False
+            ).count()
+        unread_tradee = Message.objects.filter(
+                sent_by_trader=True
+            ).filter(
+                trade__tradee__id=self.id
+            ).filter(
+                read=False
+            ).count()
+        return unread_trader + unread_tradee
 
     def get_full_name(self):
         return self.email
