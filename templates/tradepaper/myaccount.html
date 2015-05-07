@@ -15,7 +15,7 @@
                   <a href="{% url 'trades' %}"><mabutton>View Trade Requests</mabutton></a><!--Link to trade-request page-->
                   <a href="{% url 'manage' %}"><mabutton>Add/Remove My Magazines</mabutton></a>
 			<a href="{% url 'users:profile' name=user.name %}"><mabutton>View My Profile</mabutton></a><!--Have this link to the logged-in user's profile-->
-			<a href=""><mabutton>Edit Profile Details</mabutton></a>
+                        <a href="{% url 'edit_profile' %}"><mabutton>Edit Profile Details</mabutton></a>
                         <a href="{% url 'preferences' %}"><mabutton>Preferences</mabutton></a>
 			<a href=""><mabutton>Other Link</mabutton></a>
 		</div>

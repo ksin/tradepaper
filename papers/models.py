@@ -29,6 +29,7 @@ class Message(models.Model):
     date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
     trade = models.ForeignKey(Trade, related_name='messages', null=True)
+    read = models.BooleanField(default=False)
 
     def __str__(self):
         if self.sent_by_trader:
