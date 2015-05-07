@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^register/?$', 'users.views.register', name='register'),
     url(r'^myaccount/?$', 'users.views.my_account', name='my_account'),
     url(r'^myaccount/preferences/?$', 'users.views.preferences', name='preferences'),
-    url(r'^requests/?$', 'users.views.requests', name='requests'),
+    url(r'^requests/?$', 'users.views.trades', name='trades'),
     url(r'^manage/?$', 'users.views.manage', name='manage'),
     url(r'^editprofile/?$', 'users.views.edit_profile', name='edit_profile'),
 
