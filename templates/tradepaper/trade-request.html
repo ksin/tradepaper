@@ -23,7 +23,7 @@
   {% endif %}
 
   {% for message in trade.messages.all %}
-    {% if message.sent_by_trader and trade.trader.id == user.id %}
+    {% if message.sent_by_trader == user_is_trader %}
       <div class="req_message_out">
         {{ message.text }}
       </div>
@@ -35,7 +35,7 @@
   {% endfor %}
 
   {% if trade.messages.all|length > 0 %}
-  <form action="{% url 'papers:trade' listing.id %}" method="POST">
+  <form action="{% url 'papers:trade' trade.id %}" method="POST">
   {% else %}
   <form action="{% url 'papers:new_trade' listing.id %}" method="POST">
   {% endif %}

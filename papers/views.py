@@ -66,15 +66,17 @@ def trade(request, id=None, trade=None):
                     sent_by_trader = True
                     )
             message.save()
-            return HttpResponseRedirect(reverse('papers:request', args=(trade.id,)))
+            return HttpResponseRedirect(reverse('papers:trade', args=(trade.id,)))
     else:
         for message in trade.messages.all():
             if message.sent_by_trader == (user == trade.tradee):
                 message.read = True
+        user_is_trader = (trade.trader.id == user.id)
         return render(request, 'tradepaper/trade-request.html', 
                 {
                     'trade': trade,
-                    'listing': trade.listing
+                    'listing': trade.listing,
+                    'user_is_trader': user_is_trader
                     })
 
 @vet_user("You need to be logged in to make a trade request.")
@@ -86,7 +88,7 @@ def new_trade(request, listing_id):
     old_trade_set = Trade.objects.filter(trader=user, listing=listing)
     if old_trade_set.exists():
         old_trade = old_trade_set[0]
-        return HttpResponseRedirect(reverse('papers:request', args=(old_request.id,)))
+        return HttpResponseRedirect(reverse('papers:trade', args=(old_trade.id,)))
 
     # don't allow user to trade their own magazine
     if user == listing.user:
@@ -110,7 +112,7 @@ def new_trade(request, listing_id):
                     sent_by_trader = True
                     )
             message.save()
-            return HttpResponseRedirect(reverse('papers:request', args=(trade.id,)))
+            return HttpResponseRedirect(reverse('papers:trade', args=(trade.id,)))
         else:
             messages.error("Please enter a message and try again.")
             return trade(request, trade=trade)
