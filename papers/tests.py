@@ -1,7 +1,7 @@
 import os
 import codecs
 
-from papers.models import Listing, Request, Message
+from papers.models import Listing, Trade, Message
 from tradepaper.settings import MEDIA_ROOT
 
 from django.test import TestCase
@@ -30,28 +30,28 @@ def create_user(email, password, name, city):
     user.save()
     return user
 
-def create_request():
-    requestee = create_user('che@me.com', 'ok', 'che', 'New Mexico')
-    requestee.save()
-    requester = create_user('eli@me.com', 'ok', 'eli', 'New York')
-    requester.save()
-    listing = create_listing('Playdog', '2nd', 8.5, requestee)
+def create_trade():
+    tradee = create_user('che@me.com', 'ok', 'che', 'New Mexico')
+    tradee.save()
+    trader = create_user('eli@me.com', 'ok', 'eli', 'New York')
+    trader.save()
+    listing = create_listing('Playdog', '2nd', 8.5, tradee)
     listing.save()
-    request = Request.objects.create(
-        requester = requester,
-        requestee = requestee,
+    trade = Trade.objects.create(
+        trader = trader,
+        tradee = tradee,
         date_initiated = timezone.now(),
         listing = listing
     )
-    request.save()
-    return request
+    trade.save()
+    return trade
 
-def create_message(request, sent_by_requester, date, text):
+def create_message(trade, sent_by_trader, date, text):
     message = Message.objects.create(
-        request = request,
+        trade = trade,
         date = date,
         text = text,
-        sent_by_requester = sent_by_requester
+        sent_by_trader = sent_by_trader
     )
     message.save()
     return message
@@ -66,32 +66,32 @@ class ListingTestCase(TestCase):
         self.assertEqual('eli', listing.user.name)
         self.assertGreater(timezone.now(), listing.date_posted)
 
-class RequestTestCase(TestCase):
-    def test_create_new_request_with_no_messages(self):
-        request = create_request()
-        self.assertEqual('Playdog', request.listing.title)
-        self.assertEqual('eli', request.requester.name)
-        self.assertEqual('che', request.requestee.name)
-        self.assertEqual(request.messages.count(), 0)
+class TradeTestCase(TestCase):
+    def test_create_new_trade_with_no_messages(self):
+        trade = create_trade()
+        self.assertEqual('Playdog', trade.listing.title)
+        self.assertEqual('eli', trade.trader.name)
+        self.assertEqual('che', trade.tradee.name)
+        self.assertEqual(trade.messages.count(), 0)
 
-    def test_create_new_request_with_some_messages(self):
-        request = create_request()
-        first_message = create_message(request,
+    def test_create_new_trade_with_some_messages(self):
+        trade = create_trade()
+        first_message = create_message(trade,
                                        True,
                                        timezone.now()-timezone.timedelta(days=3),
                                        'Hey! Want to trade?')
-        second_message = create_message(request,
+        second_message = create_message(trade,
                                         False,
                                         timezone.now()-timezone.timedelta(days=2),
                                         'Hellllz yeah!')
-        third_message = create_message(request,
+        third_message = create_message(trade,
                                        True,
                                        timezone.now()-timezone.timedelta(days=1),
                                        'iight coo')
-        self.assertEqual('Playdog', request.listing.title)
-        self.assertEqual('eli', request.requester.name)
-        self.assertEqual('che', request.requestee.name)
-        self.assertEqual(request.messages.count(), 3)
+        self.assertEqual('Playdog', trade.listing.title)
+        self.assertEqual('eli', trade.trader.name)
+        self.assertEqual('che', trade.tradee.name)
+        self.assertEqual(trade.messages.count(), 3)
 
 class ListingViewTestCase(TestCase):
     def test_log_in_and_create_new_listing(self):
