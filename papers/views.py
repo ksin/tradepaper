@@ -68,6 +68,9 @@ def trade(request, id=None, trade=None):
             message.save()
             return HttpResponseRedirect(reverse('papers:request', args=(trade.id,)))
     else:
+        for message in trade.messages.all():
+            if message.sent_by_trader == (user == trade.tradee):
+                message.read = True
         return render(request, 'tradepaper/trade-request.html', 
                 {
                     'trade': trade,
