@@ -20,6 +20,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, name, city, True, True)
 
 class User(AbstractBaseUser):
+    id = ShortUUIDField(unique=True)
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=40, unique=True)
     city = models.CharField(max_length=60, blank=True)

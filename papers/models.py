@@ -1,8 +1,10 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
+from shortuuidfield import ShortUUIDField
 
 class Listing(models.Model):
+    id = ShortUUIDField(unique=True)
     title = models.CharField(max_length=140)
     edition = models.CharField(max_length=60)
     condition = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(10)])
@@ -14,6 +16,7 @@ class Listing(models.Model):
         return "%s, %s" % (self.title, self.edition)
 
 class Trade(models.Model):
+    id = ShortUUIDField(unique=True)
     date_initiated = models.DateTimeField(default=timezone.now())
     listing = models.ForeignKey(Listing)
     trader = models.ForeignKey('users.User', related_name='trades_sent')
@@ -23,6 +26,7 @@ class Trade(models.Model):
         return "listing: %s, trader: %s" % (self.listing, self.trader)
 
 class Message(models.Model):
+    id = ShortUUIDField(unique=True)
     sent_by_trader = models.BooleanField(default=True)
     date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
