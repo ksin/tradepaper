@@ -97,7 +97,7 @@ def new_trade(request, listing_id):
         raise Http404
 
     # create request, but don't save it until it's posted
-    trade = Trade(
+    t = Trade(
             trader = user,
             tradee = listing.user,
             listing = listing
@@ -108,14 +108,14 @@ def new_trade(request, listing_id):
         cancelled = 'cancel_trade' in request.POST
         if form.is_valid() and text and not cancelled:
             trade.save()
-            message = trade.messages.create(
+            message = t.messages.create(
                     text = text,
                     sent_by_trader = True
                     )
             message.save()
-            return HttpResponseRedirect(reverse('papers:trade', args=(trade.id,)))
+            return HttpResponseRedirect(reverse('papers:trade', args=(t.id,)))
         else:
             messages.error("Please enter a message and try again.")
-            return trade(request, trade=trade)
+            return trade(request, trade=t)
     else:
-        return trade(request, trade=trade)
+        return trade(request, trade=t)
