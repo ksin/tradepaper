@@ -9,7 +9,7 @@ class Listing(models.Model):
     edition = models.CharField(max_length=60)
     condition = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(10)])
     user = models.ForeignKey('users.User')
-    date_posted = models.DateTimeField(default=timezone.now)
+    date_posted = models.DateTimeField(default=timezone.now())
     image = models.ImageField(upload_to='images')
 
     def __str__(self):
@@ -17,7 +17,7 @@ class Listing(models.Model):
 
 class Trade(models.Model):
     id = ShortUUIDField(primary_key=True, unique=True)
-    date_initiated = models.DateTimeField(default=timezone.now)
+    date_initiated = models.DateTimeField(default=timezone.now())
     listing = models.ForeignKey(Listing)
     trader = models.ForeignKey('users.User', related_name='trades_sent')
     tradee = models.ForeignKey('users.User', related_name='trades_received')
@@ -28,7 +28,7 @@ class Trade(models.Model):
 class Message(models.Model):
     id = ShortUUIDField(primary_key=True, unique=True)
     sent_by_trader = models.BooleanField(default=True)
-    date = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now())
     text = models.TextField(max_length=4096)
     trade = models.ForeignKey(Trade, related_name='messages', null=True)
     read = models.BooleanField(default=False)
