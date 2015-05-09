@@ -61,7 +61,10 @@ def trade(request, id=None, trade=None):
         text = request.POST.get('message')
         form = TradeForm(request.POST, auto_id=False)
         cancelled = 'cancel_trade' in request.POST
-        if form.is_valid() and text and not cancelled:
+        if cancelled:
+            #rewrite to set the trade to cancelled (therefore inactive)
+            return None
+        if form.is_valid() and text:
             message = trade.messages.create(
                     text = text,
                     sent_by_trader = user_is_trader
