@@ -107,7 +107,7 @@ def new_trade(request, listing_id):
         form = TradeForm(request.POST, auto_id=False)
         cancelled = 'cancel_trade' in request.POST
         if form.is_valid() and text and not cancelled:
-            trade.save()
+            t.save()
             message = t.messages.create(
                     text = text,
                     sent_by_trader = True
