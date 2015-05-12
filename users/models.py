@@ -1,18 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.utils import timezone
 from papers.models import Message
 from shortuuidfield import ShortUUIDField
 
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password, name, city, is_staff=False, is_superuser=False):
-        now = timezone.now()
         email = self.normalize_email(email)
         user = self.model(email=email, name=name,
                           city=city, is_active=True,
-                          is_staff=is_staff, is_superuser=is_superuser,
-                          last_login=now, date_joined=now)
+                          is_staff=is_staff, is_superuser=is_superuser)
         user.set_password(password)
         user.save()
         return user
@@ -26,7 +23,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=40, unique=True)
     city = models.CharField(max_length=60, blank=True)
     website = models.URLField(blank=True)
-    date_joined = models.DateTimeField(default=timezone.now())
+    date_joined = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
