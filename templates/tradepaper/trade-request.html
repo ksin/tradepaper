@@ -25,11 +25,11 @@
   {% for message in trade.messages.all %}
     {% if message.sent_by_trader == user_is_trader %}
       <div class="req_message_out">
-        {{ message.text }}
+        {{ message.text|linebreaksbr }}
       </div>
     {% else %}
       <div class="req_message_in">
-        {{ message.text }}
+        {{ message.text|linebreaksbr }}
       </div>
     {% endif %}
   {% endfor %}
