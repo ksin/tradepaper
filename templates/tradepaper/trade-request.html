@@ -17,9 +17,9 @@
 
   <!--Fill in blank with message receipient-->
   {% if user == trade.trader %}
-  <h3>Trade Request to <FONT color="#0147FA">{{ trade.tradee.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  <h3>Trade Request to <FONT color="#0147FA">{{ trade.tradee.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.issue }}</FONT></h3>
   {% elif user == trade.tradee %}
-  <h3>Trade Request from <FONT color="#0147FA">{{ trade.trader.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.edition }}</FONT></h3>
+  <h3>Trade Request from <FONT color="#0147FA">{{ trade.trader.name }}</FONT><br/> for <FONT color="red">{{ listing.title }}, {{ listing.issue }}</FONT></h3>
   {% endif %}
 
   {% for message in trade.messages.all %}

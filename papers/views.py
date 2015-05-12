@@ -11,7 +11,7 @@ from users.views import vet_user
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ['title', 'edition', 'condition', 'image']
+        fields = ['title', 'issue', 'condition', 'image']
 
 class TradeForm(forms.Form):
     message = forms.CharField(max_length=4096)
@@ -34,7 +34,7 @@ def new_listing(request):
         if form.is_valid():
             l = Listing.objects.create(
                 title = request.POST['title'],
-                edition = request.POST['edition'],
+                issue = request.POST['issue'],
                 condition = request.POST['condition'],
                 image = request.FILES['image'],
                 user = user

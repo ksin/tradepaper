@@ -5,14 +5,14 @@ from shortuuidfield import ShortUUIDField
 class Listing(models.Model):
     id = ShortUUIDField(primary_key=True, unique=True)
     title = models.CharField(max_length=140)
-    edition = models.CharField(max_length=60)
+    issue = models.CharField(max_length=60)
     condition = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(10)])
     user = models.ForeignKey('users.User')
     date_posted = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='images')
 
     def __str__(self):
-        return "%s, %s" % (self.title, self.edition)
+        return "%s, %s" % (self.title, self.issue)
 
 class Trade(models.Model):
     id = ShortUUIDField(primary_key=True, unique=True)

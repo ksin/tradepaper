@@ -10,10 +10,10 @@ from django.core.files import File
 from django.utils import timezone
 from django.contrib.auth import SESSION_KEY, get_user_model
 
-def create_listing(title, edition, condition, user):
+def create_listing(title, issue, condition, user):
     listing = Listing.objects.create(
         title = title,
-        edition = edition,
+        issue = issue,
         condition = condition,
         user = user
     )
@@ -104,13 +104,13 @@ class ListingViewTestCase(TestCase):
         image = codecs.open(os.path.join(MEDIA_ROOT, '1x1.GIF'))
         response = self.client.post(reverse('papers:new_listing'), {
                 "title":"Art Forum",
-                "edition":"First",
+                "issue":"First",
                 "condition":7,
                 "image": image
                 }, follow=True)
         l = user.listing_set.all()[0]
         self.assertEqual(l.title, "Art Forum")
-        self.assertEqual(l.edition, "First")
+        self.assertEqual(l.issue, "First")
         self.assertEqual(l.condition, 7)
         self.assertEqual(l.user, user)
         self.assertEqual(response.status_code, 200)
@@ -124,11 +124,11 @@ class ListingViewTestCase(TestCase):
         # create new listing with no condition
         response = self.client.post(reverse('papers:new_listing'), {
                 'title':"Art Forum",
-                'edition':'First'
+                'issue':'First'
                 }, follow=True)
         self.assertEqual(user.listing_set.count(), 0)
 
-        # create new listing with no edition
+        # create new listing with no issue
         response = self.client.post(reverse('papers:new_listing'), {
                 'title':"Art Forum",
                 'condition':7
